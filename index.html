@@ -13,159 +13,160 @@
   --navy-light:#1a3a5c;--bg:#F4F7FA;--white:#fff;
   --gray:#6B7280;--gray-light:#E5E9EF;--red:#EF4444;--yellow:#F59E0B;--green:#10B981;
 }
-body{font-family:'Segoe UI',system-ui,sans-serif;background:var(--bg);color:#1F2937;min-height:100vh}
+body{font-family:"Segoe UI",system-ui,sans-serif;background:var(--bg);color:#1F2937;min-height:100vh;font-size:16px}
 a{color:var(--orange);text-decoration:none}
 
-/* HEADER */
-.header{background:var(--navy);color:#fff;padding:16px 24px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100;box-shadow:0 2px 12px rgba(0,0,0,.3)}
+.header{background:var(--navy);color:#fff;padding:14px 24px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:200;box-shadow:0 2px 12px rgba(0,0,0,.3);height:68px}
 .logo{display:flex;align-items:center;gap:12px}
-.logo-icon{width:36px;height:36px;background:var(--orange);border-radius:8px;display:flex;align-items:center;justify-content:center;font-weight:900;font-size:18px;color:#fff}
-.logo-text{font-size:20px;font-weight:700;letter-spacing:.5px}
+.logo-icon{width:38px;height:38px;background:var(--orange);border-radius:8px;display:flex;align-items:center;justify-content:center;font-weight:900;font-size:20px;color:#fff}
+.logo-text{font-size:20px;font-weight:700}
 .logo-sub{font-size:11px;color:#94A3B8;letter-spacing:1px;text-transform:uppercase}
 .header-right{display:flex;align-items:center;gap:16px}
 .countdown-box{text-align:center;background:rgba(255,255,255,.08);padding:8px 16px;border-radius:8px;border:1px solid rgba(255,107,53,.3)}
-.countdown-num{font-size:24px;font-weight:800;color:var(--orange);line-height:1}
+.countdown-num{font-size:26px;font-weight:800;color:var(--orange);line-height:1}
 .countdown-label{font-size:10px;color:#94A3B8;text-transform:uppercase;letter-spacing:1px}
 .status-dot{width:8px;height:8px;border-radius:50%;background:var(--teal);display:inline-block;margin-right:6px;animation:pulse 2s infinite}
 @keyframes pulse{0%,100%{opacity:1}50%{opacity:.4}}
 .online-badge{font-size:12px;color:var(--teal)}
 
-/* TABS */
-.tabs-bar{background:var(--navy-light);display:flex;overflow-x:auto;padding:0 24px;gap:2px;border-bottom:2px solid rgba(255,255,255,.05)}
+.tabs-bar{background:var(--navy-light);display:flex;overflow-x:auto;padding:0 24px;gap:2px;border-bottom:2px solid rgba(255,255,255,.05);position:sticky;top:68px;z-index:199}
 .tabs-bar::-webkit-scrollbar{height:3px}
 .tabs-bar::-webkit-scrollbar-thumb{background:var(--orange);border-radius:2px}
-.tab-btn{padding:14px 20px;color:#94A3B8;font-size:13px;font-weight:600;cursor:pointer;white-space:nowrap;border:none;background:none;border-bottom:3px solid transparent;transition:.2s;letter-spacing:.3px}
+.tab-btn{padding:14px 20px;color:#94A3B8;font-size:14px;font-weight:600;cursor:pointer;white-space:nowrap;border:none;background:none;border-bottom:3px solid transparent;transition:.2s;letter-spacing:.3px}
 .tab-btn:hover{color:#fff}
 .tab-btn.active{color:var(--orange);border-bottom-color:var(--orange)}
 
-/* CONTENT */
 .tab-content{display:none;padding:24px;max-width:1400px;margin:0 auto}
 .tab-content.active{display:block}
 
-/* CARDS */
-.card{background:#fff;border-radius:12px;padding:20px;box-shadow:0 1px 4px rgba(0,0,0,.07);margin-bottom:16px}
+.card{background:#fff;border-radius:12px;padding:22px;box-shadow:0 1px 4px rgba(0,0,0,.07);margin-bottom:16px}
 .card-title{font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:.8px;color:var(--gray);margin-bottom:12px}
 .card h2{font-size:18px;font-weight:700;color:var(--navy);margin-bottom:8px}
-.card p{color:#4B5563;line-height:1.6;font-size:14px}
+.card p{color:#4B5563;line-height:1.7;font-size:15px}
 
-/* GRID */
 .grid-2{display:grid;grid-template-columns:1fr 1fr;gap:16px}
 .grid-3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px}
 .grid-4{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
-@media(max-width:768px){.grid-2,.grid-3,.grid-4{grid-template-columns:1fr}}
+@media(max-width:900px){.grid-2,.grid-3,.grid-4{grid-template-columns:1fr}}
 
-/* PILLARS */
-.pillar{border-left:4px solid var(--orange);padding:16px 20px;background:#fff;border-radius:0 12px 12px 0;box-shadow:0 1px 4px rgba(0,0,0,.07)}
-.pillar-num{font-size:32px;font-weight:900;color:var(--orange);opacity:.2;float:right;line-height:1}
-.pillar h3{font-size:15px;font-weight:700;color:var(--navy);margin-bottom:6px}
-.pillar p{font-size:13px;color:#6B7280;line-height:1.5}
+.pillar{border-left:4px solid var(--orange);padding:18px 22px;background:#fff;border-radius:0 12px 12px 0;box-shadow:0 1px 4px rgba(0,0,0,.07)}
+.pillar-num{font-size:36px;font-weight:900;color:var(--orange);opacity:.18;float:right;line-height:1}
+.pillar h3{font-size:16px;font-weight:700;color:var(--navy);margin-bottom:8px}
+.pillar p{font-size:15px;color:#6B7280;line-height:1.6}
 .pillar-teal{border-left-color:var(--teal)}
 .pillar-navy{border-left-color:var(--navy)}
 
-/* STAT CARDS */
-.stat{background:#fff;border-radius:12px;padding:20px;box-shadow:0 1px 4px rgba(0,0,0,.07);text-align:center}
-.stat-num{font-size:36px;font-weight:800;color:var(--navy)}
-.stat-label{font-size:12px;color:var(--gray);margin-top:4px}
-.stat-sub{font-size:11px;color:var(--teal);margin-top:2px;font-weight:600}
-.badge{display:inline-block;padding:3px 10px;border-radius:20px;font-size:11px;font-weight:700;letter-spacing:.5px}
+.stat{background:#fff;border-radius:12px;padding:22px;box-shadow:0 1px 4px rgba(0,0,0,.07);text-align:center}
+.stat-num{font-size:38px;font-weight:800;color:var(--navy)}
+.stat-label{font-size:13px;color:var(--gray);margin-top:5px}
+.stat-sub{font-size:12px;color:var(--teal);margin-top:3px;font-weight:600}
+.badge{display:inline-block;padding:3px 10px;border-radius:20px;font-size:12px;font-weight:700;letter-spacing:.5px}
 .badge-green{background:#DCFCE7;color:#166534}
 .badge-yellow{background:#FEF9C3;color:#854D0E}
 .badge-red{background:#FEE2E2;color:#991B1B}
 .badge-blue{background:#DBEAFE;color:#1E40AF}
 .badge-orange{background:#FFEDD5;color:#9A3412}
 
-/* TIMELINE */
 .timeline-week{margin-bottom:24px}
-.week-header{background:var(--navy);color:#fff;padding:10px 16px;border-radius:8px 8px 0 0;font-size:13px;font-weight:700;display:flex;align-items:center;justify-content:space-between}
+.week-header{background:var(--navy);color:#fff;padding:12px 18px;border-radius:8px 8px 0 0;font-size:14px;font-weight:700;display:flex;align-items:center;justify-content:space-between}
 .week-body{background:#fff;border:1px solid var(--gray-light);border-top:none;border-radius:0 0 8px 8px;overflow:hidden}
-.task-row{display:flex;align-items:center;padding:10px 16px;border-bottom:1px solid var(--gray-light);gap:12px;transition:.15s}
+.task-row{display:flex;align-items:center;padding:11px 16px;border-bottom:1px solid var(--gray-light);gap:10px;transition:.15s}
 .task-row:last-child{border-bottom:none}
 .task-row:hover{background:#F9FAFB}
-.task-row input[type=checkbox]{width:17px;height:17px;accent-color:var(--teal);cursor:pointer;flex-shrink:0}
 .task-row.done .task-text{text-decoration:line-through;color:var(--gray)}
-.task-text{font-size:13px;flex:1}
-.task-owner{font-size:11px;font-weight:600;padding:2px 8px;border-radius:10px;white-space:nowrap}
+.task-row input[type=checkbox]{width:18px;height:18px;accent-color:var(--teal);cursor:pointer;flex-shrink:0}
+.task-text{font-size:15px;flex:1;outline:none;border:none;background:transparent;cursor:default}
+.task-text:focus{background:#FFFBEB;border-radius:4px;padding:2px 6px;cursor:text;outline:1px solid var(--orange)}
+.task-owner{font-size:12px;font-weight:600;padding:3px 10px;border-radius:10px;white-space:nowrap}
 .owner-cr{background:#EFF6FF;color:#1E40AF}
 .owner-thiagao{background:#FFF7ED;color:#C2410C}
 .owner-carlos{background:#F0FDF4;color:#166534}
 .owner-clayton{background:#FDF4FF;color:#7E22CE}
 .owner-joao{background:#FFF1F2;color:#9F1239}
 .owner-todos{background:#F1F5F9;color:#334155}
+.task-del{background:none;border:none;color:#D1D5DB;cursor:pointer;font-size:16px;padding:2px 6px;border-radius:4px;flex-shrink:0;transition:.15s}
+.task-del:hover{color:var(--red);background:#FEE2E2}
 
-/* COPIES */
-.copy-box{background:#F8FAFF;border:1px solid #DBEAFE;border-radius:8px;padding:16px;margin-bottom:16px;position:relative}
-.copy-label{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--orange);margin-bottom:8px}
-.copy-text{font-size:13px;color:#1F2937;line-height:1.7;white-space:pre-wrap;font-family:inherit}
-.copy-btn{position:absolute;top:12px;right:12px;background:var(--navy);color:#fff;border:none;padding:5px 12px;border-radius:6px;font-size:11px;cursor:pointer;font-weight:600}
+.copy-box{background:#F8FAFF;border:1px solid #DBEAFE;border-radius:8px;padding:18px;margin-bottom:16px;position:relative}
+.copy-label{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--orange);margin-bottom:10px}
+.copy-text{font-size:15px;color:#1F2937;line-height:1.75;white-space:pre-wrap;font-family:inherit}
+.copy-btn{position:absolute;top:14px;right:14px;background:var(--navy);color:#fff;border:none;padding:6px 14px;border-radius:6px;font-size:12px;cursor:pointer;font-weight:600}
 .copy-btn:hover{background:var(--orange)}
 
-/* TABLE */
-.tbl{width:100%;border-collapse:collapse;font-size:12px}
-.tbl th{background:var(--navy);color:#fff;padding:10px 12px;text-align:left;font-size:11px;letter-spacing:.5px;white-space:nowrap}
-.tbl td{padding:9px 12px;border-bottom:1px solid var(--gray-light);vertical-align:top}
+.tbl{width:100%;border-collapse:collapse;font-size:14px}
+.tbl th{background:var(--navy);color:#fff;padding:11px 13px;text-align:left;font-size:12px;letter-spacing:.5px;white-space:nowrap}
+.tbl td{padding:10px 13px;border-bottom:1px solid var(--gray-light);vertical-align:top}
 .tbl tr:hover td{background:#FAFAFA}
-.tbl select{border:1px solid var(--gray-light);border-radius:4px;padding:3px 6px;font-size:11px;cursor:pointer}
+.tbl select,.tbl input[type=text]{border:1px solid var(--gray-light);border-radius:4px;padding:4px 8px;font-size:13px;cursor:pointer;background:#fff;width:100%}
+.tbl .del-btn{background:none;border:none;color:#D1D5DB;cursor:pointer;font-size:16px;padding:2px;transition:.15s}
+.tbl .del-btn:hover{color:var(--red)}
+.tbl .edit-btn{background:none;border:none;color:#D1D5DB;cursor:pointer;font-size:14px;padding:2px 4px;transition:.15s}
+.tbl .edit-btn:hover{color:var(--orange)}
 
-/* PROGRESS */
-.progress-wrap{margin-bottom:14px}
-.progress-label{display:flex;justify-content:space-between;font-size:12px;margin-bottom:4px;font-weight:600}
-.progress-bar{height:8px;background:var(--gray-light);border-radius:4px;overflow:hidden}
-.progress-fill{height:100%;border-radius:4px;transition:.4s}
+.progress-wrap{margin-bottom:16px}
+.progress-label{display:flex;justify-content:space-between;font-size:14px;margin-bottom:5px;font-weight:600}
+.progress-bar{height:10px;background:var(--gray-light);border-radius:5px;overflow:hidden}
+.progress-fill{height:100%;border-radius:5px;transition:.4s}
 .fill-orange{background:var(--orange)}
 .fill-teal{background:var(--teal)}
 .fill-navy{background:var(--navy)}
 .fill-yellow{background:var(--yellow)}
 
-/* IDEAS */
-.idea-card{background:#fff;border-radius:12px;padding:20px;box-shadow:0 1px 4px rgba(0,0,0,.07);border-top:4px solid var(--orange);margin-bottom:16px}
+.kpi-controls{display:flex;align-items:center;gap:6px;margin-top:10px}
+.kpi-controls button{background:var(--navy);color:#fff;border:none;padding:5px 12px;border-radius:6px;font-size:13px;cursor:pointer;font-weight:700;transition:.15s}
+.kpi-controls button:hover{background:var(--orange)}
+.kpi-controls button.dec{background:#6B7280}
+.kpi-controls button.dec:hover{background:var(--red)}
+.kpi-controls input[type=number]{border:1px solid var(--gray-light);border-radius:6px;padding:5px 8px;font-size:14px;width:70px;text-align:center}
+
+.idea-card{background:#fff;border-radius:12px;padding:22px;box-shadow:0 1px 4px rgba(0,0,0,.07);border-top:4px solid var(--orange);margin-bottom:16px}
 .idea-card.teal{border-top-color:var(--teal)}
 .idea-card.navy{border-top-color:var(--navy)}
-.idea-num{font-size:11px;font-weight:700;color:var(--orange);text-transform:uppercase;letter-spacing:1px;margin-bottom:4px}
+.idea-num{font-size:12px;font-weight:700;color:var(--orange);text-transform:uppercase;letter-spacing:1px;margin-bottom:4px}
 .idea-card.teal .idea-num{color:var(--teal)}
 .idea-card.navy .idea-num{color:var(--navy)}
-.idea-title{font-size:16px;font-weight:700;color:var(--navy);margin-bottom:10px}
-.idea-body{font-size:13px;color:#4B5563;line-height:1.65}
-.idea-meta{display:flex;gap:12px;flex-wrap:wrap;margin-top:14px;padding-top:12px;border-top:1px solid var(--gray-light)}
-.idea-meta-item{font-size:11px}
+.idea-title{font-size:17px;font-weight:700;color:var(--navy);margin-bottom:12px}
+.idea-body{font-size:15px;color:#4B5563;line-height:1.7}
+.idea-meta{display:flex;gap:14px;flex-wrap:wrap;margin-top:16px;padding-top:14px;border-top:1px solid var(--gray-light)}
+.idea-meta-item{font-size:13px}
 .idea-meta-item strong{color:var(--navy)}
 
-/* BUDGET */
-.budget-scenario{border:2px solid var(--gray-light);border-radius:12px;padding:20px;text-align:center;transition:.2s;cursor:default}
+.budget-scenario{border:2px solid var(--gray-light);border-radius:12px;padding:22px;text-align:center;transition:.2s}
 .budget-scenario.rec{border-color:var(--teal);background:#F0FDF4}
-.budget-scenario h3{font-size:18px;font-weight:800;color:var(--navy);margin:8px 0 4px}
-.budget-scenario .price{font-size:28px;font-weight:900;color:var(--orange)}
-.budget-row{display:flex;justify-content:space-between;font-size:12px;padding:6px 0;border-bottom:1px solid var(--gray-light)}
-.budget-row:last-child{border-bottom:none;font-weight:700}
+.budget-scenario h3{font-size:19px;font-weight:800;color:var(--navy);margin:8px 0 4px}
+.budget-scenario .price{font-size:30px;font-weight:900;color:var(--orange)}
+.budget-row{display:flex;justify-content:space-between;font-size:13px;padding:7px 0;border-bottom:1px solid var(--gray-light)}
+.budget-row:last-child{border-bottom:none;font-weight:700;font-size:14px}
 
-/* RISK */
-.risk-item{display:flex;align-items:flex-start;gap:12px;padding:14px;border-radius:8px;margin-bottom:10px}
+.risk-item{display:flex;align-items:flex-start;gap:14px;padding:16px;border-radius:8px;margin-bottom:12px}
 .risk-item.high{background:#FEF2F2;border-left:4px solid var(--red)}
 .risk-item.med{background:#FFFBEB;border-left:4px solid var(--yellow)}
 .risk-item.low{background:#ECFDF5;border-left:4px solid var(--green)}
-.risk-icon{font-size:20px;flex-shrink:0;margin-top:2px}
-.risk-title{font-size:13px;font-weight:700;margin-bottom:3px}
-.risk-body{font-size:12px;color:#6B7280;line-height:1.5}
+.risk-icon{font-size:22px;flex-shrink:0;margin-top:2px}
+.risk-title{font-size:15px;font-weight:700;margin-bottom:4px}
+.risk-body{font-size:14px;color:#6B7280;line-height:1.6}
 
-/* ALERT */
-.alert{padding:12px 16px;border-radius:8px;font-size:13px;margin-bottom:16px;display:flex;align-items:flex-start;gap:10px}
+.alert{padding:14px 18px;border-radius:8px;font-size:15px;margin-bottom:18px;display:flex;align-items:flex-start;gap:12px}
 .alert-warning{background:#FFFBEB;border:1px solid #FDE68A;color:#92400E}
 .alert-info{background:#EFF6FF;border:1px solid #BFDBFE;color:#1E40AF}
 .alert-success{background:#ECFDF5;border:1px solid #A7F3D0;color:#065F46}
 
-/* SECTION HEADER */
-.section-header{display:flex;align-items:center;gap:12px;margin-bottom:20px}
-.section-header h2{font-size:20px;font-weight:800;color:var(--navy)}
-.section-dot{width:6px;height:24px;background:var(--orange);border-radius:3px}
+.section-header{display:flex;align-items:center;gap:12px;margin-bottom:22px}
+.section-header h2{font-size:22px;font-weight:800;color:var(--navy)}
+.section-dot{width:6px;height:26px;background:var(--orange);border-radius:3px}
 
-/* FIREBASE STATUS */
-#fb-status{font-size:11px;padding:4px 10px;border-radius:20px;font-weight:600}
+#fb-status{font-size:12px;padding:4px 12px;border-radius:20px;font-weight:600}
 #fb-status.connected{background:#DCFCE7;color:#166534}
 #fb-status.fallback{background:#FEF9C3;color:#854D0E}
 
-/* SCROLL */
 ::-webkit-scrollbar{width:6px;height:6px}
 ::-webkit-scrollbar-track{background:transparent}
 ::-webkit-scrollbar-thumb{background:#CBD5E1;border-radius:3px}
+
+.add-task-row{display:flex;gap:8px;padding:10px 16px;background:#F9FAFB;border-top:1px dashed var(--gray-light)}
+.add-task-row input{flex:1;border:1px solid var(--gray-light);border-radius:6px;padding:8px 12px;font-size:14px}
+.add-task-row select{border:1px solid var(--gray-light);border-radius:6px;padding:8px 10px;font-size:13px}
+.add-task-row button{background:var(--teal);color:#fff;border:none;padding:8px 16px;border-radius:6px;cursor:pointer;font-weight:600;font-size:14px}
 </style>
 </head>
 <body>
@@ -175,7 +176,7 @@ a{color:var(--orange);text-decoration:none}
     <div class="logo-icon">T</div>
     <div>
       <div class="logo-text">Tiee Dashboard</div>
-      <div class="logo-sub">Plano de Lancamento Orlando 2026</div>
+      <div class="logo-sub">Plano de Lançamento Orlando 2026</div>
     </div>
   </div>
   <div class="header-right">
@@ -192,246 +193,241 @@ a{color:var(--orange);text-decoration:none}
 </header>
 
 <nav class="tabs-bar">
-  <button class="tab-btn active" onclick="setTab('visao')">Visao Geral</button>
-  <button class="tab-btn" onclick="setTab('timeline')">Timeline 44 Dias</button>
-  <button class="tab-btn" onclick="setTab('copies')">Copies e Conteudo</button>
-  <button class="tab-btn" onclick="setTab('influenciadores')">Influenciadores</button>
-  <button class="tab-btn" onclick="setTab('parceiros')">Parceiros B2B</button>
-  <button class="tab-btn" onclick="setTab('ideias')">Ideias Estrategicas</button>
-  <button class="tab-btn" onclick="setTab('orcamento')">Orcamento e KPIs</button>
-  <button class="tab-btn" onclick="setTab('emails')">Templates de Email</button>
+  <button class="tab-btn active" onclick="setTab(this,\'visao\')">Visão Geral</button>
+  <button class="tab-btn" onclick="setTab(this,\'timeline\')">Timeline 44 Dias</button>
+  <button class="tab-btn" onclick="setTab(this,\'copies\')">Copies e Conteúdo</button>
+  <button class="tab-btn" onclick="setTab(this,\'influenciadores\')">Influenciadores</button>
+  <button class="tab-btn" onclick="setTab(this,\'parceiros\')">Parceiros B2B</button>
+  <button class="tab-btn" onclick="setTab(this,\'ideias\')">Ideias Estratégicas</button>
+  <button class="tab-btn" onclick="setTab(this,\'orcamento\')">Orçamento e KPIs</button>
+  <button class="tab-btn" onclick="setTab(this,\'emails\')">Templates de Email</button>
 </nav>
 
-<!-- ==================== TAB: VISAO GERAL ==================== -->
+<!-- ===================== VISÃO GERAL ===================== -->
 <div id="tab-visao" class="tab-content active">
 
   <div class="alert alert-warning">
     <span>⚠️</span>
-    <div><strong>ITIN + Stripe:</strong> Infraestrutura 90% validada. Joao tem 3 perguntas abertas com a Stripe. Nao comunicar como feature confirmada ate resposta final.</div>
+    <div><strong>ITIN + Stripe:</strong> Infraestrutura 90% validada. João tem 3 perguntas abertas com a Stripe. Não comunicar como feature confirmada até resposta final.</div>
   </div>
 
-  <div class="section-header"><div class="section-dot"></div><h2>Os 3 Pilares do Lancamento</h2></div>
+  <div class="section-header"><div class="section-dot"></div><h2>Os 3 Pilares do Lançamento</h2></div>
   <div class="grid-3" style="margin-bottom:24px">
     <div class="pillar">
       <div class="pillar-num">1</div>
       <h3>Supply First</h3>
-      <p>Workers antes de clientes. Sem oferta de servico, nenhum cliente voltara. Meta: 500 Workers ativos antes de abrir para o publico geral.</p>
+      <p>Workers antes de clientes. Sem oferta de serviço, nenhum cliente voltará. Meta: 500 Workers ativos antes de abrir para o público geral.</p>
     </div>
     <div class="pillar pillar-teal">
       <div class="pillar-num">2</div>
       <h3>Comunidade antes do App</h3>
-      <p>O movimento Founding Pros cria pertencimento e exclusividade antes do download. Primeiros 5.000 Workers: comissao menor vitalicia, badge exclusivo, prioridade no ranking.</p>
+      <p>O movimento Founding Pros cria pertencimento e exclusividade antes do download. Primeiros 5.000 Workers: comissão menor vitalícia, badge exclusivo, prioridade no ranking.</p>
     </div>
     <div class="pillar pillar-navy">
       <div class="pillar-num">3</div>
       <h3>Launch Orquestrado</h3>
-      <p>10/08/2026 as 9h EST. Todo o time posta simultaneamente. Um evento digital coordenado que gera pico de alcance organico.</p>
+      <p>10/08/2026 às 9h EST. Todo o time posta simultaneamente. Um evento digital coordenado que gera pico de alcance orgânico.</p>
     </div>
   </div>
 
   <div class="section-header"><div class="section-dot"></div><h2>Status do Projeto</h2></div>
   <div class="grid-4" style="margin-bottom:24px">
-    <div class="stat">
-      <div class="stat-num">0</div>
-      <div class="stat-label">Workers cadastrados</div>
-      <div class="stat-sub">Meta: 500 no launch</div>
-    </div>
-    <div class="stat">
-      <div class="stat-num">0</div>
-      <div class="stat-label">Jobs postados</div>
-      <div class="stat-sub">Meta: 50 no launch</div>
-    </div>
-    <div class="stat">
-      <div class="stat-num">90%</div>
-      <div class="stat-label">Stripe + ITIN</div>
-      <div class="stat-sub">3 perguntas abertas</div>
-    </div>
-    <div class="stat">
-      <div class="stat-num" style="color:var(--teal)">READY</div>
-      <div class="stat-label">App iOS (Apple Store)</div>
-      <div class="stat-sub">Play Store em validacao</div>
-    </div>
+    <div class="stat"><div class="stat-num">0</div><div class="stat-label">Workers cadastrados</div><div class="stat-sub">Meta: 500 no launch</div></div>
+    <div class="stat"><div class="stat-num">0</div><div class="stat-label">Jobs postados</div><div class="stat-sub">Meta: 10 no launch</div></div>
+    <div class="stat"><div class="stat-num">90%</div><div class="stat-label">Stripe + ITIN</div><div class="stat-sub">3 perguntas abertas</div></div>
+    <div class="stat"><div class="stat-num" style="color:var(--teal)">READY</div><div class="stat-label">App iOS (Apple Store)</div><div class="stat-sub">Play Store em validação</div></div>
   </div>
 
-  <div class="section-header"><div class="section-dot"></div><h2>Mecanica Golden Ticket</h2></div>
+  <div class="section-header"><div class="section-dot"></div><h2>Mecânica Golden Ticket</h2></div>
   <div class="card" style="margin-bottom:24px">
-    <p style="font-size:14px;line-height:1.8;color:#1F2937">
-      Inspirada no lançamento do <strong>Clubhouse (2020)</strong> e no modelo do <strong>Nubank</strong>.<br><br>
-      <strong>Como funciona:</strong> Cada Founding Pro recebe <strong>3 convites exclusivos</strong>. Quem recebe o convite entra diretamente como Founding Pro, com todos os beneficios. Quem nao recebe convite entra na fila de espera comum.<br><br>
-      <strong>Por que funciona:</strong> O convite vira um presente que voce da (nao um favor que voce pede). Modelo Nubank: quem era convidado subia para o INICIO da fila, nao o dono do convite. Isso transformou o ato de convidar em algo generoso. Resultado do Nubank: 350 mil usuarios no primeiro ano, 80-90% aquisicao organica.<br><br>
-      <strong>Para a Tiee:</strong> A "fila" e o ranking de visibilidade na busca. Founding Pro = mais visivel = mais clientes = mais dinheiro. O convite e um presente financeiro real.
-    </p>
+    <p>Inspirada no lançamento do <strong>Clubhouse (2020)</strong> e no modelo do <strong>Nubank</strong>.<br><br>
+    <strong>Como funciona:</strong> Cada Founding Pro recebe <strong>3 convites exclusivos</strong>. Quem recebe o convite entra diretamente como Founding Pro, com todos os benefícios. Quem não recebe convite entra na fila de espera comum.<br><br>
+    <strong>Por que funciona:</strong> O convite vira um presente que você dá, não um favor que você pede. Modelo Nubank: quem era convidado subia para o INÍCIO da fila, não o dono do convite. Isso transformou o ato de convidar em algo generoso. Resultado do Nubank: 350 mil usuários no primeiro ano, 80–90% aquisição orgânica.<br><br>
+    <strong>Para a Tiee:</strong> A "fila" é o ranking de visibilidade na busca. Founding Pro = mais visível = mais clientes = mais dinheiro. O convite é um presente financeiro real.</p>
   </div>
 
-  <div class="section-header"><div class="section-dot"></div><h2>Modelo de Negocios</h2></div>
+  <div class="section-header"><div class="section-dot"></div><h2>Modelo de Negócios</h2></div>
   <div class="grid-2">
     <div class="card">
       <div class="card-title">Fluxo de Pagamento</div>
-      <p>Cliente paga adiantado (escrow). Worker executa o servico. Worker emite invoice na plataforma. Cliente aprova. Tiee libera o pagamento. <strong>Take rate: 10%.</strong><br><br>Nenhum pagamento em dinheiro vivo. Todo rastro documentado. Protecao para os dois lados.</p>
+      <p>Cliente paga adiantado (escrow). Worker executa o serviço. Worker emite invoice na plataforma. Cliente aprova. Tiee libera o pagamento. <strong>Take rate: 10%.</strong><br><br>Nenhum pagamento em dinheiro vivo. Todo rastro documentado. Proteção para os dois lados.</p>
     </div>
     <div class="card">
-      <div class="card-title">Trust Score (0-1000)</div>
-      <p>Score comportamental exclusivo, como um FICO para prestadores. Baseado em: jobs concluidos, pontualidade, cancelamentos, chargebacks, disputas, identidade, background check, documentacao, cursos, licencas, seguros, clientes recorrentes, tempo na plataforma.<br><br><strong>Mais score = mais visivel = mais trabalho.</strong></p>
+      <div class="card-title">Trust Score (0–1000)</div>
+      <p>Score comportamental exclusivo. Baseado em: jobs concluídos, pontualidade, cancelamentos, chargebacks, disputas, identidade, background check, documentação, cursos, licenças, seguros, clientes recorrentes, tempo na plataforma.<br><br><strong>Mais score = mais visível = mais trabalho.</strong></p>
     </div>
     <div class="card">
-      <div class="card-title">Validacao de Documentos</div>
-      <p>Taxa: <strong>$10</strong> com cupom 50% = <strong>$5 liquido</strong>. Custo Stripe: $2. Margem: $3 por usuario validado.<br><br>ITIN aceito (imigrantes sem SSN). Diferencial nao replicado por nenhum concorrente em escala.</p>
+      <div class="card-title">Validação de Documentos</div>
+      <p>Taxa: <strong>$10</strong> com cupom 50% = <strong>$5 líquido</strong>. Custo Stripe: $2. Margem: $3 por usuário validado.<br><br>ITIN aceito (imigrantes sem SSN). Diferencial não replicado por nenhum concorrente em escala. <em>(Aguardando confirmação final da Stripe)</em></p>
     </div>
     <div class="card">
-      <div class="card-title">Guig (Subcontratacao)</div>
-      <p>Worker pode contratar outro Worker para um job. Modelo de subcontratacao dentro da plataforma. Expande o volume de transacoes sem aumentar custos de aquisicao. Todo usuario e "Worker", nao ha categoria separada de cliente.</p>
+      <div class="card-title">Guig (Subcontratação)</div>
+      <p>Worker pode contratar outro Worker para um job. Modelo de subcontratação dentro da plataforma. Expande o volume de transações sem aumentar custos de aquisição. Todo usuário é "Worker", não há categoria separada de cliente.</p>
     </div>
   </div>
 </div>
 
-
-<!-- ==================== TAB: TIMELINE ==================== -->
+<!-- ===================== TIMELINE ===================== -->
 <div id="tab-timeline" class="tab-content">
 
   <div class="alert alert-info">
     <span>ℹ️</span>
-    <div>Marque cada tarefa como concluida. O progresso e salvo em tempo real para todos do time. <strong>Proprietarios:</strong> <span class="badge badge-blue">CR</span> <span class="badge badge-orange">Thiagao</span> <span class="badge badge-green">Carlos</span> <span class="badge badge-red" style="background:#FDF4FF;color:#7E22CE">Clayton</span> <span class="badge badge-red">Joao</span></div>
+    <div>Clique no texto de qualquer tarefa para <strong>editá-la</strong>. Use o <strong>×</strong> para excluir. Adicione tarefas novas no final de cada semana. Progresso salvo em tempo real.
+    <br><strong>Donos:</strong>
+    <span class="badge" style="background:#EFF6FF;color:#1E40AF">Carlos Augusto</span>
+    <span class="badge badge-orange">Thiagão</span>
+    <span class="badge" style="background:#F0FDF4;color:#166534">Carlos Nunes</span>
+    <span class="badge" style="background:#FDF4FF;color:#7E22CE">Clayton</span>
+    <span class="badge" style="background:#FFF1F2;color:#9F1239">João</span>
+    </div>
   </div>
 
+  <!-- Semana 1 -->
   <div class="timeline-week">
-    <div class="week-header">
-      <span>SEMANA 1 | 28 Jun - 4 Jul | PRE-CONSTRUCAO</span>
-      <span id="prog-w1">0/0</span>
-    </div>
+    <div class="week-header"><span>SEMANA 1 | 28 Jun – 4 Jul | PRÉ-CONSTRUÇÃO</span><span id="prog-w1">0/0</span></div>
     <div class="week-body" id="week1">
-      <div class="task-row" data-id="t1"><input type="checkbox" onchange="saveTask(this)"><span class="task-text">Ativar Realtime Database no console Firebase (tiee-9e3a8)</span><span class="task-owner owner-todos">Thiagao</span></div>
-      <div class="task-row" data-id="t2"><input type="checkbox" onchange="saveTask(this)"><span class="task-text">Habilitar GitHub Pages no repositorio Dashboard-Tiee (Settings > Pages > main branch)</span><span class="task-owner owner-thiagao">Thiagao</span></div>
-      <div class="task-row" data-id="t3"><input type="checkbox" onchange="saveTask(this)"><span class="task-text">Criar landing page Founding Pros (formulario de cadastro de Workers)</span><span class="task-owner owner-joao">Joao</span></div>
-      <div class="task-row" data-id="t4"><input type="checkbox" onchange="saveTask(this)"><span class="task-text">Definir URL definitiva para a landing page (tiee.io/founding-pros ou similar)</span><span class="task-owner owner-cr">CR</span></div>
-      <div class="task-row" data-id="t5"><input type="checkbox" onchange="saveTask(this)"><span class="task-text">Clayton: mapear contatos pessoais de prestadores em Orlando (lista inicial)</span><span class="task-owner owner-clayton">Clayton</span></div>
-      <div class="task-row" data-id="t6"><input type="checkbox" onchange="saveTask(this)"><span class="task-text">Carlos: criar perfis sociais (Instagram, TikTok, LinkedIn da Tiee) com bio otimizada</span><span class="task-owner owner-carlos">Carlos</span></div>
-      <div class="task-row" data-id="t7"><input type="checkbox" onchange="saveTask(this)"><span class="task-text">Thiagao: entrar nos 5 grupos do Facebook de trabalhadores imigrantes (listados na aba Parceiros)</span><span class="task-owner owner-thiagao">Thiagao</span></div>
-      <div class="task-row" data-id="t8"><input type="checkbox" onchange="saveTask(this)"><span class="task-text">Confirmar resposta final da Stripe sobre as 3 perguntas abertas de Joao</span><span class="task-owner owner-joao">Joao</span></div>
+      <div class="task-row" data-id="t2"><input type="checkbox" onchange="saveTask(this)"><span class="task-text" contenteditable="true" onblur="saveTaskText(this)">Habilitar GitHub Pages no repositório Dashboard-Tiee (Settings → Pages → main branch)</span><span class="task-owner owner-thiagao">Thiagão</span><button class="task-del" onclick="deleteTask(this)" title="Excluir">×</button></div>
+      <div class="task-row" data-id="t3"><input type="checkbox" onchange="saveTask(this)"><span class="task-text" contenteditable="true" onblur="saveTaskText(this)">Criar landing page Founding Pros (formulário de cadastro de Workers)</span><span class="task-owner owner-joao">João</span><button class="task-del" onclick="deleteTask(this)" title="Excluir">×</button></div>
+      <div class="task-row" data-id="t4"><input type="checkbox" onchange="saveTask(this)"><span class="task-text" contenteditable="true" onblur="saveTaskText(this)">Definir URL definitiva para a landing page (tiee.io/founding-pros ou similar)</span><span class="task-owner owner-cr">Carlos Augusto</span><button class="task-del" onclick="deleteTask(this)" title="Excluir">×</button></div>
+      <div class="task-row" data-id="t5"><input type="checkbox" onchange="saveTask(this)"><span class="task-text" contenteditable="true" onblur="saveTaskText(this)">Clayton: mapear contatos pessoais de prestadores em Orlando (lista inicial)</span><span class="task-owner owner-clayton">Clayton</span><button class="task-del" onclick="deleteTask(this)" title="Excluir">×</button></div>
+      <div class="task-row" data-id="t6"><input type="checkbox" onchange="saveTask(this)"><span class="task-text" contenteditable="true" onblur="saveTaskText(this)">Carlos Nunes: criar perfis sociais da Tiee (Instagram, TikTok, LinkedIn) com bio otimizada</span><span class="task-owner owner-carlos">Carlos Nunes</span><button class="task-del" onclick="deleteTask(this)" title="Excluir">×</button></div>
+      <div class="task-row" data-id="t7"><input type="checkbox" onchange="saveTask(this)"><span class="task-text" contenteditable="true" onblur="saveTaskText(this)">Thiagão: entrar nos 5 grupos do Facebook de trabalhadores imigrantes (listados na aba Parceiros)</span><span class="task-owner owner-thiagao">Thiagão</span><button class="task-del" onclick="deleteTask(this)" title="Excluir">×</button></div>
+      <div class="task-row" data-id="t8"><input type="checkbox" onchange="saveTask(this)"><span class="task-text" contenteditable="true" onblur="saveTaskText(this)">João: confirmar resposta final da Stripe sobre as 3 perguntas abertas (ITIN)</span><span class="task-owner owner-joao">João</span><button class="task-del" onclick="deleteTask(this)" title="Excluir">×</button></div>
+    </div>
+    <div class="add-task-row" id="add-w1">
+      <input type="text" placeholder="Nova tarefa para a Semana 1...">
+      <select><option value="owner-cr">Carlos Augusto</option><option value="owner-thiagao">Thiagão</option><option value="owner-carlos">Carlos Nunes</option><option value="owner-clayton">Clayton</option><option value="owner-joao">João</option><option value="owner-todos">TODOS</option></select>
+      <button onclick="addTask(this,'week1')">+ Adicionar</button>
     </div>
   </div>
 
+  <!-- Semana 2 -->
   <div class="timeline-week">
-    <div class="week-header" style="background:var(--navy-light)">
-      <span>SEMANA 2 | 5-11 Jul | CONTEUDO E OUTREACH INICIAL</span>
-      <span id="prog-w2">0/0</span>
-    </div>
+    <div class="week-header" style="background:var(--navy-light)"><span>SEMANA 2 | 5–11 Jul | CONTEÚDO E OUTREACH INICIAL</span><span id="prog-w2">0/0</span></div>
     <div class="week-body" id="week2">
-      <div class="task-row" data-id="t9"><input type="checkbox" onchange="saveTask(this)"><span class="task-text">Produzir video de lancamento do movimento Founding Pros (30-60 seg, Clayton como rosto)</span><span class="task-owner owner-carlos">Carlos</span></div>
-      <div class="task-row" data-id="t10"><input type="checkbox" onchange="saveTask(this)"><span class="task-text">Clayton: abordagem pessoal (WhatsApp) para os primeiros 20 trabalhadores da lista</span><span class="task-owner owner-clayton">Clayton</span></div>
-      <div class="task-row" data-id="t11"><input type="checkbox" onchange="saveTask(this)"><span class="task-text">Publicar primeiro post no Instagram: "Uma plataforma feita pra voce, nao pra eles" (copy na aba Copies)</span><span class="task-owner owner-carlos">Carlos</span></div>
-      <div class="task-row" data-id="t12"><input type="checkbox" onchange="saveTask(this)"><span class="task-text">Entrar em contato com Lagoinha Orlando e First Orlando em Portugues sobre parceria</span><span class="task-owner owner-cr">CR</span></div>
-      <div class="task-row" data-id="t13"><input type="checkbox" onchange="saveTask(this)"><span class="task-text">Thiagao: iniciar outreach para os 10 influenciadores prioridade 1 da lista</span><span class="task-owner owner-thiagao">Thiagao</span></div>
-      <div class="task-row" data-id="t14"><input type="checkbox" onchange="saveTask(this)"><span class="task-text">CR: contato com Jose Figueroa (TelevisaUnivision Orlando) - jvfigueroa@univision.net</span><span class="task-owner owner-cr">CR</span></div>
-      <div class="task-row" data-id="t15"><input type="checkbox" onchange="saveTask(this)"><span class="task-text">Criar artigo SEO: "Contractor scam Florida: como se proteger em 2026" (publicar no blog tiee.io)</span><span class="task-owner owner-carlos">Carlos</span></div>
-      <div class="task-row" data-id="t16"><input type="checkbox" onchange="saveTask(this)"><span class="task-text">Definir lista de 50 property managers em Orlando para outreach B2B (LinkedIn Sales Nav ou Google Maps)</span><span class="task-owner owner-thiagao">Thiagao</span></div>
+      <div class="task-row" data-id="t9"><input type="checkbox" onchange="saveTask(this)"><span class="task-text" contenteditable="true" onblur="saveTaskText(this)">Produzir vídeo de lançamento do movimento Founding Pros (30–60 seg, Clayton como rosto)</span><span class="task-owner owner-carlos">Carlos Nunes</span><button class="task-del" onclick="deleteTask(this)" title="Excluir">×</button></div>
+      <div class="task-row" data-id="t10"><input type="checkbox" onchange="saveTask(this)"><span class="task-text" contenteditable="true" onblur="saveTaskText(this)">Clayton: abordagem WhatsApp para os primeiros 20 trabalhadores da lista pessoal</span><span class="task-owner owner-clayton">Clayton</span><button class="task-del" onclick="deleteTask(this)" title="Excluir">×</button></div>
+      <div class="task-row" data-id="t11"><input type="checkbox" onchange="saveTask(this)"><span class="task-text" contenteditable="true" onblur="saveTaskText(this)">Publicar primeiro post no Instagram: "Uma plataforma feita pra você, não pra eles"</span><span class="task-owner owner-carlos">Carlos Nunes</span><button class="task-del" onclick="deleteTask(this)" title="Excluir">×</button></div>
+      <div class="task-row" data-id="t12"><input type="checkbox" onchange="saveTask(this)"><span class="task-text" contenteditable="true" onblur="saveTaskText(this)">Carlos Augusto: contato com Lagoinha Orlando e First Orlando em Português sobre parceria</span><span class="task-owner owner-cr">Carlos Augusto</span><button class="task-del" onclick="deleteTask(this)" title="Excluir">×</button></div>
+      <div class="task-row" data-id="t13"><input type="checkbox" onchange="saveTask(this)"><span class="task-text" contenteditable="true" onblur="saveTaskText(this)">Thiagão: iniciar outreach para os influenciadores de prioridade 1 (aba Influenciadores)</span><span class="task-owner owner-thiagao">Thiagão</span><button class="task-del" onclick="deleteTask(this)" title="Excluir">×</button></div>
+      <div class="task-row" data-id="t14"><input type="checkbox" onchange="saveTask(this)"><span class="task-text" contenteditable="true" onblur="saveTaskText(this)">Carlos Augusto: email para José Figueroa (TelevisaUnivision Orlando) – jvfigueroa@univision.net</span><span class="task-owner owner-cr">Carlos Augusto</span><button class="task-del" onclick="deleteTask(this)" title="Excluir">×</button></div>
+      <div class="task-row" data-id="t15"><input type="checkbox" onchange="saveTask(this)"><span class="task-text" contenteditable="true" onblur="saveTaskText(this)">Artigo SEO: "Contractor scam Florida: como se proteger em 2026" (publicar no blog tiee.io)</span><span class="task-owner owner-carlos">Carlos Nunes</span><button class="task-del" onclick="deleteTask(this)" title="Excluir">×</button></div>
+      <div class="task-row" data-id="t16"><input type="checkbox" onchange="saveTask(this)"><span class="task-text" contenteditable="true" onblur="saveTaskText(this)">Thiagão: definir lista de 50 property managers em Orlando para outreach B2B (Google Maps + email)</span><span class="task-owner owner-thiagao">Thiagão</span><button class="task-del" onclick="deleteTask(this)" title="Excluir">×</button></div>
+    </div>
+    <div class="add-task-row" id="add-w2">
+      <input type="text" placeholder="Nova tarefa para a Semana 2...">
+      <select><option value="owner-cr">Carlos Augusto</option><option value="owner-thiagao">Thiagão</option><option value="owner-carlos">Carlos Nunes</option><option value="owner-clayton">Clayton</option><option value="owner-joao">João</option><option value="owner-todos">TODOS</option></select>
+      <button onclick="addTask(this,'week2')">+ Adicionar</button>
     </div>
   </div>
 
+  <!-- Semanas 3-4 -->
   <div class="timeline-week">
-    <div class="week-header" style="background:#1a3a5c">
-      <span>SEMANAS 3-4 | 12-25 Jul | ATIVACAO DE COMUNIDADE</span>
-      <span id="prog-w3">0/0</span>
-    </div>
+    <div class="week-header" style="background:#1a3a5c"><span>SEMANAS 3–4 | 12–25 Jul | ATIVAÇÃO DE COMUNIDADE</span><span id="prog-w3">0/0</span></div>
     <div class="week-body" id="week3">
-      <div class="task-row" data-id="t17"><input type="checkbox" onchange="saveTask(this)"><span class="task-text">Lancar campanha paga no Meta Ads: video Founding Pros, publico imigrante Orlando (ver aba Orcamento)</span><span class="task-owner owner-carlos">Carlos</span></div>
-      <div class="task-row" data-id="t18"><input type="checkbox" onchange="saveTask(this)"><span class="task-text">Clayton: visitar igrejas brasileiras em Orlando e apresentar a Tiee aos lideres</span><span class="task-owner owner-clayton">Clayton</span></div>
-      <div class="task-row" data-id="t19"><input type="checkbox" onchange="saveTask(this)"><span class="task-text">Publicar 2x por semana no Instagram (mix: depoimento, educacional, bastidores)</span><span class="task-owner owner-carlos">Carlos</span></div>
-      <div class="task-row" data-id="t20"><input type="checkbox" onchange="saveTask(this)"><span class="task-text">Ativar 3 influenciadores de prioridade 1 com brief e contrato simples</span><span class="task-owner owner-thiagao">Thiagao</span></div>
-      <div class="task-row" data-id="t21"><input type="checkbox" onchange="saveTask(this)"><span class="task-text">CR e Clayton: criar 5 jobs de teste como clientes (seeding de demanda para o dia do launch)</span><span class="task-owner owner-cr">CR</span></div>
-      <div class="task-row" data-id="t22"><input type="checkbox" onchange="saveTask(this)"><span class="task-text">Thiagao: enviar emails para property managers (template na aba Emails)</span><span class="task-owner owner-thiagao">Thiagao</span></div>
-      <div class="task-row" data-id="t23"><input type="checkbox" onchange="saveTask(this)"><span class="task-text">Criar calculadora de leads no site (ROI personalizado por tipo de Worker A/B/C)</span><span class="task-owner owner-joao">Joao</span></div>
-      <div class="task-row" data-id="t24"><input type="checkbox" onchange="saveTask(this)"><span class="task-text">Meta parcial: 200 Workers pre-cadastrados na landing page</span><span class="task-owner owner-todos">TODOS</span></div>
+      <div class="task-row" data-id="t17"><input type="checkbox" onchange="saveTask(this)"><span class="task-text" contenteditable="true" onblur="saveTaskText(this)">Carlos Nunes: lançar campanha paga Meta Ads (vídeo Founding Pros, público imigrante Orlando)</span><span class="task-owner owner-carlos">Carlos Nunes</span><button class="task-del" onclick="deleteTask(this)" title="Excluir">×</button></div>
+      <div class="task-row" data-id="t18"><input type="checkbox" onchange="saveTask(this)"><span class="task-text" contenteditable="true" onblur="saveTaskText(this)">Clayton: visitar igrejas brasileiras em Orlando e apresentar a Tiee aos líderes</span><span class="task-owner owner-clayton">Clayton</span><button class="task-del" onclick="deleteTask(this)" title="Excluir">×</button></div>
+      <div class="task-row" data-id="t19"><input type="checkbox" onchange="saveTask(this)"><span class="task-text" contenteditable="true" onblur="saveTaskText(this)">Carlos Nunes: publicar 2x por semana no Instagram (depoimento, educacional, bastidores)</span><span class="task-owner owner-carlos">Carlos Nunes</span><button class="task-del" onclick="deleteTask(this)" title="Excluir">×</button></div>
+      <div class="task-row" data-id="t20"><input type="checkbox" onchange="saveTask(this)"><span class="task-text" contenteditable="true" onblur="saveTaskText(this)">Thiagão: ativar 3 influenciadores P1 com brief e contrato simples</span><span class="task-owner owner-thiagao">Thiagão</span><button class="task-del" onclick="deleteTask(this)" title="Excluir">×</button></div>
+      <div class="task-row" data-id="t21"><input type="checkbox" onchange="saveTask(this)"><span class="task-text" contenteditable="true" onblur="saveTaskText(this)">Carlos Augusto + Clayton: criar 5–10 jobs de teste como clientes (seeding de demanda)</span><span class="task-owner owner-cr">Carlos Augusto</span><button class="task-del" onclick="deleteTask(this)" title="Excluir">×</button></div>
+      <div class="task-row" data-id="t22"><input type="checkbox" onchange="saveTask(this)"><span class="task-text" contenteditable="true" onblur="saveTaskText(this)">Thiagão: enviar emails para property managers (template na aba Emails)</span><span class="task-owner owner-thiagao">Thiagão</span><button class="task-del" onclick="deleteTask(this)" title="Excluir">×</button></div>
+      <div class="task-row" data-id="t23"><input type="checkbox" onchange="saveTask(this)"><span class="task-text" contenteditable="true" onblur="saveTaskText(this)">João: criar calculadora de leads no site (ROI personalizado por tipo de Worker A/B/C)</span><span class="task-owner owner-joao">João</span><button class="task-del" onclick="deleteTask(this)" title="Excluir">×</button></div>
+      <div class="task-row" data-id="t24"><input type="checkbox" onchange="saveTask(this)"><span class="task-text" contenteditable="true" onblur="saveTaskText(this)">META PARCIAL: 200 Workers pré-cadastrados na landing page</span><span class="task-owner owner-todos">TODOS</span><button class="task-del" onclick="deleteTask(this)" title="Excluir">×</button></div>
+    </div>
+    <div class="add-task-row">
+      <input type="text" placeholder="Nova tarefa para Semanas 3–4...">
+      <select><option value="owner-cr">Carlos Augusto</option><option value="owner-thiagao">Thiagão</option><option value="owner-carlos">Carlos Nunes</option><option value="owner-clayton">Clayton</option><option value="owner-joao">João</option><option value="owner-todos">TODOS</option></select>
+      <button onclick="addTask(this,'week3')">+ Adicionar</button>
     </div>
   </div>
 
+  <!-- Semanas 5-6 -->
   <div class="timeline-week">
-    <div class="week-header" style="background:#0a1929">
-      <span>SEMANAS 5-6 | 26 Jul - 8 Ago | FINAL SPRINT</span>
-      <span id="prog-w4">0/0</span>
-    </div>
+    <div class="week-header" style="background:#0a1929"><span>SEMANAS 5–6 | 26 Jul – 8 Ago | SPRINT FINAL</span><span id="prog-w4">0/0</span></div>
     <div class="week-body" id="week4">
-      <div class="task-row" data-id="t25"><input type="checkbox" onchange="saveTask(this)"><span class="task-text">Ativar influenciadores prioridade 2 (post coordenado para o dia 10/08)</span><span class="task-owner owner-thiagao">Thiagao</span></div>
-      <div class="task-row" data-id="t26"><input type="checkbox" onchange="saveTask(this)"><span class="task-text">Gravar video de contagem regressiva (Clayton em Orlando, 3 dias para o launch)</span><span class="task-owner owner-clayton">Clayton</span></div>
-      <div class="task-row" data-id="t27"><input type="checkbox" onchange="saveTask(this)"><span class="task-text">Agendar todos os posts de launch day para 9h EST do dia 10/08 (Instagram, TikTok, LinkedIn)</span><span class="task-owner owner-carlos">Carlos</span></div>
-      <div class="task-row" data-id="t28"><input type="checkbox" onchange="saveTask(this)"><span class="task-text">Revisar e testar fluxo completo do app: cadastro, validacao, primeiro job, pagamento</span><span class="task-owner owner-joao">Joao</span></div>
-      <div class="task-row" data-id="t29"><input type="checkbox" onchange="saveTask(this)"><span class="task-text">Distribuir Golden Tickets para os Founding Pros confirmados (3 convites por pessoa)</span><span class="task-owner owner-todos">TODOS</span></div>
-      <div class="task-row" data-id="t30"><input type="checkbox" onchange="saveTask(this)"><span class="task-text">Meta final: 500 Workers cadastrados e 10 jobs de teste no sistema</span><span class="task-owner owner-todos">TODOS</span></div>
+      <div class="task-row" data-id="t25"><input type="checkbox" onchange="saveTask(this)"><span class="task-text" contenteditable="true" onblur="saveTaskText(this)">Thiagão: ativar influenciadores P2 (post coordenado para o dia 10/08)</span><span class="task-owner owner-thiagao">Thiagão</span><button class="task-del" onclick="deleteTask(this)" title="Excluir">×</button></div>
+      <div class="task-row" data-id="t26"><input type="checkbox" onchange="saveTask(this)"><span class="task-text" contenteditable="true" onblur="saveTaskText(this)">Clayton: gravar vídeo de contagem regressiva (3 dias para o launch, ao vivo em Orlando)</span><span class="task-owner owner-clayton">Clayton</span><button class="task-del" onclick="deleteTask(this)" title="Excluir">×</button></div>
+      <div class="task-row" data-id="t27"><input type="checkbox" onchange="saveTask(this)"><span class="task-text" contenteditable="true" onblur="saveTaskText(this)">Carlos Nunes: agendar todos os posts de launch day para 9h EST do dia 10/08</span><span class="task-owner owner-carlos">Carlos Nunes</span><button class="task-del" onclick="deleteTask(this)" title="Excluir">×</button></div>
+      <div class="task-row" data-id="t28"><input type="checkbox" onchange="saveTask(this)"><span class="task-text" contenteditable="true" onblur="saveTaskText(this)">João: revisar e testar fluxo completo do app (cadastro, validação, job, pagamento)</span><span class="task-owner owner-joao">João</span><button class="task-del" onclick="deleteTask(this)" title="Excluir">×</button></div>
+      <div class="task-row" data-id="t29"><input type="checkbox" onchange="saveTask(this)"><span class="task-text" contenteditable="true" onblur="saveTaskText(this)">Distribuir Golden Tickets para os Founding Pros confirmados (3 convites por pessoa)</span><span class="task-owner owner-todos">TODOS</span><button class="task-del" onclick="deleteTask(this)" title="Excluir">×</button></div>
+      <div class="task-row" data-id="t30"><input type="checkbox" onchange="saveTask(this)"><span class="task-text" contenteditable="true" onblur="saveTaskText(this)">META FINAL: 500 Workers cadastrados e 10 jobs de teste no sistema</span><span class="task-owner owner-todos">TODOS</span><button class="task-del" onclick="deleteTask(this)" title="Excluir">×</button></div>
+    </div>
+    <div class="add-task-row">
+      <input type="text" placeholder="Nova tarefa para Sprint Final...">
+      <select><option value="owner-cr">Carlos Augusto</option><option value="owner-thiagao">Thiagão</option><option value="owner-carlos">Carlos Nunes</option><option value="owner-clayton">Clayton</option><option value="owner-joao">João</option><option value="owner-todos">TODOS</option></select>
+      <button onclick="addTask(this,'week4')">+ Adicionar</button>
     </div>
   </div>
 
+  <!-- Launch Day -->
   <div class="timeline-week">
-    <div class="week-header" style="background:var(--orange)">
-      <span>DIA D | 10 AGO 2026 | LAUNCH DAY</span>
-      <span>09:00 EST</span>
-    </div>
+    <div class="week-header" style="background:var(--orange)"><span>🚀 DIA D | 10 AGO 2026 | LAUNCH DAY – 09:00 EST</span><span></span></div>
     <div class="week-body" id="week5">
-      <div class="task-row" data-id="t31"><input type="checkbox" onchange="saveTask(this)"><span class="task-text">09:00 EST: todos postam simultaneamente (scripts na aba Copies)</span><span class="task-owner owner-todos">TODOS</span></div>
-      <div class="task-row" data-id="t32"><input type="checkbox" onchange="saveTask(this)"><span class="task-text">Clayton: stories ao vivo mostrando Orlando e falando do lancamento</span><span class="task-owner owner-clayton">Clayton</span></div>
-      <div class="task-row" data-id="t33"><input type="checkbox" onchange="saveTask(this)"><span class="task-text">Carlos e Thiagao: monitorar metricas, comentarios, DMs e responder tudo no dia</span><span class="task-owner owner-carlos">Carlos</span></div>
-      <div class="task-row" data-id="t34"><input type="checkbox" onchange="saveTask(this)"><span class="task-text">App disponivel para download publico (iOS + Android)</span><span class="task-owner owner-joao">Joao</span></div>
+      <div class="task-row" data-id="t31"><input type="checkbox" onchange="saveTask(this)"><span class="task-text" contenteditable="true" onblur="saveTaskText(this)">09h EST: todo o time posta simultaneamente (scripts na aba Copies)</span><span class="task-owner owner-todos">TODOS</span><button class="task-del" onclick="deleteTask(this)" title="Excluir">×</button></div>
+      <div class="task-row" data-id="t32"><input type="checkbox" onchange="saveTask(this)"><span class="task-text" contenteditable="true" onblur="saveTaskText(this)">Clayton: stories ao vivo mostrando Orlando e falando do lançamento</span><span class="task-owner owner-clayton">Clayton</span><button class="task-del" onclick="deleteTask(this)" title="Excluir">×</button></div>
+      <div class="task-row" data-id="t33"><input type="checkbox" onchange="saveTask(this)"><span class="task-text" contenteditable="true" onblur="saveTaskText(this)">Carlos Nunes e Thiagão: monitorar métricas, comentários, DMs e responder tudo no dia</span><span class="task-owner owner-carlos">Carlos Nunes</span><button class="task-del" onclick="deleteTask(this)" title="Excluir">×</button></div>
+      <div class="task-row" data-id="t34"><input type="checkbox" onchange="saveTask(this)"><span class="task-text" contenteditable="true" onblur="saveTaskText(this)">App disponível para download público (iOS + Android)</span><span class="task-owner owner-joao">João</span><button class="task-del" onclick="deleteTask(this)" title="Excluir">×</button></div>
     </div>
   </div>
 </div>
 
-
-<!-- ==================== TAB: COPIES ==================== -->
+<!-- ===================== COPIES ===================== -->
 <div id="tab-copies" class="tab-content">
-
-  <div class="section-header"><div class="section-dot"></div><h2>WhatsApp | Workers (abordagem direta)</h2></div>
+  <div class="section-header"><div class="section-dot"></div><h2>WhatsApp | Abordagem de Workers</h2></div>
 
   <div class="copy-box">
-    <div class="copy-label">WhatsApp #1 - Abordagem Inicial (Clayton para contatos pessoais)</div>
+    <div class="copy-label">WhatsApp #1 – Abordagem Inicial (Clayton para contatos pessoais)</div>
     <button class="copy-btn" onclick="copyText(this)">Copiar</button>
     <div class="copy-text">Oi [Nome]! Tudo bem?
 
-Voce conhece o tanto que a gente sofre dependendo de indicacao, de pagar pra aparecer no Angi e no Thumbtack, e nunca ter certeza se o pagamento vai cair?
+Você conhece o tanto que a gente sofre dependendo de indicação, de pagar pra aparecer no Angi e no Thumbtack, e nunca ter certeza se o pagamento vai cair?
 
-Eu faco parte de um projeto chamado Tiee. E uma plataforma de servicos feita POR imigrantes PARA imigrantes. Voce so paga comissao quando o servico e concluido. Nao tem mensalidade, nao tem taxa de indicacao. O pagamento e garantido pela plataforma, ninguem some com o seu dinheiro.
+Eu faço parte de um projeto chamado Tiee. É uma plataforma de serviços feita POR imigrantes PARA imigrantes. Você só paga comissão quando o serviço é concluído. Não tem mensalidade, não tem taxa de indicação. O pagamento é garantido pela plataforma.
 
-Estamos selecionando os primeiros Workers fundadores em Orlando. Quem entrar agora como Founding Pro tem comissao menor pra sempre, aparece na frente na busca, e ganha 3 convites para indicar outros trabalhadores.
+Estamos selecionando os primeiros Workers fundadores em Orlando. Quem entrar agora como Founding Pro tem comissão menor pra sempre, aparece na frente na busca, e ganha 3 convites para indicar outros trabalhadores.
 
-Te mando o link, e so se cadastrar. Pode ser?</div>
+Te mando o link, é só se cadastrar. Pode ser?</div>
   </div>
 
   <div class="copy-box">
-    <div class="copy-label">WhatsApp #2 - Follow-up (24-48h depois, sem resposta)</div>
+    <div class="copy-label">WhatsApp #2 – Follow-up (24–48h sem resposta)</div>
     <button class="copy-btn" onclick="copyText(this)">Copiar</button>
-    <div class="copy-text">Oi [Nome], so passando pra ver se voce teve chance de olhar o que eu mandei sobre a Tiee.
+    <div class="copy-text">Oi [Nome], só passando pra ver se você teve chance de olhar o que eu mandei sobre a Tiee.
 
-Entendo que voce recebe muita mensagem. Mas deixa eu te dizer uma coisa: nos primeiros [X] Workers que se cadastrarem ficam com a comissao menor pra sempre. Quando mais gente entrar depois, eles vao pagar mais. Voce nao.
+Entendo que você recebe muita mensagem. Mas deixa eu te dizer uma coisa: os primeiros [X] Workers que se cadastrarem ficam com a comissão menor pra sempre. Quando mais gente entrar depois, eles vão pagar mais. Você não.
 
 Garante o seu lugar agora: [LINK]</div>
   </div>
 
   <div class="copy-box">
-    <div class="copy-label">WhatsApp #3 - Grupos de Facebook/WhatsApp (abordagem para comunidade)</div>
+    <div class="copy-label">WhatsApp #3 – Grupos de Facebook/WhatsApp (comunidade)</div>
     <button class="copy-btn" onclick="copyText(this)">Copiar</button>
-    <div class="copy-text">Atencao trabalhadores de Orlando e Florida!
+    <div class="copy-text">Atenção trabalhadores de Orlando e Flórida!
 
-Sao quantas vezes voce ja foi enganado por um cliente? Ja pagou taxa pra aparecer num app e nao veio nenhum trabalho? Ja ficou sem receber porque o cliente sumiu?
+São quantas vezes você já foi enganado por um cliente? Já pagou taxa pra aparecer num app e não veio nenhum trabalho? Já ficou sem receber porque o cliente sumiu?
 
 A Tiee chegou pra mudar isso.
 
-Plataforma de servicos com pagamento garantido via escrow. Cliente paga antes, voce recebe quando conclui. Aceita ITIN (nao precisa de SSN). Sem mensalidade.
+Plataforma de serviços com pagamento garantido via escrow. Cliente paga antes, você recebe quando conclui. Aceita ITIN (não precisa de SSN). Sem mensalidade.
 
-Estamos abrindo cadastro exclusivo para os primeiros Founding Pros em Orlando. Comissao menor pra vida toda + badge de fundador + prioridade na busca.
+Estamos abrindo cadastro exclusivo para os primeiros Founding Pros em Orlando. Comissão menor pra vida toda + badge de fundador + prioridade na busca.
 
-[LINK] - So 5.000 vagas no mundo todo.</div>
+[LINK] – Só 5.000 vagas no mundo todo.</div>
   </div>
 
-  <div class="section-header"><div class="section-dot"></div><h2>Instagram / TikTok | Copies para Posts</h2></div>
+  <div class="section-header"><div class="section-dot"></div><h2>Instagram / TikTok | Posts</h2></div>
 
   <div class="copy-box">
-    <div class="copy-label">Post #1 - Abertura do Movimento (publicar semana 2)</div>
+    <div class="copy-label">Post #1 – Abertura do Movimento (publicar semana 2)</div>
     <button class="copy-btn" onclick="copyText(this)">Copiar</button>
-    <div class="copy-text">Uma plataforma nao e tecnologia.
-E uma promessa.
+    <div class="copy-text">Uma plataforma não é tecnologia.
+É uma promessa.
 
-A promessa de que voce vai receber pelo que trabalhou.
-De que o cliente nao vai sumir.
-De que o seu nome vai crescer, nao desaparecer.
+A promessa de que você vai receber pelo que trabalhou.
+De que o cliente não vai sumir.
+De que o seu nome vai crescer, não desaparecer.
 
-Nos construimos a Tiee porque sabemos como e chegar num pais novo, trabalhar duro, e ainda assim nao ter a chance que voce merece.
+Nós construímos a Tiee porque sabemos como é chegar num país novo, trabalhar duro, e ainda assim não ter a chance que você merece.
 
 Isso muda agora.
 
@@ -439,26 +435,24 @@ Founding Pros: primeiros 5.000 Workers que acreditam nisso junto com a gente.
 
 Link na bio. Vagas limitadas.
 
-#Tiee #FoundingPros #Orlando #Imigrantes #HomeServices #TrabalhoDignidade</div>
+#Tiee #FoundingPros #Orlando #Imigrantes #HomeServices</div>
   </div>
 
   <div class="copy-box">
-    <div class="copy-label">Post #2 - Educacional (como funciona o pagamento)</div>
+    <div class="copy-label">Post #2 – Educacional (como funciona o pagamento)</div>
     <button class="copy-btn" onclick="copyText(this)">Copiar</button>
-    <div class="copy-text">Voce sabia que na Tiee o cliente paga ANTES do servico comecar?
+    <div class="copy-text">Você sabia que na Tiee o cliente paga ANTES do serviço começar?
 
 Assim funciona:
 
 1. Cliente posta o job
-2. Voce aceita e combina os detalhes
+2. Você aceita e combina os detalhes
 3. Cliente deposita o valor na plataforma (escrow)
-4. Voce executa o servico
-5. Voce emite a nota pelo app
+4. Você executa o serviço
+5. Você emite a nota pelo app
 6. Dinheiro cai na sua conta
 
-Ninguem some. Nenhuma desculpa. Pagamento garantido.
-
-Isso e o que os grandes players nao te oferecem.
+Ninguém some. Nenhuma desculpa. Pagamento garantado.
 
 Founding Pros: link na bio.
 
@@ -466,60 +460,59 @@ Founding Pros: link na bio.
   </div>
 
   <div class="copy-box">
-    <div class="copy-label">Post #3 - Launch Day (10/08, agendar para 9h EST)</div>
+    <div class="copy-label">Post #3 – Launch Day (10/08, agendar para 9h EST)</div>
     <button class="copy-btn" onclick="copyText(this)">Copiar</button>
-    <div class="copy-text">Hoje e o dia.
+    <div class="copy-text">Hoje é o dia.
 
-A Tiee esta no ar.
+A Tiee está no ar.
 
-Se voce e prestador de servico em Orlando (e em breve em toda a Florida), esse e o momento que vai mudar a sua trajetoria profissional.
+Se você é prestador de serviço em Orlando (e em breve em toda a Flórida), esse é o momento que vai mudar a sua trajetória profissional.
 
-Zero comissao de indicacao. Zero taxa de cadastro. Pagamento garantido. ITIN aceito.
+Zero comissão de indicação. Zero taxa de cadastro. Pagamento garantido. ITIN aceito.
 
 Baixe o app agora. Link na bio.
 
-#TieeLaunch #Orlando #HomeServices #Imigrantes #DiaHistorico</div>
+#TieeLaunch #Orlando #HomeServices #Imigrantes</div>
   </div>
 
-  <div class="section-header"><div class="section-dot"></div><h2>Scripts de Video (Reels / TikTok / Ads)</h2></div>
+  <div class="section-header"><div class="section-dot"></div><h2>Scripts de Vídeo (Reels / TikTok / Ads)</h2></div>
 
   <div class="copy-box">
-    <div class="copy-label">Script #1 - Video de 30 segundos (Clayton como protagonista)</div>
+    <div class="copy-label">Script #1 – Vídeo de 30 segundos (Clayton protagonista)</div>
     <button class="copy-btn" onclick="copyText(this)">Copiar</button>
     <div class="copy-text">[CENA: Clayton em um bairro de Orlando, fundo com casas residenciais]
 
-Clayton (olhando direto pra camera):
-"Eu cheguei nos Estados Unidos com uma habilidade na mao e sem saber como colocar ela a trabalhar aqui.
+Clayton (olhando direto pra câmera):
+"Eu cheguei nos Estados Unidos com uma habilidade na mão e sem saber como colocar ela a trabalhar aqui.
 
-Thumbtack, Angi... paguei, nao recebi clientes. Fiz trabalho, cliente sumiu com o dinheiro.
+Thumbtack, Angi... paguei, não recebi clientes. Fiz trabalho, cliente sumiu com o dinheiro.
 
-Ai eu conheci a Tiee.
+Aí eu conheci a Tiee.
 
 [Pausa. Sorri.]
 
-Plataforma que garante o seu pagamento. Que aceita o seu ITIN. Que nao cobra por indicacao.
+Plataforma que garante o seu pagamento. Que aceita o seu ITIN. Que não cobra por indicação.
 
-E que esta sendo construida por quem viveu o que voce viveu.
+E que está sendo construída por quem viveu o que você viveu.
 
-[Aponta pra camera]
+[Aponta pra câmera]
+Vai lá. Founding Pro. Link na bio."
 
-Vai la. Founding Pro. Link na bio."
-
-[TEXTO NA TELA: tiee.io/founding-pros | So 5.000 vagas]</div>
+[TEXTO NA TELA: tiee.io/founding-pros | Só 5.000 vagas]</div>
   </div>
 
   <div class="copy-box">
-    <div class="copy-label">Script #2 - Video de 15 segundos (para paid ads)</div>
+    <div class="copy-label">Script #2 – Vídeo de 15 segundos (para paid ads)</div>
     <button class="copy-btn" onclick="copyText(this)">Copiar</button>
-    <div class="copy-text">[CENA: close em maos trabalhando - pintura, limpeza, jardinagem]
+    <div class="copy-text">[CENA: close em mãos trabalhando – pintura, limpeza, jardinagem]
 
-VOZ (energica):
-"Quantas vezes voce trabalhou e nao recebeu?"
+VOZ (enérgica):
+"Quantas vezes você trabalhou e não recebeu?"
 
 [CORTE: tela do app mostrando pagamento sendo aprovado]
 
 VOZ:
-"Na Tiee, o dinheiro ja esta la antes do servico comecar."
+"Na Tiee, o dinheiro já está lá antes do serviço começar."
 
 [CORTE: logo Tiee]
 
@@ -528,279 +521,231 @@ VOZ:
 
 [CTA: tiee.io/founding-pros]</div>
   </div>
-
 </div>
 
-
-<!-- ==================== TAB: INFLUENCIADORES ==================== -->
+<!-- ===================== INFLUENCIADORES ===================== -->
 <div id="tab-influenciadores" class="tab-content">
-
   <div class="alert alert-info">
     <span>ℹ️</span>
-    <div>Foco inicial: influenciadores brasileiros e latinos em Orlando/Florida. Prioridade 1 = abordar primeiros. Atualizar status conforme avanca o outreach.</div>
+    <div>Foco: influenciadores brasileiros e latinos em Orlando/Flórida. P1 = abordar primeiro. Atualize o status conforme avança o outreach. Clique em qualquer linha para editar. Use o × para excluir.</div>
   </div>
-
   <div class="card" style="overflow-x:auto">
     <table class="tbl" id="inf-table">
       <thead>
         <tr>
-          <th>#</th>
-          <th>Nome / Handle</th>
-          <th>Segmento</th>
-          <th>Seguidores</th>
-          <th>Alcance Est.</th>
-          <th>Localidade</th>
-          <th>Por que contatar</th>
-          <th>Contato</th>
-          <th>Prioridade</th>
-          <th>Status</th>
+          <th>#</th><th>Nome / Handle</th><th>Segmento</th><th>Seguidores</th><th>Localidade</th><th>Por que contatar</th><th>Link</th><th>Pri.</th><th>Status</th><th></th>
         </tr>
       </thead>
-      <tbody id="inf-tbody">
-      </tbody>
+      <tbody id="inf-tbody"></tbody>
     </table>
+    <div style="padding:14px 16px;border-top:1px dashed var(--gray-light)">
+      <button onclick="addInfluenciador()" style="background:var(--teal);color:#fff;border:none;padding:8px 18px;border-radius:8px;cursor:pointer;font-weight:600;font-size:14px">+ Adicionar Influenciador</button>
+    </div>
   </div>
 </div>
 
-<!-- ==================== TAB: PARCEIROS B2B ==================== -->
+<!-- ===================== PARCEIROS B2B ===================== -->
 <div id="tab-parceiros" class="tab-content">
-
   <div class="alert alert-info">
     <span>ℹ️</span>
-    <div>Parceiros estrategicos para o lado da <strong>demanda</strong> (clientes). Property managers, HOAs, igrejas e associacoes comunitarias que indicam a Tiee para seus membros/moradores.</div>
+    <div>Parceiros para o lado da <strong>demanda</strong> (clientes) e <strong>comunidade</strong> (workers). Property managers, igrejas, câmaras e grupos.</div>
   </div>
 
   <div class="section-header"><div class="section-dot"></div><h2>Comunidades Brasileiras em Orlando</h2></div>
   <div class="grid-2" style="margin-bottom:24px">
-    <div class="card">
-      <div class="card-title">Lagoinha Orlando</div>
-      <p>Igreja brasileira com forte presenca na comunidade de imigrantes em Orlando. Alta frequencia semanal. Abordagem: patrocinio comunitario ou apresentacao do Clayton durante culto.</p>
+    <div class="card"><div class="card-title">Lagoinha Orlando</div><p>Igreja brasileira com forte presença na comunidade imigrante. Alta frequência semanal. Abordagem: Clayton se apresenta presencialmente ao pastor.</p></div>
+    <div class="card"><div class="card-title">First Orlando em Português</div><p><a href="https://firstorlandobrasil.com" target="_blank">firstorlandobrasil.com</a> | Serviço em português de uma das maiores igrejas de Orlando. Proposta: menção no boletim + post nas redes sociais.</p></div>
+    <div class="card"><div class="card-title">Esperança Church</div><p>Pastor Samuel Vitalino | ~400 presentes toda semana. Forte perfil de trabalhadores imigrantes. Clayton se apresenta pessoalmente.</p></div>
+    <div class="card"><div class="card-title">CFBACC | Câmara Brasileira Orlando</div><p>5728 Major Blvd Ste 309, Orlando, FL 32819<br><strong>Tel/WhatsApp:</strong> +1 (321) 999-5793<br><strong>Email:</strong> <a href="mailto:info@cfbacc.com">info@cfbacc.com</a><br><strong>Instagram:</strong> <a href="https://www.instagram.com/cfbacc.official" target="_blank">@cfbacc.official</a></p></div>
+  </div>
+
+  <div class="section-header"><div class="section-dot"></div><h2>Grupos do Facebook | Links Diretos</h2></div>
+  <div class="card" style="margin-bottom:24px">
+    <div class="card-title">Clicar para abrir diretamente</div>
+    <div style="display:flex;flex-direction:column;gap:10px;margin-top:12px">
+      <a href="https://www.facebook.com/groups/1154304248364882/" target="_blank" style="font-size:15px">📘 Brasileiros na Flórida</a>
+      <a href="https://www.facebook.com/groups/floridatrabalho/" target="_blank" style="font-size:15px">📘 Florida Trabalho (brasileiros buscando emprego)</a>
+      <a href="https://www.facebook.com/groups/321342198764492/" target="_blank" style="font-size:15px">📘 Grupo de Serviços para Imigrantes nos Estados Unidos</a>
+      <a href="https://www.facebook.com/BrazilianAmericanChamber/" target="_blank" style="font-size:15px">📘 CFBACC – Câmara Brasileira de Orlando (página oficial)</a>
+      <a href="https://www.instagram.com/conectaflorida/" target="_blank" style="font-size:15px">📸 Conecta Florida (Instagram)</a>
     </div>
-    <div class="card">
-      <div class="card-title">First Orlando em Portugues</div>
-      <p>firstorlandobrasil.com | Servico em portugues de uma das maiores igrejas de Orlando. Alcance estimado: milhares de brasileiros. Proposta: mencao no boletim + post nas redes sociais.</p>
-    </div>
-    <div class="card">
-      <div class="card-title">Esperanca Church</div>
-      <p>Pastor Samuel Vitalino. ~400 presentes toda semana. Forte perfil de trabalhadores imigrantes. Abordagem: Clayton se apresenta pessoalmente ao pastor.</p>
-    </div>
-    <div class="card">
-      <div class="card-title">Comunidade Batista Brasileira de Orlando</div>
-      <p>Windermere, FL. Perfil familiar, trabalhadores estabelecidos. Bom para o lado da demanda (clientes que contratam servicos) e oferta (prestadores).</p>
+    <div style="margin-top:16px;font-size:14px;color:var(--gray)">
+      <strong>Regra:</strong> primeiras 2 semanas = só agregar valor. Responder perguntas, ajudar membros. Depois: post com história real do Clayton.
     </div>
   </div>
 
-  <div class="section-header"><div class="section-dot"></div><h2>Midia e Alcance Hispanico</h2></div>
+  <div class="section-header"><div class="section-dot"></div><h2>Mídia Latina | Contatos Confirmados</h2></div>
   <div class="card" style="margin-bottom:24px">
     <div class="card-title">TelevisaUnivision Orlando</div>
-    <p><strong>Contato:</strong> Jose Figueroa, VP Director of Sales | <strong>Email:</strong> jvfigueroa@univision.net<br><br>
-    Alcance: 1,2 milhao de hispanicos = 24% do mercado de Orlando. Opcoes: spot de radio em Univision Radio 1030 AM, TV local, patrocinio de segmento de "dicas para a comunidade".<br><br>
-    <strong>Acao:</strong> CR envia email (template na aba Emails). Proposta inicial de $500-2.000/mes para testes.</p>
+    <p><strong>Contato:</strong> José Figueroa, VP Director of Sales<br>
+    <strong>Email:</strong> <a href="mailto:jvfigueroa@univision.net">jvfigueroa@univision.net</a><br>
+    <strong>Alcance:</strong> 1,2 milhão de hispânicos = 24% do mercado de Orlando | $25bi em gastos anuais<br>
+    <strong>Opções:</strong> rádio Univision 1030 AM ($500–2k/mês), spot de TV ($5k–20k/mês), segmento editorial comunitário<br>
+    <strong>Ação:</strong> Carlos Augusto envia email na Semana 2. Proposta inicial: conversa de 15 minutos, não fechar contrato direto.</p>
   </div>
 
-  <div class="section-header"><div class="section-dot"></div><h2>Grupos do Facebook (abordagem organica)</h2></div>
-  <div class="card" style="margin-bottom:24px">
-    <div class="card-title">Grupos prioritarios para entrar e participar organicamente</div>
-    <p style="margin-top:8px">
-    1. "Grupo de servicos para imigrantes nos Estados Unidos" (ID: 321342198764492)<br>
-    2. "Orlando Handyman Services"<br>
-    3. "Contractors and Home Improvement Referrals - Florida"<br>
-    4. "Brasileiros em Orlando"<br>
-    5. "Latinos em Orlando - Jobs e Servicos"<br><br>
-    <strong>Regra de ouro:</strong> Primeiro 2 semanas = so agregar valor, nao promover. Responder perguntas, indicar recursos, ajudar membros. Depois: post sobre a Tiee com contexto real (historia de Clayton).
-    </p>
-  </div>
-
-  <div class="section-header"><div class="section-dot"></div><h2>Property Managers e HOAs (lado demanda)</h2></div>
+  <div class="section-header"><div class="section-dot"></div><h2>Property Managers (Lado Demanda)</h2></div>
   <div class="card">
-    <div class="card-title">Estrategia LinkedIn + Email Direto</div>
-    <p>Filtros no LinkedIn: "Property Manager" + "Orlando" + "Florida" + empresas de 10-200 funcionarios.<br><br>
-    Alternativa sem LinkedIn Premium: busca no Google Maps ("property management company Orlando") + coletar emails nos sites.<br><br>
-    Meta: 50 contatos qualificados ate 15/Jul. Enviar template de email B2B (ver aba Emails).<br><br>
-    <strong>Proposta de valor:</strong> "Rede verificada de prestadores com seguro, licenca e Trust Score documentado. Voce recebe apenas Workers que passaram por validacao. Zero dor de cabeca com empreiteiros desonestos."</p>
+    <div class="card-title">Estratégia: Google Maps + Email Direto</div>
+    <p>Buscar no Google Maps: "property management company Orlando". Coletar emails nos sites das empresas.<br><br>
+    <strong>Meta:</strong> 50 contatos qualificados até 15/Jul. 5 parceiros confirmados antes do launch.<br><br>
+    <strong>Proposta de valor:</strong> "Rede verificada de prestadores com seguro, licença e Trust Score documentado. Zero risco de golpe. Todo histórico registrado na plataforma."<br><br>
+    <strong>Responsável:</strong> Thiagão Caetano | Template de email na aba Emails.</p>
   </div>
 </div>
 
-
-<!-- ==================== TAB: IDEIAS ESTRATEGICAS ==================== -->
+<!-- ===================== IDEIAS ESTRATÉGICAS ===================== -->
 <div id="tab-ideias" class="tab-content">
-
-  <div class="alert alert-success">
-    <span>💡</span>
-    <div>Ideias que vao alem dos documentos originais. Cada uma com estrutura completa: o que e, por que funciona, como executar, quanto custa, quem faz.</div>
-  </div>
+  <div class="alert alert-success"><span>💡</span><div>Ideias que vão além dos documentos originais. Cada uma com estrutura completa: o que é, por que funciona, como executar, quanto custa, quem faz.</div></div>
 
   <div class="idea-card">
-    <div class="idea-num">Ideia 01 | Inspiracao: Nubank</div>
-    <div class="idea-title">Golden Ticket: o convite que e um presente financeiro</div>
-    <div class="idea-body">
-      Cada Founding Pro recebe 3 convites digitais personalizados com o nome dele. Quem recebe o convite entra direto como Founding Pro, com comissao menor e badge exclusivo. Quem nao tem convite entra na fila comum, com comissao padrao e sem badge.<br><br>
-      <strong>Por que funciona:</strong> O convite nao e um favor que voce pede. E um presente que voce da. Voce esta dando ao seu amigo a chance de ganhar mais dinheiro pra sempre, porque a comissao dele sera menor do que a dos que entrarem depois. Isso cria orgulho em quem convida e gratidao em quem recebe. O Nubank fez isso com o cartao roxo: quem era convidado subia para o INICIO da fila. Resultado: 350 mil usuarios no primeiro ano, 80-90% organico.<br><br>
-      <strong>A "fila" da Tiee:</strong> nao e fila fisica. E posicao no ranking de busca. Founding Pro aparece na frente. Mais visivel = mais clientes = mais dinheiro. O convite e literalmente um ativo financeiro.
-    </div>
+    <div class="idea-num">Ideia 01 | Inspiração: Nubank + Clubhouse</div>
+    <div class="idea-title">Golden Ticket: o convite que é um presente financeiro</div>
+    <div class="idea-body">Cada Founding Pro recebe 3 convites digitais personalizados com o nome dele. Quem recebe o convite entra direto como Founding Pro, com comissão menor e badge exclusivo. Quem não tem convite entra na fila comum.<br><br>
+    <strong>Por que funciona:</strong> O convite não é um favor que você pede. É um presente que você dá. Você está dando ao seu amigo a chance de ganhar mais dinheiro para sempre. O Nubank fez isso com o cartão roxo: quem era convidado subia para o INÍCIO da fila. Resultado: 350 mil usuários no primeiro ano, 80–90% orgânico.<br><br>
+    <strong>A "fila" da Tiee:</strong> não é fila física. É posição no ranking de busca. Founding Pro aparece na frente. Mais visível = mais clientes = mais dinheiro.</div>
     <div class="idea-meta">
       <div class="idea-meta-item"><strong>Custo:</strong> $0 (feature do app)</div>
-      <div class="idea-meta-item"><strong>Quem executa:</strong> Joao (feature) + todos (distribui os convites)</div>
-      <div class="idea-meta-item"><strong>Impacto esperado:</strong> multiplicacao organica de cadastros</div>
-      <div class="idea-meta-item"><strong>Prioridade:</strong> <span class="badge badge-red">CRITICA</span></div>
+      <div class="idea-meta-item"><strong>Quem:</strong> João (feature) + todos (distribui)</div>
+      <div class="idea-meta-item"><strong>Prioridade:</strong> <span class="badge badge-red">CRÍTICA</span></div>
     </div>
   </div>
 
   <div class="idea-card teal">
-    <div class="idea-num">Ideia 02 | SEO de Alta Intencao</div>
-    <div class="idea-title">Contractor Scam: capturar quem ja foi enganado</div>
-    <div class="idea-body">
-      "Contractor scam Florida" tem alto volume de busca. Escritorios de advocacia e a FL Realtors publicam sobre isso (artigo de abril 2026). O homeowner que busca isso esta com dor de cabeca ativa: ele foi enganado, ou esta com medo de ser.<br><br>
-      <strong>Estrategia:</strong> Publicar artigo autoritativo no blog da Tiee: "Contractor scam Florida: como identificar e como se proteger em 2026". Dentro do artigo, posicionar a Tiee como a solucao: escrow garante que o dinheiro so sai quando o servico esta concluido, Workers verificados, Trust Score visivel.<br><br>
-      <strong>Resultado:</strong> trafego organico qualificado do exato publico que precisa da Tiee pelo lado da demanda (clientes). Custo: $0. ROI: alto no longo prazo.
-    </div>
+    <div class="idea-num">Ideia 02 | Card + Trust Score</div>
+    <div class="idea-title">Card Compartilhável com Pontos por Indicação</div>
+    <div class="idea-body">Todo Founding Pro recebe um card digital: foto, nome, especialidade, Trust Score, jobs concluídos, badge. Ele compartilha esse card no WhatsApp com clientes potenciais.<br><br>
+    <strong>Por que o worker vai compartilhar?</strong> O card é o cartão de visita mais poderoso que ele já teve. "Sou o João, Trust Score 847/1000, 23 jobs, zero cancelamentos." Isso vende muito mais do que qualquer texto informal no WhatsApp.<br><br>
+    <strong>E sim:</strong> quando ele convida outro worker via Golden Ticket e esse worker completa o primeiro job, ele ganha pontos no Trust Score. O ato de compartilhar tem recompensa financeira direta: mais Trust Score = melhor ranking = mais clientes = mais dinheiro.</div>
     <div class="idea-meta">
-      <div class="idea-meta-item"><strong>Custo:</strong> $0 (conteudo interno)</div>
-      <div class="idea-meta-item"><strong>Quem executa:</strong> Carlos (escreve) + Joao (publica no blog)</div>
-      <div class="idea-meta-item"><strong>Prazo:</strong> publicar ate 15/Jul para indexar antes do launch</div>
+      <div class="idea-meta-item"><strong>Custo:</strong> $0 (feature do app)</div>
+      <div class="idea-meta-item"><strong>Quem:</strong> João (feature) + Carlos Nunes (design do card)</div>
       <div class="idea-meta-item"><strong>Prioridade:</strong> <span class="badge badge-orange">ALTA</span></div>
     </div>
   </div>
 
   <div class="idea-card navy">
-    <div class="idea-num">Ideia 03 | Modelo Airbnb / Uber</div>
+    <div class="idea-num">Ideia 03 | SEO de Alta Intenção</div>
+    <div class="idea-title">Contractor Scam: capturar quem já foi enganado</div>
+    <div class="idea-body">"Contractor scam Florida" tem alto volume de busca. O homeowner que busca isso está com dor de cabeça ativa. Escritórios de advocacia e a FL Realtors publicam sobre isso (artigo de abril de 2026).<br><br>
+    Publicar no blog da Tiee: "Contractor scam Florida: como identificar e como se proteger em 2026". Dentro do artigo, posicionar a Tiee como a solução: escrow garante que o dinheiro só sai quando o serviço está concluído, workers verificados, Trust Score visível.<br><br>
+    Resultado: tráfego orgânico qualificado do exato público que precisa da Tiee pelo lado da demanda. Custo: $0.</div>
+    <div class="idea-meta">
+      <div class="idea-meta-item"><strong>Custo:</strong> $0</div>
+      <div class="idea-meta-item"><strong>Quem:</strong> Carlos Nunes (escreve) + João (publica)</div>
+      <div class="idea-meta-item"><strong>Quando:</strong> publicar até 15/Jul para indexar antes do launch</div>
+      <div class="idea-meta-item"><strong>Prioridade:</strong> <span class="badge badge-orange">ALTA</span></div>
+    </div>
+  </div>
+
+  <div class="idea-card">
+    <div class="idea-num">Ideia 04 | Modelo Airbnb / Uber</div>
     <div class="idea-title">Seeding de Demanda: time posta jobs reais antes do launch</div>
-    <div class="idea-body">
-      No Dia D, os primeiros Workers que baixarem o app precisam ver demanda real. Se abrirem e nao houver nenhum job disponivel, fecham o app e nao voltam.<br><br>
-      <strong>Estrategia:</strong> CR, Clayton e Joao criam contas de CLIENTE (nao Worker) e postam 5-10 jobs de servicos reais que precisam ser feitos em Orlando. Servicos que eles de fato precisam ou que podem ser executados por amigos: limpeza, jardinagem, pintura, montagem de moveis.<br><br>
-      <strong>Por que funciona:</strong> Airbnb fez isso em 2008 (founders fotografaram e postaram imoveis pessoalmente). Uber distribuiu rides gratis para os primeiros motoristas terem corridas reais no primeiro dia. Nao e engano. E ativacao de mercado.
-    </div>
+    <div class="idea-body">No Dia D, os primeiros workers que baixarem o app precisam ver demanda real. Se abrirem e não houver nenhum job disponível, fecham o app e não voltam.<br><br>
+    Carlos Augusto, Clayton e João criam contas de CLIENTE (não worker) e postam 5 a 10 jobs de serviços reais que precisam ser feitos em Orlando. Serviços que eles de fato precisam: limpeza, jardinagem, pintura, montagem de móveis. Clayton em Orlando pode coordenar a execução.<br><br>
+    O worker recebe pagamento real. A Tiee tem sua primeira transação documentada. O ecossistema funciona.<br><br>
+    <strong>Isso não é engano.</strong> É ativação de mercado. O Airbnb fez em 2008 (founders fotografaram imóveis pessoalmente). O Uber distribuiu corridas pagas para os primeiros motoristas terem demanda real no dia 1.</div>
     <div class="idea-meta">
-      <div class="idea-meta-item"><strong>Custo:</strong> valor dos servicos reais (~$200-500)</div>
-      <div class="idea-meta-item"><strong>Quem executa:</strong> CR + Clayton + Joao (como clientes)</div>
-      <div class="idea-meta-item"><strong>Prazo:</strong> jobs prontos no sistema ate 08/Ago</div>
-      <div class="idea-meta-item"><strong>Prioridade:</strong> <span class="badge badge-red">CRITICA</span></div>
-    </div>
-  </div>
-
-  <div class="idea-card">
-    <div class="idea-num">Ideia 04 | Diferencial Competitivo</div>
-    <div class="idea-title">ITIN como bandeira, nao como detalhe</div>
-    <div class="idea-body">
-      Nenhum concorrente (Thumbtack, Angi, TaskRabbit) aceita ITIN como identificacao fiscal em escala. Para o imigrante sem SSN, isso e uma barreira de entrada enorme nessas plataformas.<br><br>
-      <strong>Estrategia:</strong> Fazer do ITIN um pilar de comunicacao, nao uma nota de rodape. "A primeira plataforma de home services que aceita ITIN" como headline em todos os materiais voltados para Workers imigrantes.<br><br>
-      <strong>Canais:</strong> grupos de imigrantes no Facebook, igrejas latinas e brasileiras, canais do YouTube da diaspora brasileira, posts em espanhol e portugues.<br><br>
-      <strong>Aviso critico:</strong> ITIN + Stripe esta 90% validado. Confirmar resposta final de Joao antes de comunicar publicamente como feature ativa.
-    </div>
-    <div class="idea-meta">
-      <div class="idea-meta-item"><strong>Custo:</strong> $0 (mudanca de comunicacao)</div>
-      <div class="idea-meta-item"><strong>Quem executa:</strong> Carlos (copies) + Thiagao (outreach)</div>
-      <div class="idea-meta-item"><strong>Status:</strong> <span class="badge badge-yellow">Aguardando confirmar Stripe</span></div>
-      <div class="idea-meta-item"><strong>Prioridade:</strong> <span class="badge badge-red">CRITICA</span></div>
+      <div class="idea-meta-item"><strong>Custo:</strong> $200–500 (valor dos serviços reais)</div>
+      <div class="idea-meta-item"><strong>Quem:</strong> Carlos Augusto + Clayton + João (como clientes)</div>
+      <div class="idea-meta-item"><strong>Quando:</strong> jobs prontos no sistema até 08/Ago</div>
+      <div class="idea-meta-item"><strong>Prioridade:</strong> <span class="badge badge-red">CRÍTICA</span></div>
     </div>
   </div>
 
   <div class="idea-card teal">
-    <div class="idea-num">Ideia 05 | Aquisicao Organica</div>
-    <div class="idea-title">Card Compartilhavel com Trust Score do Worker</div>
-    <div class="idea-body">
-      Todo Founding Pro recebe um card digital personalizado com seu nome, foto, especialidade, Trust Score e o badge "Founding Pro". Ele compartilha esse card no WhatsApp com clientes potenciais.<br><br>
-      <strong>Por que o Worker vai compartilhar:</strong> porque e o cartao de visita mais poderoso que ele ja teve. Em vez de "sou o Joao, pinto paredes", agora e "sou o Joao, Trust Score 847/1000, 23 jobs concluidos, zero cancelamentos". Isso vende. O Worker vai querer mostrar porque aumenta a credibilidade dele individualmente.<br><br>
-      <strong>Efeito colateral:</strong> cada card compartilhado e um anuncio gratuito da Tiee. A marca aparece no contexto mais confiavel possivel: uma recomendacao pessoal.
-    </div>
+    <div class="idea-num">Ideia 05 | Calculadora de ROI</div>
+    <div class="idea-title">Calculadora de Leads Personalizada por Perfil de Worker</div>
+    <div class="idea-body">Três sliders interativos na landing page. Worker ajusta sua situação atual e vê o potencial de ganho com a Tiee.<br><br>
+    <strong>Tipo A</strong> (usa Thumbtack/Angi): "Você paga $X/mês e converte Y%. Na Tiee, você paga zero e só paga quando completa. Sua economia: $Z."<br>
+    <strong>Tipo B</strong> (boca a boca): "Você faz $X/hora. Com a visibilidade da Tiee, você pode fechar 3x mais. Potencial extra: $Z/mês."<br>
+    <strong>Tipo C</strong> (nunca usou plataforma): "Você trabalha X horas/semana. Na Tiee, isso pode virar $Y/mês."<br><br>
+    A segmentação serve ao estrategista: você sabe exatamente de onde veio cada cadastro e qual dor motivou a conversão. Dado valioso para otimizar os ads semanas depois. Isso é ouro para tomada de decisão.</div>
     <div class="idea-meta">
-      <div class="idea-meta-item"><strong>Custo:</strong> $0 (feature do app)</div>
-      <div class="idea-meta-item"><strong>Quem executa:</strong> Joao (feature) + Carlos (design do card)</div>
-      <div class="idea-meta-item"><strong>Prioridade:</strong> <span class="badge badge-orange">ALTA</span></div>
+      <div class="idea-meta-item"><strong>Custo:</strong> $0 (dev interno)</div>
+      <div class="idea-meta-item"><strong>Quem:</strong> João (dev) + Thiagão (lógica)</div>
+      <div class="idea-meta-item"><strong>Prioridade:</strong> <span class="badge badge-blue">MÉDIA</span></div>
     </div>
   </div>
 
   <div class="idea-card navy">
-    <div class="idea-num">Ideia 06 | Canais YouTube Brasileiros</div>
-    <div class="idea-title">Diaspora brasileira no YouTube como canal de aquisicao</div>
-    <div class="idea-body">
-      Canais de brasileiros nos EUA tem audiencia exatamente no publico-alvo da Tiee: imigrantes recentes, trabalhadores, quem esta tentando se estabelecer profissionalmente.<br><br>
-      <strong>Canais identificados:</strong><br>
-      - Nossa Vida USA (@nvusa) - vida pratica de imigrantes<br>
-      - Realidade Americana (Carlinhos Troll) - humor + realidade dos EUA<br>
-      - Luis Miranda USA - fiancas e vida nos EUA<br>
-      - Junior Santos - dicas para imigrantes trabalhadores<br><br>
-      <strong>Formato proposto:</strong> Nao e publicidade. E um episodio/video sobre "como ganhar dinheiro como prestador de servico nos EUA" onde a Tiee aparece como solucao organicamente. Custo: $500-2.000 por video patrocinado. ROI: alcance de 10K-100K pessoas do publico exato.
-    </div>
+    <div class="idea-num">Ideia 06 | Diferencial Competitivo</div>
+    <div class="idea-title">ITIN como Bandeira, não como Detalhe</div>
+    <div class="idea-body">Nenhum concorrente (Thumbtack, Angi, TaskRabbit) aceita ITIN em escala. Para o imigrante sem SSN, isso é uma barreira de entrada enorme nessas plataformas.<br><br>
+    Fazer do ITIN um pilar de comunicação, não uma nota de rodapé. "A primeira plataforma de home services que aceita ITIN" como headline em todos os materiais voltados para workers imigrantes.<br><br>
+    <strong>ATENÇÃO:</strong> aguardar confirmação final de João com a Stripe antes de comunicar publicamente.</div>
     <div class="idea-meta">
-      <div class="idea-meta-item"><strong>Custo:</strong> $500-2.000 por canal</div>
-      <div class="idea-meta-item"><strong>Quem executa:</strong> Thiagao (outreach) + Carlos (brief)</div>
-      <div class="idea-meta-item"><strong>Prioridade:</strong> <span class="badge badge-orange">ALTA</span></div>
+      <div class="idea-meta-item"><strong>Custo:</strong> $0 (mudança de comunicação)</div>
+      <div class="idea-meta-item"><strong>Quem:</strong> Carlos Nunes (copies) + Thiagão (outreach)</div>
+      <div class="idea-meta-item"><strong>Status:</strong> <span class="badge badge-yellow">Aguardar Stripe</span></div>
+      <div class="idea-meta-item"><strong>Prioridade:</strong> <span class="badge badge-red">CRÍTICA</span></div>
     </div>
   </div>
 
   <div class="idea-card">
-    <div class="idea-num">Ideia 07 | Calculadora de ROI</div>
-    <div class="idea-title">Calculadora de Leads Personalizada por Tipo de Worker</div>
-    <div class="idea-body">
-      Tres perfis de Worker com propostas de valor diferentes:<br><br>
-      <strong>Tipo A</strong> (usa Thumbtack/Angi): "Voce paga $X por mes e converte Y%. Na Tiee, voce paga zero e so paga quando completa um job. Quanto voce economiza?"<br>
-      <strong>Tipo B</strong> (so indicacao boca a boca): "Voce tem X clientes por mes. Com a Tiee, voce pode ter 3x mais. Quanto a mais voce ganharia?"<br>
-      <strong>Tipo C</strong> (nao conhece plataformas): "Voce faz $X por hora. Com a visibilidade da Tiee, voce pode fechar Y jobs por semana. Veja seu potencial."<br><br>
-      <strong>Implementacao:</strong> 3 sliders interativos na landing page. Worker ajusta sua situacao atual e ve o ganho potencial com a Tiee. Alta conversao porque personaliza o argumento.
-    </div>
+    <div class="idea-num">Ideia 07 | B2B Demand Side</div>
+    <div class="idea-title">Property Managers como Canal de Demanda Escalável</div>
+    <div class="idea-body">Um property manager gerencia 50 a 300 imóveis. Cada imóvel precisa de serviços regularmente. Um único property manager conectado à Tiee pode gerar dezenas de jobs por mês.<br><br>
+    <strong>Proposta de valor:</strong> "Você tem um portfólio de imóveis. Você precisa de prestadores verificados, com seguro, pontuais e que documentam tudo. A Tiee te dá acesso a uma rede de Workers com Trust Score visível. Você vê o histórico antes de contratar. Zero risco de golpe."<br><br>
+    <strong>Canal:</strong> Google Maps "property management company Orlando" + coleta de email nos sites. Alternativa: LinkedIn Sales Navigator ($120/mês). O LinkedIn nos EUA é estruturalmente diferente do Brasil: property managers americanos usam profissionalmente, publicam conteúdo e fecham parcerias por lá.</div>
     <div class="idea-meta">
-      <div class="idea-meta-item"><strong>Custo:</strong> $0 (desenvolvimento interno)</div>
-      <div class="idea-meta-item"><strong>Quem executa:</strong> Joao (dev) + Thiagao (logica de calculo)</div>
-      <div class="idea-meta-item"><strong>Prioridade:</strong> <span class="badge badge-blue">MEDIA</span></div>
-    </div>
-  </div>
-
-  <div class="idea-card teal">
-    <div class="idea-num">Ideia 08 | B2B Demand Side</div>
-    <div class="idea-title">Property Managers como canal de demanda escalavel</div>
-    <div class="idea-body">
-      Um property manager gerencia 50-300 imoveis. Cada imovel precisa de servicos regularmente: limpeza, manutencao, jardinagem, reparos. Um unico property manager conectado a Tiee pode gerar dezenas de jobs por mes.<br><br>
-      <strong>Proposta de valor:</strong> "Voce tem um portfolio de imoveis. Voce precisa de prestadores verificados, com seguro, pontuais e que documentam tudo. A Tiee te da acesso a uma rede de Workers com Trust Score visivel. Voce ve o historico antes de contratar. Zero risco de golpe."<br><br>
-      <strong>Canal:</strong> LinkedIn Sales Navigator ($120/mes) filtrando por "Property Manager" + "Orlando" + empresa 10-200 func. Alternativa gratuita: Google Maps + coleta de email nos sites das empresas.
-    </div>
-    <div class="idea-meta">
-      <div class="idea-meta-item"><strong>Custo:</strong> $120/mes (LinkedIn) ou $0 (manual)</div>
-      <div class="idea-meta-item"><strong>Quem executa:</strong> Thiagao</div>
+      <div class="idea-meta-item"><strong>Custo:</strong> $0 (Google Maps) ou $120/mês (LinkedIn)</div>
+      <div class="idea-meta-item"><strong>Quem:</strong> Thiagão Caetano</div>
       <div class="idea-meta-item"><strong>Meta:</strong> 5 property managers parceiros antes do launch</div>
       <div class="idea-meta-item"><strong>Prioridade:</strong> <span class="badge badge-orange">ALTA</span></div>
     </div>
   </div>
 
+  <div class="idea-card teal">
+    <div class="idea-num">Ideia 08 | YouTube Diáspora Brasileira</div>
+    <div class="idea-title">Canais Brasileiros nos EUA como Canal de Aquisição</div>
+    <div class="idea-body">Canais de brasileiros nos EUA têm audiência exatamente no público-alvo da Tiee: imigrantes recentes, trabalhadores, quem está tentando se estabelecer profissionalmente.<br><br>
+    <strong>Carlinhos Troll (@carlinhostroll):</strong> 2 MILHÕES de seguidores nas redes sociais. Mora em Orlando. Humor + realidade dos EUA. Canal com alcance massivo da diáspora brasileira.<br>
+    <strong>Nossa Vida USA (@nvusa):</strong> Vida prática de imigrantes. youtube.com/@nvusa<br>
+    <strong>Canal do Imigrante USA:</strong> youtube.com/@canaldoimigranteusa2585<br><br>
+    <strong>Formato:</strong> não é publicidade. É um episódio sobre "como ganhar dinheiro como prestador de serviço nos EUA" onde a Tiee aparece organicamente. Clayton pode ser o protagonista, entrevistado remotamente por qualquer canal.<br><br>
+    <strong>Custo:</strong> $500–2.000 por vídeo patrocinado. ROI: alcance de 50K–500K pessoas do público exato.</div>
+    <div class="idea-meta">
+      <div class="idea-meta-item"><strong>Custo:</strong> $500–2.000 por canal</div>
+      <div class="idea-meta-item"><strong>Quem:</strong> Thiagão (outreach) + Carlos Nunes (brief)</div>
+      <div class="idea-meta-item"><strong>Quando:</strong> abordar semana 2, publicar semana 5</div>
+      <div class="idea-meta-item"><strong>Prioridade:</strong> <span class="badge badge-orange">ALTA</span></div>
+    </div>
+  </div>
 </div>
 
-
-<!-- ==================== TAB: ORCAMENTO & KPIs ==================== -->
+<!-- ===================== ORÇAMENTO & KPIs ===================== -->
 <div id="tab-orcamento" class="tab-content">
-
-  <div class="section-header"><div class="section-dot"></div><h2>Cenarios de Investimento</h2></div>
-  <div class="grid-3" style="margin-bottom:24px">
+  <div class="section-header"><div class="section-dot"></div><h2>Cenários de Investimento</h2></div>
+  <div class="grid-3" style="margin-bottom:28px">
     <div class="budget-scenario">
-      <div style="font-size:12px;color:var(--gray);text-transform:uppercase;letter-spacing:.8px">Cenario Lean</div>
-      <div class="price">$2.800</div>
-      <h3>500 a 1.000 Workers</h3>
-      <div style="font-size:12px;color:var(--gray);margin:8px 0 16px">100% organico + ativacao manual</div>
-      <div class="budget-row"><span>Meta Ads (basico)</span><span>$800</span></div>
-      <div class="budget-row"><span>Influenciadores (micro)</span><span>$600</span></div>
-      <div class="budget-row"><span>Producao de video</span><span>$400</span></div>
+      <div style="font-size:12px;color:var(--gray);text-transform:uppercase;letter-spacing:.8px">Cenário Lean</div>
+      <div class="price">$2.800</div><h3>500 a 1.000 Workers</h3>
+      <div style="font-size:13px;color:var(--gray);margin:8px 0 16px">100% orgânico + ativação manual</div>
+      <div class="budget-row"><span>Meta Ads (básico)</span><span>$800</span></div>
+      <div class="budget-row"><span>Influenciadores micro</span><span>$600</span></div>
+      <div class="budget-row"><span>Produção de vídeo</span><span>$400</span></div>
       <div class="budget-row"><span>Ferramentas digitais</span><span>$200</span></div>
-      <div class="budget-row"><span>Contingencia</span><span>$800</span></div>
+      <div class="budget-row"><span>Contingência</span><span>$800</span></div>
       <div class="budget-row"><span><strong>TOTAL</strong></span><span><strong>$2.800</strong></span></div>
     </div>
     <div class="budget-scenario rec">
       <div style="font-size:12px;color:var(--teal);text-transform:uppercase;letter-spacing:.8px;font-weight:700">RECOMENDADO</div>
-      <div class="price">$27.000</div>
-      <h3>3.000 a 8.000 Workers</h3>
-      <div style="font-size:12px;color:var(--gray);margin:8px 0 16px">Pago + organico + midia local</div>
+      <div class="price">$27.000</div><h3>3.000 a 8.000 Workers</h3>
+      <div style="font-size:13px;color:var(--gray);margin:8px 0 16px">Pago + orgânico + mídia local</div>
       <div class="budget-row"><span>Meta Ads (robusto)</span><span>$8.000</span></div>
-      <div class="budget-row"><span>Influenciadores (mid-tier)</span><span>$6.000</span></div>
-      <div class="budget-row"><span>Midia local (Univision)</span><span>$5.000</span></div>
+      <div class="budget-row"><span>Influenciadores mid-tier</span><span>$6.000</span></div>
+      <div class="budget-row"><span>Mídia local Univision</span><span>$5.000</span></div>
       <div class="budget-row"><span>YouTube Brasileiros</span><span>$4.000</span></div>
-      <div class="budget-row"><span>Producao de conteudo</span><span>$2.000</span></div>
+      <div class="budget-row"><span>Produção de conteúdo</span><span>$2.000</span></div>
       <div class="budget-row"><span>LinkedIn Sales Nav</span><span>$500</span></div>
-      <div class="budget-row"><span>Contingencia</span><span>$1.500</span></div>
+      <div class="budget-row"><span>Contingência</span><span>$1.500</span></div>
       <div class="budget-row"><span><strong>TOTAL</strong></span><span><strong>$27.000</strong></span></div>
     </div>
     <div class="budget-scenario">
-      <div style="font-size:12px;color:var(--gray);text-transform:uppercase;letter-spacing:.8px">Cenario Agressivo</div>
-      <div class="price">$100K+</div>
-      <h3>15.000 a 50.000 Workers</h3>
-      <div style="font-size:12px;color:var(--gray);margin:8px 0 16px">Full media + TV + influencia em escala</div>
+      <div style="font-size:12px;color:var(--gray);text-transform:uppercase;letter-spacing:.8px">Cenário Agressivo</div>
+      <div class="price">$100K+</div><h3>15.000 a 50.000 Workers</h3>
+      <div style="font-size:13px;color:var(--gray);margin:8px 0 16px">Full mídia + TV + influência em escala</div>
       <div class="budget-row"><span>Meta/Google Ads</span><span>$40.000</span></div>
       <div class="budget-row"><span>TV (Univision/Telemundo)</span><span>$25.000</span></div>
       <div class="budget-row"><span>Influenciadores macro</span><span>$20.000</span></div>
@@ -810,26 +755,29 @@ VOZ:
     </div>
   </div>
 
-  <div class="section-header"><div class="section-dot"></div><h2>KPIs do Lancamento</h2></div>
-  <div class="grid-2" style="margin-bottom:24px">
+  <div class="section-header"><div class="section-dot"></div><h2>KPIs do Lançamento</h2></div>
+  <div class="grid-2" style="margin-bottom:28px">
     <div class="card">
       <div class="card-title">Workers (Supply)</div>
       <div class="progress-wrap">
         <div class="progress-label"><span>Workers cadastrados</span><span><span id="kpi-workers-val">0</span> / 500</span></div>
         <div class="progress-bar"><div class="progress-fill fill-orange" id="kpi-workers-bar" style="width:0%"></div></div>
+        <div class="kpi-controls">
+          <button class="dec" onclick="updateKPI('workers',-10)">-10</button>
+          <button onclick="updateKPI('workers',10)">+10</button>
+          <input type="number" id="kpi-workers-input" placeholder="Definir" min="0" max="500">
+          <button onclick="setKPI('workers',500)" style="background:var(--gray)">Definir</button>
+        </div>
       </div>
       <div class="progress-wrap">
         <div class="progress-label"><span>Founding Pros confirmados</span><span><span id="kpi-fps-val">0</span> / 5000</span></div>
         <div class="progress-bar"><div class="progress-fill fill-teal" id="kpi-fps-bar" style="width:0%"></div></div>
-      </div>
-      <div class="progress-wrap">
-        <div class="progress-label"><span>Workers validados (doc)</span><span><span id="kpi-val-val">0</span> / 200</span></div>
-        <div class="progress-bar"><div class="progress-fill fill-navy" id="kpi-val-bar" style="width:0%"></div></div>
-      </div>
-      <div style="display:flex;gap:8px;margin-top:16px;flex-wrap:wrap">
-        <button onclick="updateKPI('workers',10)" style="background:var(--teal);color:#fff;border:none;padding:6px 14px;border-radius:6px;cursor:pointer;font-size:12px">+10 Workers</button>
-        <button onclick="updateKPI('fps',50)" style="background:var(--navy);color:#fff;border:none;padding:6px 14px;border-radius:6px;cursor:pointer;font-size:12px">+50 Founding Pros</button>
-        <button onclick="updateKPI('val',5)" style="background:var(--orange);color:#fff;border:none;padding:6px 14px;border-radius:6px;cursor:pointer;font-size:12px">+5 Validados</button>
+        <div class="kpi-controls">
+          <button class="dec" onclick="updateKPI('fps',-50)">-50</button>
+          <button onclick="updateKPI('fps',50)">+50</button>
+          <input type="number" id="kpi-fps-input" placeholder="Definir" min="0">
+          <button onclick="setKPIFromInput('fps',5000)" style="background:var(--gray)">Definir</button>
+        </div>
       </div>
     </div>
     <div class="card">
@@ -837,156 +785,129 @@ VOZ:
       <div class="progress-wrap">
         <div class="progress-label"><span>Jobs postados (seeding)</span><span><span id="kpi-jobs-val">0</span> / 10</span></div>
         <div class="progress-bar"><div class="progress-fill fill-orange" id="kpi-jobs-bar" style="width:0%"></div></div>
+        <div class="kpi-controls">
+          <button class="dec" onclick="updateKPI('jobs',-1)">-1</button>
+          <button onclick="updateKPI('jobs',1)">+1</button>
+          <input type="number" id="kpi-jobs-input" placeholder="Definir" min="0">
+          <button onclick="setKPIFromInput('jobs',10)" style="background:var(--gray)">Definir</button>
+        </div>
       </div>
       <div class="progress-wrap">
         <div class="progress-label"><span>Influenciadores ativados</span><span><span id="kpi-inf-val">0</span> / 10</span></div>
         <div class="progress-bar"><div class="progress-fill fill-teal" id="kpi-inf-bar" style="width:0%"></div></div>
+        <div class="kpi-controls">
+          <button class="dec" onclick="updateKPI('inf',-1)">-1</button>
+          <button onclick="updateKPI('inf',1)">+1</button>
+          <input type="number" id="kpi-inf-input" placeholder="Definir" min="0">
+          <button onclick="setKPIFromInput('inf',10)" style="background:var(--gray)">Definir</button>
+        </div>
       </div>
       <div class="progress-wrap">
         <div class="progress-label"><span>Parceiros B2B confirmados</span><span><span id="kpi-b2b-val">0</span> / 5</span></div>
         <div class="progress-bar"><div class="progress-fill fill-navy" id="kpi-b2b-bar" style="width:0%"></div></div>
-      </div>
-      <div style="display:flex;gap:8px;margin-top:16px;flex-wrap:wrap">
-        <button onclick="updateKPI('jobs',1)" style="background:var(--teal);color:#fff;border:none;padding:6px 14px;border-radius:6px;cursor:pointer;font-size:12px">+1 Job</button>
-        <button onclick="updateKPI('inf',1)" style="background:var(--navy);color:#fff;border:none;padding:6px 14px;border-radius:6px;cursor:pointer;font-size:12px">+1 Influenciador</button>
-        <button onclick="updateKPI('b2b',1)" style="background:var(--orange);color:#fff;border:none;padding:6px 14px;border-radius:6px;cursor:pointer;font-size:12px">+1 Parceiro</button>
+        <div class="kpi-controls">
+          <button class="dec" onclick="updateKPI('b2b',-1)">-1</button>
+          <button onclick="updateKPI('b2b',1)">+1</button>
+          <input type="number" id="kpi-b2b-input" placeholder="Definir" min="0">
+          <button onclick="setKPIFromInput('b2b',5)" style="background:var(--gray)">Definir</button>
+        </div>
       </div>
     </div>
   </div>
 
-  <div class="section-header"><div class="section-dot"></div><h2>Riscos e Mitigacoes</h2></div>
-  <div class="risk-item high">
-    <div class="risk-icon">🔴</div>
-    <div>
-      <div class="risk-title">ITIN + Stripe nao confirmado (90% apenas)</div>
-      <div class="risk-body">Nao comunicar como feature confirmada ate Joao receber a resposta das 3 perguntas abertas. Se nao confirmar antes do launch, retirar da comunicacao e lancar como "em breve". Nao e uma tragedia, mas precisa ser gerenciado.</div>
-    </div>
-  </div>
-  <div class="risk-item high">
-    <div class="risk-icon">🔴</div>
-    <div>
-      <div class="risk-title">Workers se cadastram mas nao executam jobs (Supply sem qualidade)</div>
-      <div class="risk-body">Mitigacao: validacao de documentos obrigatoria antes de aceitar primeiro job. Trust Score de entrada baixo so sobe com execucao real. Processo de onboarding educativo no app.</div>
-    </div>
-  </div>
-  <div class="risk-item med">
-    <div class="risk-icon">🟡</div>
-    <div>
-      <div class="risk-title">Play Store ainda em validacao</div>
-      <div class="risk-body">iOS ja aprovado. Concentrar primeiros esforcos em iPhones. Comunicar status Android com transparencia. Maioria da diaspora brasileira usa iPhone nos EUA (dado demografico de renda).</div>
-    </div>
-  </div>
-  <div class="risk-item med">
-    <div class="risk-icon">🟡</div>
-    <div>
-      <div class="risk-title">Concorrencia de Thumbtack e Angi com resposta rapida</div>
-      <div class="risk-body">Diferencial da Tiee (ITIN, escrow garantido, Trust Score, comunidade imigrante) nao e replicavel rapidamente. Foco em posicionar como "feita por imigrantes para imigrantes" cria barreira emocional e cultural que plataformas mainstream nao conseguem copiar.</div>
-    </div>
-  </div>
-  <div class="risk-item low">
-    <div class="risk-icon">🟢</div>
-    <div>
-      <div class="risk-title">Time pequeno (5 pessoas, nao full time)</div>
-      <div class="risk-body">Timeline foi desenhada para ser executavel com 5 pessoas em tempo parcial. Semana 1 tem apenas 3 acoes prioritarias. Tudo e sequencial, nao paralelo. Nao precisam fazer tudo de uma vez.</div>
-    </div>
-  </div>
+  <div class="section-header"><div class="section-dot"></div><h2>Riscos e Mitigações</h2></div>
+  <div class="risk-item high"><div class="risk-icon">🔴</div><div><div class="risk-title">ITIN + Stripe não confirmado (90% apenas)</div><div class="risk-body">Não comunicar como feature confirmada até João receber a resposta das 3 perguntas abertas. Se não confirmar antes do launch, retirar da comunicação e lançar como "em breve".</div></div></div>
+  <div class="risk-item high"><div class="risk-icon">🔴</div><div><div class="risk-title">Workers se cadastram mas não executam jobs</div><div class="risk-body">Mitigação: validação de documentos obrigatória antes de aceitar primeiro job. Trust Score de entrada baixo. Processo de onboarding educativo no app.</div></div></div>
+  <div class="risk-item med"><div class="risk-icon">🟡</div><div><div class="risk-title">Play Store ainda em validação</div><div class="risk-body">iOS já aprovado. Concentrar primeiros esforços em iPhones. A maioria da diáspora brasileira usa iPhone nos EUA.</div></div></div>
+  <div class="risk-item low"><div class="risk-icon">🟢</div><div><div class="risk-title">Time pequeno (5 pessoas, não full time)</div><div class="risk-body">Timeline foi desenhada para ser executável com 5 pessoas em tempo parcial. Semana 1 tem apenas algumas ações prioritárias. Tudo é sequencial, não paralelo.</div></div></div>
 </div>
 
-
-<!-- ==================== TAB: EMAILS ==================== -->
+<!-- ===================== EMAILS ===================== -->
 <div id="tab-emails" class="tab-content">
 
   <div class="copy-box">
-    <div class="copy-label">Email #1 - Para Property Managers (B2B, lado demanda)</div>
+    <div class="copy-label">Email #1 – Para Property Managers (B2B, lado demanda)</div>
     <button class="copy-btn" onclick="copyText(this)">Copiar</button>
-    <div class="copy-text">Assunto: Prestadores verificados para o seu portfolio de imoveis em Orlando
+    <div class="copy-text">Assunto: Prestadores verificados para o seu portfólio de imóveis em Orlando
 
-Ola [Nome],
+Olá [Nome],
 
-Gerenciar um portfolio de imoveis significa lidar constantemente com o desafio de encontrar prestadores de servico confiaveis, pontuais e documentados.
+Gerenciar um portfólio de imóveis significa lidar constantemente com o desafio de encontrar prestadores de serviço confiáveis, pontuais e documentados.
 
-Meu nome e [Thiagao/CR], e sou co-fundador da Tiee, uma plataforma de home services lancada em Orlando com foco em prestadores verificados.
+Meu nome é [Thiagão/Carlos Augusto], e sou co-fundador da Tiee, uma plataforma de home services lançada em Orlando com foco em prestadores verificados.
 
 O que diferencia a Tiee:
 
-- Cada Worker passa por validacao de identidade, background check e tem um Trust Score visivel (0-1000) baseado em jobs concluidos, pontualidade e historico real
-- Sistema de pagamento por escrow: o dinheiro so e liberado quando o servico e aprovado por voce
-- Toda a comunicacao, nota fiscal e historico do job ficam documentados na plataforma
+- Cada Worker passa por validação de identidade e background check, com Trust Score visível (0–1000) baseado em histórico real
+- Sistema de pagamento por escrow: o dinheiro só é liberado quando o serviço é aprovado por você
+- Toda a comunicação, nota fiscal e histórico do job ficam documentados na plataforma
 
-Para property managers, isso significa: zero risco de sumir com pagamento adiantado, Workers com historico verificavel e todo o processo documentado para o seu portfolio.
+Para property managers: zero risco de sumir com pagamento adiantado, workers com histórico verificável e processo documentado.
 
-Estariamos felizes em te mostrar a plataforma em uma chamada de 15 minutos esta semana. Qual horario funciona melhor para voce?
+Podemos conversar 15 minutos esta semana?
 
-Atenciosamente,
 [Nome]
 Tiee | tiee.io</div>
   </div>
 
   <div class="copy-box">
-    <div class="copy-label">Email #2 - Para Igrejas e Liderancas Comunitarias</div>
+    <div class="copy-label">Email #2 – Para Igrejas e Lideranças Comunitárias</div>
     <button class="copy-btn" onclick="copyText(this)">Copiar</button>
-    <div class="copy-text">Assunto: Parceria com a Tiee - Apoio a comunidade de trabalhadores imigrantes em Orlando
+    <div class="copy-text">Assunto: Parceria com a Tiee – Apoio à comunidade de trabalhadores imigrantes em Orlando
 
-Ola [Pastor/Lider Nome],
+Olá [Pastor/Líder Nome],
 
-Serei direto: sabemos que a comunidade que voce lidera tem muitos trabalhadores autonomos e prestadores de servico que lutam para se estabelecer profissionalmente nos EUA.
+Sei que a comunidade que você lidera tem muitos trabalhadores autônomos e prestadores de serviço que lutam para se estabelecer profissionalmente nos EUA.
 
-Estamos lancando a Tiee, uma plataforma de home services construida especificamente para a realidade do imigrante trabalhador. Aceitamos ITIN (nao e necessario SSN), garantimos o pagamento via escrow, e o modelo e pagar apenas quando o servico e concluido, sem mensalidades.
+Estamos lançando a Tiee, uma plataforma de home services construída especificamente para a realidade do imigrante trabalhador. Aceitamos ITIN, garantimos o pagamento via escrow, e o modelo é pagar apenas quando o serviço é concluído, sem mensalidades.
 
-Nosso interesse e fazer uma parceria simples: gostaríamos de apresentar a Tiee para os membros da sua comunidade como uma ferramenta que pode ajuda-los a crescer profissionalmente. Em troca, estamos abertos a uma contribuicao comunitaria para apoiar os projetos da [nome da igreja/organizacao].
+Gostaríamos de apresentar a Tiee para os membros da sua comunidade como uma ferramenta que pode ajudá-los a crescer profissionalmente. Em troca, estamos abertos a uma contribuição comunitária para apoiar os projetos da [nome da organização].
 
-Podemos conversar 15 minutos esta semana? Posso apresentar melhor como isso funcionaria na pratica.
+Podemos conversar 15 minutos esta semana?
 
-Com respeito e gratidao pelo trabalho que voce faz,
 [Clayton / Nome]
 Tiee | tiee.io</div>
   </div>
 
   <div class="copy-box">
-    <div class="copy-label">Email #3 - Para Influenciadores (parceria de conteudo)</div>
+    <div class="copy-label">Email #3 – Para Influenciadores (parceria de conteúdo)</div>
     <button class="copy-btn" onclick="copyText(this)">Copiar</button>
-    <div class="copy-text">Assunto: Parceria Tiee x [Nome do Canal] - Uma historia que a sua audiencia precisa ouvir
+    <div class="copy-text">Assunto: Parceria Tiee x [Nome do Canal] – Uma história que a sua audiência precisa ouvir
 
 Oi [Nome],
 
-Acompanho o seu trabalho e sei que a sua audiencia e formada por brasileiros e latinos que estao construindo uma vida nos EUA, muitos como trabalhadores autonomos.
+Acompanho o seu trabalho e sei que a sua audiência é formada por brasileiros que estão construindo uma vida nos EUA, muitos como trabalhadores autônomos.
 
-Meu nome e [Thiagao], e estou no time da Tiee, uma plataforma de home services lancada em Orlando. Mas nao e uma plataforma qualquer: foi construida por imigrantes, para imigrantes. Aceita ITIN. Garante o pagamento. Cobra comissao so quando o servico e concluido.
+Meu nome é [Thiagão], e estou no time da Tiee. Não quero um post patrocinado. Quero propor um conteúdo genuíno: a história de como o Clayton (um dos fundadores, mora em Orlando) está usando a Tiee para construir uma carreira com dignidade e previsibilidade financeira. Essa é uma história que a sua audiência vai se identificar.
 
-Eu nao quero um post patrocinado. Quero propor um conteudo genuino: a historia de como um trabalhador imigrante em Orlando esta usando a Tiee para construir uma carreira com dignidade e previsibilidade financeira. Essa e uma historia que a sua audiencia vai se identificar.
+Posso te conectar com o Clayton para uma conversa ou gravação?
 
-Se quiser, posso te conectar com o Clayton (um dos fundadores, mora em Orlando) para uma conversa ou gravacao.
-
-Podemos falar sobre isso?
-
-[Thiagao]
-Tiee | tiee.io | [contato]</div>
+[Thiagão Caetano]
+Tiee | tiee.io</div>
   </div>
 
   <div class="copy-box">
-    <div class="copy-label">Email #4 - Para Midia (Univision, Telemundo, radios)</div>
+    <div class="copy-label">Email #4 – Para Mídia (Univision, Telemundo, rádios)</div>
     <button class="copy-btn" onclick="copyText(this)">Copiar</button>
-    <div class="copy-text">Assunto: Tiee - nova plataforma de servicos para a comunidade hispana de Orlando
+    <div class="copy-text">Assunto: Tiee – nova plataforma de serviços para a comunidade hispana de Orlando
 
-Ola [Jose / Nome],
+Olá José [ou Nome],
 
-Meu nome e [CR/Thiagao] da Tiee, uma plataforma de home services que esta sendo lancada em Orlando no dia 10 de agosto de 2026.
+Meu nome é [Carlos Augusto/Thiagão] da Tiee, uma plataforma de home services sendo lançada em Orlando no dia 10 de agosto de 2026.
 
-A nossa proposta e diferente do que o mercado oferece: construida para atender especificamente trabalhadores imigrantes hispanicos e brasileiros. Aceitamos ITIN (nenhum concorrente faz isso em escala), garantimos o pagamento por escrow, e cobramos apenas quando o servico e concluido.
+Nossa proposta é diferente: construída para atender especificamente trabalhadores imigrantes hispânicos e brasileiros. Aceitamos ITIN (nenhum concorrente faz isso em escala), garantimos o pagamento por escrow, e cobramos apenas quando o serviço é concluído.
 
-Para a comunidade que voce serve, isso e relevante por dois motivos: (1) trabalhadores desta comunidade terao acesso a uma plataforma que respeita a sua realidade legal e financeira, e (2) proprietarios de imoveis de Orlando vao ter acesso a uma rede de prestadores verificados e confiaveis.
+Para a comunidade que vocês servem, isso é relevante: trabalhadores desta comunidade terão acesso a uma plataforma que respeita a sua realidade legal e financeira.
 
-Estaria disponivel para uma conversa nos proximos dias? Podemos discutir oportunidades de parceria e como a Tiee pode ser um recurso valioso para a audiencia de voces.
+Estaria disponível para uma conversa de 15 minutos nos próximos dias?
 
 [Nome]
 Tiee | tiee.io</div>
   </div>
-
 </div>
 
-
 <script>
-// ==================== FIREBASE CONFIG ====================
+// ==================== FIREBASE ====================
 const firebaseConfig = {
   apiKey: "AIzaSyAqkSFuUwdjcE7_EVK2MwbTEe8T_vEaK-w",
   authDomain: "tiee-9e3a8.firebaseapp.com",
@@ -994,210 +915,200 @@ const firebaseConfig = {
   projectId: "tiee-9e3a8",
   storageBucket: "tiee-9e3a8.firebasestorage.app",
   messagingSenderId: "747103013072",
-  appId: "1:747103013072:web:8470695e20baaf803fb6d5",
-  measurementId: "G-NPF340VRTL"
+  appId: "1:747103013072:web:8470695e20baaf803fb6d5"
 };
-
-let db = null;
-let useFirebase = false;
-
+let db = null, useFirebase = false;
 try {
   firebase.initializeApp(firebaseConfig);
   db = firebase.database();
   db.ref('.info/connected').on('value', snap => {
     useFirebase = snap.val() === true;
     const el = document.getElementById('fb-status');
-    if(useFirebase){
-      el.textContent = 'Firebase Ao Vivo';
-      el.className = 'connected';
-    } else {
-      el.textContent = 'Local (offline)';
-      el.className = 'fallback';
-    }
+    if (el) { el.textContent = useFirebase ? 'Firebase Ao Vivo' : 'Local (offline)'; el.className = useFirebase ? 'connected' : 'fallback'; }
   });
-} catch(e) {
-  console.warn('Firebase nao disponivel, usando localStorage:', e);
-}
+} catch(e) { console.warn('Firebase indisponível:', e); }
 
 // ==================== COUNTDOWN ====================
-function updateCountdown(){
-  const launch = new Date('2026-08-10T09:00:00-04:00');
-  const now = new Date();
-  const diff = Math.max(0, Math.floor((launch - now)/(1000*60*60*24)));
-  document.getElementById('days-count').textContent = diff;
+function updateCountdown() {
+  const diff = Math.max(0, Math.floor((new Date('2026-08-10T09:00:00-04:00') - new Date()) / 86400000));
+  const el = document.getElementById('days-count');
+  if (el) el.textContent = diff;
 }
-updateCountdown();
-setInterval(updateCountdown, 60000);
+updateCountdown(); setInterval(updateCountdown, 60000);
 
 // ==================== TABS ====================
-function setTab(name){
+function setTab(btn, name) {
   document.querySelectorAll('.tab-content').forEach(el => el.classList.remove('active'));
   document.querySelectorAll('.tab-btn').forEach(el => el.classList.remove('active'));
-  document.getElementById('tab-'+name).classList.add('active');
-  event.target.classList.add('active');
+  const el = document.getElementById('tab-' + name);
+  if (el) el.classList.add('active');
+  if (btn) btn.classList.add('active');
+}
+
+// ==================== STORAGE ====================
+function getS(key, def) { try { const v = localStorage.getItem(key); return v !== null ? JSON.parse(v) : def; } catch(e) { return def; } }
+function setS(key, val) {
+  try { localStorage.setItem(key, JSON.stringify(val)); } catch(e) {}
+  if (useFirebase && db) db.ref('tiee/' + key.replace(/[.#$\/\[\]]/g,'')).set(val).catch(() => {});
 }
 
 // ==================== TASKS ====================
-function getState(key, def){
-  const local = localStorage.getItem(key);
-  return local !== null ? JSON.parse(local) : def;
-}
-function setState(key, val){
-  localStorage.setItem(key, JSON.stringify(val));
-  if(useFirebase && db) db.ref('dashboard/'+key).set(val);
-}
-
-function saveTask(cb){
+let taskCounter = 100;
+function saveTask(cb) {
   const row = cb.closest('.task-row');
+  if (!row) return;
   const id = row.dataset.id;
   const checked = cb.checked;
-  if(checked) row.classList.add('done'); else row.classList.remove('done');
-  setState('task_'+id, checked);
+  if (checked) row.classList.add('done'); else row.classList.remove('done');
+  setS('task_' + id, checked);
   updateWeekProgress();
 }
-
-function loadTasks(){
+function saveTaskText(el) {
+  const row = el.closest('.task-row');
+  if (!row) return;
+  setS('tasktext_' + row.dataset.id, el.textContent.trim());
+}
+function deleteTask(btn) {
+  const row = btn.closest('.task-row');
+  if (!row) return;
+  if (!confirm('Excluir esta tarefa?')) return;
+  const id = row.dataset.id;
+  setS('task_deleted_' + id, true);
+  row.remove();
+  updateWeekProgress();
+}
+function addTask(btn, weekId) {
+  const container = btn.closest('.add-task-row');
+  const input = container.querySelector('input');
+  const sel = container.querySelector('select');
+  const text = input.value.trim();
+  if (!text) return;
+  const week = document.getElementById(weekId);
+  if (!week) return;
+  taskCounter++;
+  const id = 'custom_' + taskCounter;
+  const ownerClass = sel.value;
+  const ownerLabel = sel.options[sel.selectedIndex].text;
+  const row = document.createElement('div');
+  row.className = 'task-row';
+  row.dataset.id = id;
+  row.innerHTML = `<input type="checkbox" onchange="saveTask(this)"><span class="task-text" contenteditable="true" onblur="saveTaskText(this)">${text}</span><span class="task-owner ${ownerClass}">${ownerLabel}</span><button class="task-del" onclick="deleteTask(this)" title="Excluir">×</button>`;
+  week.appendChild(row);
+  input.value = '';
+  setS('custom_task_' + id, { text, ownerClass, ownerLabel, weekId });
+  updateWeekProgress();
+}
+function loadTasks() {
   document.querySelectorAll('.task-row').forEach(row => {
     const id = row.dataset.id;
-    const val = getState('task_'+id, false);
+    if (getS('task_deleted_' + id, false)) { row.remove(); return; }
+    const checked = getS('task_' + id, false);
     const cb = row.querySelector('input[type=checkbox]');
-    cb.checked = val;
-    if(val) row.classList.add('done'); else row.classList.remove('done');
+    if (cb) { cb.checked = checked; if (checked) row.classList.add('done'); }
+    const savedText = getS('tasktext_' + id, null);
+    const textEl = row.querySelector('.task-text');
+    if (savedText && textEl) textEl.textContent = savedText;
   });
   updateWeekProgress();
 }
-
-function updateWeekProgress(){
-  ['week1','week2','week3','week4','week5'].forEach((wid,i) => {
+function updateWeekProgress() {
+  ['week1','week2','week3','week4','week5'].forEach((wid, i) => {
     const w = document.getElementById(wid);
-    if(!w) return;
-    const all = w.querySelectorAll('.task-row');
-    const done = w.querySelectorAll('.task-row.done');
-    const progEl = document.getElementById('prog-w'+(i+1));
-    if(progEl) progEl.textContent = done.length+'/'+all.length;
-  });
-}
-
-// Sync from Firebase
-function syncFromFirebase(){
-  if(!useFirebase || !db) return;
-  db.ref('dashboard').on('value', snap => {
-    const data = snap.val() || {};
-    Object.entries(data).forEach(([key,val]) => {
-      if(key.startsWith('task_')){
-        const id = key.replace('task_','');
-        const row = document.querySelector('[data-id="'+id+'"]');
-        if(row){
-          const cb = row.querySelector('input[type=checkbox]');
-          if(cb.checked !== val){
-            cb.checked = val;
-            if(val) row.classList.add('done'); else row.classList.remove('done');
-          }
-        }
-        localStorage.setItem(key, JSON.stringify(val));
-      }
-      if(key.startsWith('kpi_')){
-        const name = key.replace('kpi_','');
-        localStorage.setItem(key, JSON.stringify(val));
-        renderKPI(name, val);
-      }
-    });
-    updateWeekProgress();
+    const progEl = document.getElementById('prog-w' + (i + 1));
+    if (!w || !progEl) return;
+    const all = w.querySelectorAll('.task-row').length;
+    const done = w.querySelectorAll('.task-row.done').length;
+    progEl.textContent = done + '/' + all;
   });
 }
 
 // ==================== KPIs ====================
 const kpiCfg = {
-  workers:{max:500,bar:'kpi-workers-bar',val:'kpi-workers-val',fill:'fill-orange'},
-  fps:{max:5000,bar:'kpi-fps-bar',val:'kpi-fps-val',fill:'fill-teal'},
-  val:{max:200,bar:'kpi-val-bar',val:'kpi-val-val',fill:'fill-navy'},
-  jobs:{max:10,bar:'kpi-jobs-bar',val:'kpi-jobs-val',fill:'fill-orange'},
-  inf:{max:10,bar:'kpi-inf-bar',val:'kpi-inf-val',fill:'fill-teal'},
-  b2b:{max:5,bar:'kpi-b2b-bar',val:'kpi-b2b-val',fill:'fill-navy'},
+  workers: { max: 500, bar: 'kpi-workers-bar', val: 'kpi-workers-val', fill: 'fill-orange' },
+  fps:     { max: 5000, bar: 'kpi-fps-bar',    val: 'kpi-fps-val',    fill: 'fill-teal' },
+  jobs:    { max: 10,  bar: 'kpi-jobs-bar',    val: 'kpi-jobs-val',   fill: 'fill-orange' },
+  inf:     { max: 10,  bar: 'kpi-inf-bar',     val: 'kpi-inf-val',    fill: 'fill-teal' },
+  b2b:     { max: 5,   bar: 'kpi-b2b-bar',     val: 'kpi-b2b-val',    fill: 'fill-navy' },
 };
-
-function renderKPI(name, current){
+function renderKPI(name, current) {
   const cfg = kpiCfg[name];
-  if(!cfg) return;
-  const pct = Math.min(100, Math.round(current/cfg.max*100));
+  if (!cfg) return;
+  const pct = Math.min(100, Math.max(0, Math.round(current / cfg.max * 100)));
   const bar = document.getElementById(cfg.bar);
   const valEl = document.getElementById(cfg.val);
-  if(bar) bar.style.width = pct+'%';
-  if(valEl) valEl.textContent = current;
+  if (bar) bar.style.width = pct + '%';
+  if (valEl) valEl.textContent = current;
 }
-
-function updateKPI(name, delta){
-  const current = getState('kpi_'+name, 0) + delta;
-  setState('kpi_'+name, current);
+function updateKPI(name, delta) {
+  const current = Math.max(0, getS('kpi_' + name, 0) + delta);
+  setS('kpi_' + name, current);
   renderKPI(name, current);
 }
-
-function loadKPIs(){
-  Object.keys(kpiCfg).forEach(name => {
-    const val = getState('kpi_'+name, 0);
-    renderKPI(name, val);
-  });
+function setKPIFromInput(name, max) {
+  const inp = document.getElementById('kpi-' + name + '-input');
+  if (!inp) return;
+  const val = Math.min(max, Math.max(0, parseInt(inp.value) || 0));
+  setS('kpi_' + name, val);
+  renderKPI(name, val);
+  inp.value = '';
+}
+function loadKPIs() {
+  Object.keys(kpiCfg).forEach(name => renderKPI(name, getS('kpi_' + name, 0)));
 }
 
 // ==================== INFLUENCIADORES ====================
-const influenciadores = [
-  {n:'Nossa Vida USA',h:'@nvusa',seg:'Vida de imigrante',follow:'80K+',alcance:'200K+',local:'EUA (BR)',why:'Audiencia exata de imigrantes brasileiros recentes',contato:'nvusa@contato / YouTube',pri:1},
-  {n:'Carlinhos Troll',h:'@carlinhostroll',seg:'Humor / Realidade EUA',follow:'500K+',alcance:'1M+',local:'Florida / EUA',why:'Alcance massivo da diaspora brasileira',contato:'YouTube / Instagram',pri:1},
-  {n:'Luis Miranda USA',h:'@luismirandausa',seg:'Financas / Imigrante',follow:'150K+',alcance:'400K+',local:'EUA',why:'Publico trabalhador / financas / autonomo',contato:'YouTube / Instagram',pri:1},
-  {n:'Junior Santos',h:'@juniorsantoseua',seg:'Dicas para imigrantes',follow:'60K+',alcance:'150K+',local:'EUA (BR)',why:'Dicas praticas para quem esta comecar a vida nos EUA',contato:'Instagram / YouTube',pri:1},
-  {n:'Orlando Brasileiro',h:'@orlandobrasileiro',seg:'Comunidade BR em Orlando',follow:'20K+',alcance:'50K+',local:'Orlando',why:'Hiper-local, audiencia exata no mercado-alvo',contato:'Instagram DM',pri:1},
-  {n:'Vida em Orlando',h:'@vidaemorlando',seg:'Vida local Orlando',follow:'15K+',alcance:'40K+',local:'Orlando',why:'Conteudo geografico preciso para Orlando',contato:'Instagram DM',pri:1},
-  {n:'Florida Brasileira',h:'@floridabrasileira',seg:'Vida na Florida',follow:'45K+',alcance:'100K+',local:'Florida',why:'Cobertura estadual com foco em estilo de vida',contato:'Instagram / email bio',pri:2},
-  {n:'Brasileiros na Florida',h:'@brasileirosnaflorida',seg:'Comunidade / Imigrante',follow:'30K+',alcance:'70K+',local:'Florida',why:'Comunidade de imigrantes brasileiros na Florida',contato:'Instagram DM',pri:2},
-  {n:'Handyman Orlando',h:'@handymanorlando',seg:'Home Services',follow:'5K+',alcance:'15K+',local:'Orlando',why:'Micro-influenciador de prestadores locais',contato:'Instagram DM',pri:2},
-  {n:'Contratistas Florida',h:'@contratistasflorida',seg:'Construcao / Latino',follow:'12K+',alcance:'30K+',local:'Florida',why:'Workers latinos em home services na Florida',contato:'Instagram DM',pri:2},
-  {n:'Vida Hispana Orlando',h:'@vidahispanaorlando',seg:'Comunidade Latina',follow:'25K+',alcance:'60K+',local:'Orlando',why:'Comunidade hispanica Orlando - lado demanda e oferta',contato:'Instagram DM',pri:2},
-  {n:'Orlando Hispano',h:'@orlandohispano',seg:'Noticias Locais',follow:'18K+',alcance:'45K+',local:'Orlando',why:'Informativo local para comunidade latina em Orlando',contato:'Website / Instagram',pri:2},
-  {n:'Imigrante no Sucesso',h:'@imigrantesucesso',seg:'Empreendedorismo Imigrante',follow:'35K+',alcance:'80K+',local:'EUA',why:'Focado em autonomos e empreendedores imigrantes',contato:'Instagram / LinkedIn',pri:1},
-  {n:'Trabalhando nos EUA',h:'@trabalhandonoseua',seg:'Mercado de trabalho EUA',follow:'40K+',alcance:'90K+',local:'EUA (BR)',why:'Dicas de como trabalhar autonomo nos EUA',contato:'YouTube / Instagram',pri:1},
-  {n:'Home Services Florida',h:'@homeservicesflorida',seg:'Home Services',follow:'8K+',alcance:'20K+',local:'Florida',why:'Nicho exato do negocio Tiee',contato:'Instagram DM',pri:2},
+let influenciadores = [
+  { nome: 'Carlinhos Troll', handle: '@carlinhostroll', seg: 'Humor / EUA', followers: '2M total', local: 'Orlando', why: 'Maior alcance da diáspora brasileira. Mora em Orlando.', link: 'https://www.instagram.com/carlinhostroll', pri: 1, status: 'Não contatado' },
+  { nome: 'Nossa Vida USA', handle: '@nvusa', seg: 'Vida imigrante', followers: 'N/D', local: 'EUA (BR)', why: 'Audiência direta do público-alvo', link: 'https://www.youtube.com/@nvusa', pri: 1, status: 'Não contatado' },
+  { nome: 'Canal Imigrante USA', handle: '@canaldoimigranteusa', seg: 'Dicas imigrante', followers: 'N/D', local: 'EUA', why: 'Conteúdo prático para imigrantes recentes', link: 'https://www.youtube.com/@canaldoimigranteusa2585', pri: 1, status: 'Não contatado' },
+  { nome: 'Conecta Florida', handle: '@conectaflorida', seg: 'Comunidade BR', followers: 'N/D', local: 'Flórida', why: 'Hiper-local, audiência na Flórida', link: 'https://www.instagram.com/conectaflorida/', pri: 1, status: 'Não contatado' },
+  { nome: 'América Busca', handle: '@americabusca', seg: 'Jobs EUA', followers: 'N/D', local: 'EUA', why: 'Foco em oportunidades de trabalho nos EUA', link: 'https://www.instagram.com/americabusca/', pri: 2, status: 'Não contatado' },
+  { nome: 'CFBACC', handle: '@cfbacc.official', seg: 'Negócios BR', followers: 'N/D', local: 'Orlando', why: 'Câmara Brasileira – rede de negócios Orlando', link: 'https://www.instagram.com/cfbacc.official/', pri: 1, status: 'Não contatado' },
 ];
+const statusOpts = ['Não contatado','Contatado','Respondeu','Negociando','Confirmado','Recusou'];
 
-function renderInfluenciadores(){
+function renderInfluenciadores() {
   const tbody = document.getElementById('inf-tbody');
-  if(!tbody) return;
-  tbody.innerHTML = influenciadores.map((inf,i) => {
-    const statusKey = 'inf_status_'+i;
-    const saved = getState(statusKey,'Nao contatado');
-    return `<tr>
-      <td>${i+1}</td>
-      <td><strong>${inf.n}</strong><br><span style="color:var(--orange);font-size:11px">${inf.h}</span></td>
-      <td>${inf.seg}</td>
-      <td>${inf.follow}</td>
-      <td>${inf.alcance}</td>
+  if (!tbody) return;
+  const saved = getS('influenciadores', null);
+  if (saved) influenciadores = saved;
+  tbody.innerHTML = influenciadores.map((inf, i) => `
+    <tr>
+      <td>${i + 1}</td>
+      <td><strong>${inf.nome}</strong><br><span style="color:var(--orange);font-size:12px">${inf.handle}</span></td>
+      <td><input type="text" value="${inf.seg}" onchange="updateInf(${i},'seg',this.value)" style="min-width:100px"></td>
+      <td>${inf.followers}</td>
       <td>${inf.local}</td>
-      <td style="max-width:200px;font-size:12px">${inf.why}</td>
-      <td style="font-size:11px">${inf.contato}</td>
-      <td><span class="badge ${inf.pri===1?'badge-red':'badge-blue'}">${inf.pri===1?'P1 URGENTE':'P2'}</span></td>
-      <td><select onchange="saveInfStatus(${i},this.value)">
-        <option ${saved==='Nao contatado'?'selected':''}>Nao contatado</option>
-        <option ${saved==='Contatado'?'selected':''}>Contatado</option>
-        <option ${saved==='Respondeu'?'selected':''}>Respondeu</option>
-        <option ${saved==='Negociando'?'selected':''}>Negociando</option>
-        <option ${saved==='Confirmado'?'selected':''}>Confirmado</option>
-        <option ${saved==='Recusou'?'selected':''}>Recusou</option>
-      </select></td>
-    </tr>`;
-  }).join('');
+      <td style="font-size:13px;max-width:180px"><input type="text" value="${inf.why}" onchange="updateInf(${i},'why',this.value)"></td>
+      <td><a href="${inf.link}" target="_blank" style="font-size:12px">🔗 Abrir</a></td>
+      <td><span class="badge ${inf.pri===1?'badge-red':'badge-blue'}">${inf.pri===1?'P1':'P2'}</span></td>
+      <td><select onchange="updateInf(${i},'status',this.value)">${statusOpts.map(o=>`<option ${inf.status===o?'selected':''}>${o}</option>`).join('')}</select></td>
+      <td><button class="del-btn" onclick="deleteInf(${i})">×</button></td>
+    </tr>`).join('');
+}
+function updateInf(i, field, val) {
+  influenciadores[i][field] = val;
+  setS('influenciadores', influenciadores);
+}
+function deleteInf(i) {
+  if (!confirm('Excluir este influenciador?')) return;
+  influenciadores.splice(i, 1);
+  setS('influenciadores', influenciadores);
+  renderInfluenciadores();
+}
+function addInfluenciador() {
+  influenciadores.push({ nome: 'Novo Influenciador', handle: '@handle', seg: 'Segmento', followers: '0', local: 'Orlando', why: 'Motivo do contato', link: 'https://instagram.com', pri: 2, status: 'Não contatado' });
+  setS('influenciadores', influenciadores);
+  renderInfluenciadores();
 }
 
-function saveInfStatus(i, val){
-  setState('inf_status_'+i, val);
-}
-
-// ==================== COPY BUTTONS ====================
-function copyText(btn){
+// ==================== COPY ====================
+function copyText(btn) {
   const box = btn.closest('.copy-box');
   const text = box.querySelector('.copy-text').textContent;
-  navigator.clipboard.writeText(text.trim()).then(()=>{
-    btn.textContent = 'Copiado!';
-    btn.style.background = 'var(--teal)';
-    setTimeout(()=>{ btn.textContent='Copiar'; btn.style.background='var(--navy)'; },2000);
+  navigator.clipboard.writeText(text.trim()).then(() => {
+    btn.textContent = 'Copiado!'; btn.style.background = 'var(--teal)';
+    setTimeout(() => { btn.textContent = 'Copiar'; btn.style.background = 'var(--navy)'; }, 2000);
   });
 }
 
@@ -1206,7 +1117,6 @@ window.addEventListener('DOMContentLoaded', () => {
   loadTasks();
   loadKPIs();
   renderInfluenciadores();
-  syncFromFirebase();
 });
 </script>
 </body>
