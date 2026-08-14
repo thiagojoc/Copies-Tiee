@@ -1,0 +1,1420 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tiee | Mensagens para Lista de Espera</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root {
+  --tiee-neutral-black: #000000;
+  --tiee-neutral-white: #FFFFFF;
+  --tiee-gray-light: #C4C9DA;
+  --tiee-gray-main: #757C94;
+  --tiee-blue-light: #E8EDFF;
+  --tiee-blue-main: #1636A8;
+  --tiee-blue-secondary: #2952E2;
+  --tiee-yellow-main: #FFD954;
+  --tiee-yellow-dark: #F0C633;
+  --tiee-purple-blue-light: #C4D1FF;
+  --tiee-red-main: #F36868;
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  font-family: 'Manrope', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  background: var(--tiee-blue-light);
+  color: var(--tiee-neutral-black);
+  line-height: 1.5;
+  font-size: 14px;
+}
+header.top {
+  background: var(--tiee-neutral-white);
+  border-bottom: 1px solid var(--tiee-gray-light);
+  padding: 14px 24px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  position: sticky;
+  top: 0;
+  z-index: 50;
+}
+header.top .brand {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+}
+header.top .brand svg {
+  display: block;
+  flex-shrink: 0;
+}
+header.top .brand-word {
+  font-size: 19px;
+  font-weight: 700;
+  color: var(--tiee-blue-main);
+  letter-spacing: -0.01em;
+  line-height: 1.1;
+}
+header.top .divider {
+  width: 1px;
+  height: 24px;
+  background: var(--tiee-gray-light);
+  margin: 0 2px;
+}
+header.top .title-block h1 {
+  margin: 0;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--tiee-blue-main);
+}
+header.top .title-block p {
+  margin: 1px 0 0;
+  font-size: 12px;
+  color: var(--tiee-gray-main);
+}
+main {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 20px 16px 56px;
+}
+.rationale {
+  background: var(--tiee-neutral-white);
+  border: 1px solid var(--tiee-gray-light);
+  border-radius: 14px;
+  padding: 18px 22px;
+  margin-bottom: 20px;
+}
+.rationale h2 {
+  color: var(--tiee-blue-main);
+  font-size: 16px;
+  margin: 0 0 8px;
+}
+.rationale p {
+  font-size: 12.5px;
+  color: #2b2b2b;
+  margin: 0 0 8px;
+}
+.rationale p:last-child { margin-bottom: 0; }
+.lang-tabs {
+  display: flex;
+  gap: 6px;
+  margin-bottom: 14px;
+}
+.lang-tab {
+  border: 1px solid var(--tiee-gray-light);
+  background: var(--tiee-neutral-white);
+  color: var(--tiee-gray-main);
+  padding: 7px 16px;
+  border-radius: 999px;
+  font-weight: 700;
+  font-size: 13px;
+  cursor: pointer;
+}
+.lang-tab.active {
+  background: var(--tiee-blue-main);
+  color: var(--tiee-neutral-white);
+  border-color: var(--tiee-blue-main);
+}
+.lang-panel { display: none; }
+.lang-panel.active { display: block; }
+.type-tabs {
+  display: flex;
+  gap: 6px;
+  margin-bottom: 12px;
+  flex-wrap: wrap;
+}
+.type-tab {
+  border: 1px solid var(--tiee-blue-main);
+  background: var(--tiee-neutral-white);
+  color: var(--tiee-blue-main);
+  padding: 6px 14px;
+  border-radius: 8px;
+  font-weight: 700;
+  font-size: 12.5px;
+  cursor: pointer;
+}
+.type-tab.active {
+  background: var(--tiee-blue-main);
+  color: var(--tiee-neutral-white);
+}
+.type-panel { display: none; }
+.type-panel.active { display: block; }
+.audience-tabs {
+  display: flex;
+  gap: 6px;
+  margin-bottom: 12px;
+  flex-wrap: wrap;
+}
+.audience-tab {
+  border: 1px solid var(--tiee-gray-light);
+  background: var(--tiee-blue-light);
+  color: var(--tiee-blue-main);
+  padding: 5px 13px;
+  border-radius: 999px;
+  font-weight: 700;
+  font-size: 12px;
+  cursor: pointer;
+}
+.audience-tab.active {
+  background: var(--tiee-yellow-main);
+  border-color: var(--tiee-yellow-dark);
+  color: #4a3b00;
+}
+.audience-panel { display: none; }
+.audience-panel.active { display: block; }
+.section-note {
+  font-size: 12px;
+  color: var(--tiee-gray-main);
+  margin: 0 0 10px;
+}
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 12px;
+  margin-bottom: 20px;
+}
+.card-grid-3 {
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+}
+.card {
+  background: var(--tiee-neutral-white);
+  border: 1px solid var(--tiee-gray-light);
+  border-radius: 12px;
+  padding: 13px;
+  display: flex;
+  flex-direction: column;
+}
+.card.recommended {
+  border: 2px solid var(--tiee-blue-main);
+  box-shadow: 0 2px 8px rgba(22,54,168,0.10);
+}
+.card-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 6px;
+}
+.card-tag {
+  font-size: 10.5px;
+  font-weight: 800;
+  text-transform: uppercase;
+  color: var(--tiee-blue-main);
+  background: var(--tiee-blue-light);
+  padding: 2px 8px;
+  border-radius: 999px;
+}
+.copy-btn {
+  font-size: 11.5px;
+  font-weight: 700;
+  border: 1px solid var(--tiee-blue-main);
+  background: var(--tiee-neutral-white);
+  color: var(--tiee-blue-main);
+  border-radius: 7px;
+  padding: 4px 10px;
+  cursor: pointer;
+}
+.copy-btn:hover { background: var(--tiee-blue-light); }
+.copy-btn.copied {
+  background: var(--tiee-blue-main);
+  color: var(--tiee-neutral-white);
+}
+.card-subject {
+  font-size: 12px;
+  margin-bottom: 6px;
+  padding-bottom: 6px;
+  border-bottom: 1px dashed var(--tiee-gray-light);
+}
+.card-body {
+  font-size: 12.5px;
+  color: #1b1b1b;
+}
+.hidden-copy {
+  position: absolute;
+  left: -9999px;
+  top: -9999px;
+}
+.comments-block {
+  margin-top: 12px;
+  padding-top: 10px;
+  border-top: 1px dashed var(--tiee-gray-light);
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.comment-field label {
+  display: block;
+  font-size: 10.5px;
+  font-weight: 800;
+  text-transform: uppercase;
+  color: var(--tiee-gray-main);
+  margin-bottom: 3px;
+}
+.comment-box {
+  width: 100%;
+  min-height: 40px;
+  resize: vertical;
+  border: 1px solid var(--tiee-gray-light);
+  border-radius: 8px;
+  padding: 6px 8px;
+  font-family: 'Manrope', sans-serif;
+  font-size: 12px;
+  color: var(--tiee-neutral-black);
+}
+.comment-box:focus {
+  outline: none;
+  border-color: var(--tiee-blue-main);
+}
+.sync-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  background: var(--tiee-blue-light);
+  border: 1px solid var(--tiee-gray-light);
+  padding: 5px 12px;
+  border-radius: 999px;
+  font-size: 11.5px;
+  font-weight: 700;
+  color: var(--tiee-blue-main);
+  margin-left: auto;
+}
+.sync-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--tiee-yellow-dark);
+}
+.sync-dot.ok { background: #2fae66; box-shadow: 0 0 0 3px rgba(47,174,102,.18); }
+.sync-dot.off { background: var(--tiee-red-main); }
+
+footer.bottom {
+  text-align: center;
+  font-size: 11px;
+  color: var(--tiee-gray-main);
+  padding: 18px;
+}
+</style>
+</head>
+<body>
+<header class="top">
+  <div class="brand">
+    <svg width="34" height="34" viewBox="0 0 400 400" fill="none" xmlns="http://www.w3.org/2000/svg" style="border-radius:9px;">
+<rect width="400" height="400" fill="#1636A8"></rect>
+<path d="M101 110C101 103.373 106.373 98 113 98H287C293.627 98 299 103.373 299 110V128C299 134.627 293.627 140 287 140H242C235.373 140 230 145.373 230 152V227C230 233.627 224.627 239 218 239H182C175.373 239 170 233.627 170 227V152C170 145.373 164.627 140 158 140H113C106.373 140 101 134.627 101 128L101 110Z" fill="white"></path>
+<path d="M101 176C101 169.373 106.373 164 113 164H131C137.627 164 143 169.373 143 176V236C143 249.255 153.745 260 167 260H233C246.255 260 257 249.255 257 236V176C257 169.373 262.373 164 269 164H287C293.627 164 299 169.373 299 176V254C299 280.51 277.51 302 251 302H149C122.49 302 101 280.51 101 254V176Z" fill="white"></path>
+</svg>
+    <span class="brand-word">Tiee</span>
+  </div>
+  <div class="divider"></div>
+  <div class="title-block">
+    <h1>Mensagens para Lista de Espera</h1>
+    <p>E-mail e WhatsApp, segmentados por público e idioma</p>
+  </div>
+  <div class="sync-pill"><span class="sync-dot" id="sync-dot"></span><span id="sync-label">conectando...</span></div>
+</header>
+<main>
+  <div class="rationale">
+    
+<h2>Por que essas mensagens foram construídas assim</h2>
+<p>Essa copy segue o manual de marca e o guia de tom de voz da Tiee, com referência em como Uber e Airbnb constroem confiança logo no primeiro contato com o usuário.</p>
+
+
+  </div>
+
+  <div class="lang-tabs">
+    <button class="lang-tab active" data-lang="pt">Português</button><button class="lang-tab" data-lang="en">English</button><button class="lang-tab" data-lang="es">Español</button>
+  </div>
+
+  
+    <div class="lang-panel active" id="panel-pt">
+      <div class="type-tabs"><button class="type-tab active" data-type="email">E-mail de boas vindas</button><button class="type-tab" data-type="wawelcome">WhatsApp de boas vindas</button><button class="type-tab" data-type="wacold">WhatsApp de captação</button></div>
+      <div class="type-panel active" data-type-panel="email"><div class="audience-tabs"><button class="audience-tab active" data-audience="client">Client</button><button class="audience-tab" data-audience="worker">Worker</button><button class="audience-tab" data-audience="both">Worker + Client</button></div><div class="audience-panels"><div class="audience-panel active" data-audience-panel="client"><div class="card-grid">
+    <div class="card recommended" id="pt-email-client-0">
+      <div class="card-head">
+        <span class="card-tag">Recomendada</span>
+        <button class="copy-btn" data-copy-target="pt-email-client-0-text">Copiar</button>
+      </div>
+      <div class="card-subject"><strong>Assunto:</strong> Recebemos seu cadastro, [Nome].</div>
+      <div class="card-body">Olá, {{nome}}.<br><br>Recebemos seu cadastro na nossa lista de espera.<br><br>Contratar um serviço não deveria ser um jogo de sorte. Na Tiee, cada Worker é verificado de verdade, e o pagamento fica protegido até o serviço ser concluído.<br><br>Por ter se cadastrado com antecedência, você vai ser um dos primeiros a ter acesso assim que lançarmos.<br><br>Bem-vindo à comunidade Tiee,<br>Equipe Tiee</div>
+      <textarea class="hidden-copy" id="pt-email-client-0-text">Recebemos seu cadastro, [Nome].
+
+Olá, {{nome}}.
+
+Recebemos seu cadastro na nossa lista de espera.
+
+Contratar um serviço não deveria ser um jogo de sorte. Na Tiee, cada Worker é verificado de verdade, e o pagamento fica protegido até o serviço ser concluído.
+
+Por ter se cadastrado com antecedência, você vai ser um dos primeiros a ter acesso assim que lançarmos.
+
+Bem-vindo à comunidade Tiee,
+Equipe Tiee</textarea>
+      <div class="comments-block"><div class="comment-field"><label>Comentário Carlos</label><textarea class="comment-box" data-key="pt-email-client-0__carlos" placeholder="..."></textarea></div><div class="comment-field"><label>Comentário Clayton</label><textarea class="comment-box" data-key="pt-email-client-0__clayton" placeholder="..."></textarea></div><div class="comment-field"><label>Comentário João</label><textarea class="comment-box" data-key="pt-email-client-0__joao" placeholder="..."></textarea></div></div>
+    </div>
+    <div class="card" id="pt-email-client-1">
+      <div class="card-head">
+        <span class="card-tag">Alternativa</span>
+        <button class="copy-btn" data-copy-target="pt-email-client-1-text">Copiar</button>
+      </div>
+      <div class="card-subject"><strong>Assunto:</strong> Recebemos seu cadastro, [Nome].</div>
+      <div class="card-body">Olá, {{nome}}.<br><br>Recebemos seu cadastro na nossa lista de espera.<br><br>Já contratou alguém e ficou naquela dúvida se tinha escolhido bem? Na Tiee, cada Worker passa por verificação de verdade, e o pagamento só é liberado quando o serviço é concluído.<br><br>Por ter se cadastrado com antecedência, você vai ser um dos primeiros a ter acesso assim que lançarmos.<br><br>Bem-vindo à comunidade Tiee,<br>Equipe Tiee</div>
+      <textarea class="hidden-copy" id="pt-email-client-1-text">Recebemos seu cadastro, [Nome].
+
+Olá, {{nome}}.
+
+Recebemos seu cadastro na nossa lista de espera.
+
+Já contratou alguém e ficou naquela dúvida se tinha escolhido bem? Na Tiee, cada Worker passa por verificação de verdade, e o pagamento só é liberado quando o serviço é concluído.
+
+Por ter se cadastrado com antecedência, você vai ser um dos primeiros a ter acesso assim que lançarmos.
+
+Bem-vindo à comunidade Tiee,
+Equipe Tiee</textarea>
+      <div class="comments-block"><div class="comment-field"><label>Comentário Carlos</label><textarea class="comment-box" data-key="pt-email-client-1__carlos" placeholder="..."></textarea></div><div class="comment-field"><label>Comentário Clayton</label><textarea class="comment-box" data-key="pt-email-client-1__clayton" placeholder="..."></textarea></div><div class="comment-field"><label>Comentário João</label><textarea class="comment-box" data-key="pt-email-client-1__joao" placeholder="..."></textarea></div></div>
+    </div></div></div><div class="audience-panel" data-audience-panel="worker"><div class="card-grid">
+    <div class="card recommended" id="pt-email-worker-0">
+      <div class="card-head">
+        <span class="card-tag">Recomendada</span>
+        <button class="copy-btn" data-copy-target="pt-email-worker-0-text">Copiar</button>
+      </div>
+      <div class="card-subject"><strong>Assunto:</strong> Recebemos seu cadastro, [Nome].</div>
+      <div class="card-body">Recebemos seu cadastro na nossa lista de espera, {{nome}}.<br><br>Sabemos que confiar em um Client novo não é fácil, principalmente quando é você quem vai prestar o serviço. Foi por isso que a Tiee foi criada: para que o Client do outro lado também seja verificado de verdade, e o pagamento fique protegido até o fim do serviço. Pensando em você, Worker, entendemos que a segurança é essencial.<br><br>Sua vaga na lista já está garantida. Por ter se cadastrado com antecedência, você vai ser um dos primeiros a ter acesso assim que lançarmos.<br><br>Se você conhece outro Worker cansado de trabalhar sem nenhuma garantia, essa é a chance dele mudar isso também. Manda pra ele o link da lista.<br><br>Assim que abrirmos oficialmente, te avisaremos por e-mail e WhatsApp, antes de qualquer divulgação pública.<br><br>Bem-vindo à comunidade Tiee,<br>Equipe Tiee</div>
+      <textarea class="hidden-copy" id="pt-email-worker-0-text">Recebemos seu cadastro, [Nome].
+
+Recebemos seu cadastro na nossa lista de espera, {{nome}}.
+
+Sabemos que confiar em um Client novo não é fácil, principalmente quando é você quem vai prestar o serviço. Foi por isso que a Tiee foi criada: para que o Client do outro lado também seja verificado de verdade, e o pagamento fique protegido até o fim do serviço. Pensando em você, Worker, entendemos que a segurança é essencial.
+
+Sua vaga na lista já está garantida. Por ter se cadastrado com antecedência, você vai ser um dos primeiros a ter acesso assim que lançarmos.
+
+Se você conhece outro Worker cansado de trabalhar sem nenhuma garantia, essa é a chance dele mudar isso também. Manda pra ele o link da lista.
+
+Assim que abrirmos oficialmente, te avisaremos por e-mail e WhatsApp, antes de qualquer divulgação pública.
+
+Bem-vindo à comunidade Tiee,
+Equipe Tiee</textarea>
+      <div class="comments-block"><div class="comment-field"><label>Comentário Carlos</label><textarea class="comment-box" data-key="pt-email-worker-0__carlos" placeholder="..."></textarea></div><div class="comment-field"><label>Comentário Clayton</label><textarea class="comment-box" data-key="pt-email-worker-0__clayton" placeholder="..."></textarea></div><div class="comment-field"><label>Comentário João</label><textarea class="comment-box" data-key="pt-email-worker-0__joao" placeholder="..."></textarea></div></div>
+    </div>
+    <div class="card" id="pt-email-worker-1">
+      <div class="card-head">
+        <span class="card-tag">Alternativa</span>
+        <button class="copy-btn" data-copy-target="pt-email-worker-1-text">Copiar</button>
+      </div>
+      <div class="card-subject"><strong>Assunto:</strong> Recebemos seu cadastro, [Nome].</div>
+      <div class="card-body">Recebemos seu cadastro na nossa lista de espera, {{nome}}.<br><br>Conseguir trabalho não devia significar pagar só pra aparecer numa lista, sem saber se o negócio vai fechar. Na Tiee, você não paga por isso, o Client também é verificado de verdade, e o pagamento fica protegido até o fim do serviço.<br><br>Sua vaga na lista já está garantida. Por ter se cadastrado com antecedência, você vai ser um dos primeiros a ter acesso assim que lançarmos.<br><br>Se você conhece outro Worker cansado de trabalhar sem nenhuma garantia, essa é a chance dele mudar isso também. Manda pra ele o link da lista.<br><br>Assim que abrirmos oficialmente, te avisaremos por e-mail e WhatsApp, antes de qualquer divulgação pública.<br><br>Bem-vindo à comunidade Tiee,<br>Equipe Tiee</div>
+      <textarea class="hidden-copy" id="pt-email-worker-1-text">Recebemos seu cadastro, [Nome].
+
+Recebemos seu cadastro na nossa lista de espera, {{nome}}.
+
+Conseguir trabalho não devia significar pagar só pra aparecer numa lista, sem saber se o negócio vai fechar. Na Tiee, você não paga por isso, o Client também é verificado de verdade, e o pagamento fica protegido até o fim do serviço.
+
+Sua vaga na lista já está garantida. Por ter se cadastrado com antecedência, você vai ser um dos primeiros a ter acesso assim que lançarmos.
+
+Se você conhece outro Worker cansado de trabalhar sem nenhuma garantia, essa é a chance dele mudar isso também. Manda pra ele o link da lista.
+
+Assim que abrirmos oficialmente, te avisaremos por e-mail e WhatsApp, antes de qualquer divulgação pública.
+
+Bem-vindo à comunidade Tiee,
+Equipe Tiee</textarea>
+      <div class="comments-block"><div class="comment-field"><label>Comentário Carlos</label><textarea class="comment-box" data-key="pt-email-worker-1__carlos" placeholder="..."></textarea></div><div class="comment-field"><label>Comentário Clayton</label><textarea class="comment-box" data-key="pt-email-worker-1__clayton" placeholder="..."></textarea></div><div class="comment-field"><label>Comentário João</label><textarea class="comment-box" data-key="pt-email-worker-1__joao" placeholder="..."></textarea></div></div>
+    </div></div></div><div class="audience-panel" data-audience-panel="both"><div class="card-grid">
+    <div class="card recommended" id="pt-email-both-0">
+      <div class="card-head">
+        <span class="card-tag">Recomendada</span>
+        <button class="copy-btn" data-copy-target="pt-email-both-0-text">Copiar</button>
+      </div>
+      <div class="card-subject"><strong>Assunto:</strong> Recebemos seu cadastro, [Nome].</div>
+      <div class="card-body">Recebemos seu cadastro na nossa lista de espera, {{nome}}.<br><br>Sabemos que confiar em alguém novo não é fácil, seja você contratando um serviço ou prestando um. Foi por isso que a Tiee foi criada: para que todo mundo, Client e Worker, seja verificado de verdade, e o pagamento fique protegido até o fim do serviço.<br><br>Sua vaga na lista já está garantida. Por ter se cadastrado com antecedência, você vai ser um dos primeiros a ter acesso assim que lançarmos.<br><br>Se conhece alguém, Client ou Worker, cansado de contratar ou trabalhar sem nenhuma garantia, essa é a chance dele mudar isso também. Manda pra ele o link da lista.<br><br>Assim que abrirmos oficialmente, te avisaremos por e-mail e WhatsApp, antes de qualquer divulgação pública.<br><br>Bem-vindo à comunidade Tiee,<br>Equipe Tiee</div>
+      <textarea class="hidden-copy" id="pt-email-both-0-text">Recebemos seu cadastro, [Nome].
+
+Recebemos seu cadastro na nossa lista de espera, {{nome}}.
+
+Sabemos que confiar em alguém novo não é fácil, seja você contratando um serviço ou prestando um. Foi por isso que a Tiee foi criada: para que todo mundo, Client e Worker, seja verificado de verdade, e o pagamento fique protegido até o fim do serviço.
+
+Sua vaga na lista já está garantida. Por ter se cadastrado com antecedência, você vai ser um dos primeiros a ter acesso assim que lançarmos.
+
+Se conhece alguém, Client ou Worker, cansado de contratar ou trabalhar sem nenhuma garantia, essa é a chance dele mudar isso também. Manda pra ele o link da lista.
+
+Assim que abrirmos oficialmente, te avisaremos por e-mail e WhatsApp, antes de qualquer divulgação pública.
+
+Bem-vindo à comunidade Tiee,
+Equipe Tiee</textarea>
+      <div class="comments-block"><div class="comment-field"><label>Comentário Carlos</label><textarea class="comment-box" data-key="pt-email-both-0__carlos" placeholder="..."></textarea></div><div class="comment-field"><label>Comentário Clayton</label><textarea class="comment-box" data-key="pt-email-both-0__clayton" placeholder="..."></textarea></div><div class="comment-field"><label>Comentário João</label><textarea class="comment-box" data-key="pt-email-both-0__joao" placeholder="..."></textarea></div></div>
+    </div>
+    <div class="card" id="pt-email-both-1">
+      <div class="card-head">
+        <span class="card-tag">Alternativa</span>
+        <button class="copy-btn" data-copy-target="pt-email-both-1-text">Copiar</button>
+      </div>
+      <div class="card-subject"><strong>Assunto:</strong> Recebemos seu cadastro, [Nome].</div>
+      <div class="card-body">Recebemos seu cadastro na nossa lista de espera, {{nome}}.<br><br>Seja contratando um serviço ou prestando um, confiar na pessoa do outro lado não deveria ser sorte. Na Tiee, Client e Worker passam pela mesma verificação de verdade, e o pagamento fica protegido até o fim do serviço.<br><br>Sua vaga na lista já está garantida. Por ter se cadastrado com antecedência, você vai ser um dos primeiros a ter acesso assim que lançarmos.<br><br>Se conhece alguém, Client ou Worker, cansado de contratar ou trabalhar sem nenhuma garantia, essa é a chance dele mudar isso também. Manda pra ele o link da lista.<br><br>Assim que abrirmos oficialmente, te avisaremos por e-mail e WhatsApp, antes de qualquer divulgação pública.<br><br>Bem-vindo à comunidade Tiee,<br>Equipe Tiee</div>
+      <textarea class="hidden-copy" id="pt-email-both-1-text">Recebemos seu cadastro, [Nome].
+
+Recebemos seu cadastro na nossa lista de espera, {{nome}}.
+
+Seja contratando um serviço ou prestando um, confiar na pessoa do outro lado não deveria ser sorte. Na Tiee, Client e Worker passam pela mesma verificação de verdade, e o pagamento fica protegido até o fim do serviço.
+
+Sua vaga na lista já está garantida. Por ter se cadastrado com antecedência, você vai ser um dos primeiros a ter acesso assim que lançarmos.
+
+Se conhece alguém, Client ou Worker, cansado de contratar ou trabalhar sem nenhuma garantia, essa é a chance dele mudar isso também. Manda pra ele o link da lista.
+
+Assim que abrirmos oficialmente, te avisaremos por e-mail e WhatsApp, antes de qualquer divulgação pública.
+
+Bem-vindo à comunidade Tiee,
+Equipe Tiee</textarea>
+      <div class="comments-block"><div class="comment-field"><label>Comentário Carlos</label><textarea class="comment-box" data-key="pt-email-both-1__carlos" placeholder="..."></textarea></div><div class="comment-field"><label>Comentário Clayton</label><textarea class="comment-box" data-key="pt-email-both-1__clayton" placeholder="..."></textarea></div><div class="comment-field"><label>Comentário João</label><textarea class="comment-box" data-key="pt-email-both-1__joao" placeholder="..."></textarea></div></div>
+    </div></div></div></div></div>
+      <div class="type-panel" data-type-panel="wawelcome"><div class="audience-tabs"><button class="audience-tab active" data-audience="geral">Geral</button><button class="audience-tab" data-audience="client">Client</button><button class="audience-tab" data-audience="worker">Worker</button><button class="audience-tab" data-audience="both">Worker + Client</button></div><div class="audience-panels"><div class="audience-panel active" data-audience-panel="geral"><div class="card-grid">
+    <div class="card recommended" id="pt-wawelcome-geral-0">
+      <div class="card-head">
+        <span class="card-tag">Recomendada</span>
+        <button class="copy-btn" data-copy-target="pt-wawelcome-geral-0-text">Copiar</button>
+      </div>
+      
+      <div class="card-body">Recebemos seu cadastro na nossa lista de espera, [Nome].<br><br>Estamos chegando em Orlando com uma forma nova de conectar quem precisa de um serviço a quem sabe fazer, com verificação de verdade, segurança e pagamento protegido dos dois lados.<br><br>Por ter se cadastrado com antecedência, você vai ser um dos primeiros a ter acesso assim que lançarmos.<br><br>Bem-vindo à comunidade Tiee.</div>
+      <textarea class="hidden-copy" id="pt-wawelcome-geral-0-text">Recebemos seu cadastro na nossa lista de espera, [Nome].
+
+Estamos chegando em Orlando com uma forma nova de conectar quem precisa de um serviço a quem sabe fazer, com verificação de verdade, segurança e pagamento protegido dos dois lados.
+
+Por ter se cadastrado com antecedência, você vai ser um dos primeiros a ter acesso assim que lançarmos.
+
+Bem-vindo à comunidade Tiee.</textarea>
+      <div class="comments-block"><div class="comment-field"><label>Comentário Carlos</label><textarea class="comment-box" data-key="pt-wawelcome-geral-0__carlos" placeholder="..."></textarea></div><div class="comment-field"><label>Comentário Clayton</label><textarea class="comment-box" data-key="pt-wawelcome-geral-0__clayton" placeholder="..."></textarea></div><div class="comment-field"><label>Comentário João</label><textarea class="comment-box" data-key="pt-wawelcome-geral-0__joao" placeholder="..."></textarea></div></div>
+    </div>
+    <div class="card" id="pt-wawelcome-geral-1">
+      <div class="card-head">
+        <span class="card-tag">Alternativa</span>
+        <button class="copy-btn" data-copy-target="pt-wawelcome-geral-1-text">Copiar</button>
+      </div>
+      
+      <div class="card-body">Recebemos seu cadastro na nossa lista de espera, [Nome].<br><br>Sabemos que encontrar alguém de confiança pra um serviço, ou ser pago de verdade por um trabalho, não deveria depender de sorte. Foi por isso que a Tiee foi criada: verificação de verdade e pagamento protegido para os dois lados.<br><br>Por ter se cadastrado com antecedência, você vai ser um dos primeiros a ter acesso assim que lançarmos.<br><br>Bem-vindo à comunidade Tiee.</div>
+      <textarea class="hidden-copy" id="pt-wawelcome-geral-1-text">Recebemos seu cadastro na nossa lista de espera, [Nome].
+
+Sabemos que encontrar alguém de confiança pra um serviço, ou ser pago de verdade por um trabalho, não deveria depender de sorte. Foi por isso que a Tiee foi criada: verificação de verdade e pagamento protegido para os dois lados.
+
+Por ter se cadastrado com antecedência, você vai ser um dos primeiros a ter acesso assim que lançarmos.
+
+Bem-vindo à comunidade Tiee.</textarea>
+      <div class="comments-block"><div class="comment-field"><label>Comentário Carlos</label><textarea class="comment-box" data-key="pt-wawelcome-geral-1__carlos" placeholder="..."></textarea></div><div class="comment-field"><label>Comentário Clayton</label><textarea class="comment-box" data-key="pt-wawelcome-geral-1__clayton" placeholder="..."></textarea></div><div class="comment-field"><label>Comentário João</label><textarea class="comment-box" data-key="pt-wawelcome-geral-1__joao" placeholder="..."></textarea></div></div>
+    </div></div></div><div class="audience-panel" data-audience-panel="client"><div class="card-grid">
+    <div class="card recommended" id="pt-wawelcome-client-0">
+      <div class="card-head">
+        <span class="card-tag">Recomendada</span>
+        <button class="copy-btn" data-copy-target="pt-wawelcome-client-0-text">Copiar</button>
+      </div>
+      
+      <div class="card-body">Recebemos seu cadastro na nossa lista de espera, [Nome].<br><br>Contratar um serviço não deveria ser um jogo de sorte. Na Tiee, cada Worker é verificado de verdade, e o pagamento fica protegido até o serviço ser concluído.<br><br>Por ter se cadastrado com antecedência, você vai ser um dos primeiros a ter acesso assim que lançarmos.<br><br>Bem-vindo à comunidade Tiee.</div>
+      <textarea class="hidden-copy" id="pt-wawelcome-client-0-text">Recebemos seu cadastro na nossa lista de espera, [Nome].
+
+Contratar um serviço não deveria ser um jogo de sorte. Na Tiee, cada Worker é verificado de verdade, e o pagamento fica protegido até o serviço ser concluído.
+
+Por ter se cadastrado com antecedência, você vai ser um dos primeiros a ter acesso assim que lançarmos.
+
+Bem-vindo à comunidade Tiee.</textarea>
+      <div class="comments-block"><div class="comment-field"><label>Comentário Carlos</label><textarea class="comment-box" data-key="pt-wawelcome-client-0__carlos" placeholder="..."></textarea></div><div class="comment-field"><label>Comentário Clayton</label><textarea class="comment-box" data-key="pt-wawelcome-client-0__clayton" placeholder="..."></textarea></div><div class="comment-field"><label>Comentário João</label><textarea class="comment-box" data-key="pt-wawelcome-client-0__joao" placeholder="..."></textarea></div></div>
+    </div>
+    <div class="card" id="pt-wawelcome-client-1">
+      <div class="card-head">
+        <span class="card-tag">Alternativa</span>
+        <button class="copy-btn" data-copy-target="pt-wawelcome-client-1-text">Copiar</button>
+      </div>
+      
+      <div class="card-body">Recebemos seu cadastro na nossa lista de espera, [Nome].<br><br>Já contratou alguém e ficou naquela dúvida se tinha escolhido bem? Na Tiee, cada Worker passa por verificação de verdade, e o pagamento só é liberado quando o serviço é concluído.<br><br>Por ter se cadastrado com antecedência, você vai ser um dos primeiros a ter acesso assim que lançarmos.<br><br>Bem-vindo à comunidade Tiee.</div>
+      <textarea class="hidden-copy" id="pt-wawelcome-client-1-text">Recebemos seu cadastro na nossa lista de espera, [Nome].
+
+Já contratou alguém e ficou naquela dúvida se tinha escolhido bem? Na Tiee, cada Worker passa por verificação de verdade, e o pagamento só é liberado quando o serviço é concluído.
+
+Por ter se cadastrado com antecedência, você vai ser um dos primeiros a ter acesso assim que lançarmos.
+
+Bem-vindo à comunidade Tiee.</textarea>
+      <div class="comments-block"><div class="comment-field"><label>Comentário Carlos</label><textarea class="comment-box" data-key="pt-wawelcome-client-1__carlos" placeholder="..."></textarea></div><div class="comment-field"><label>Comentário Clayton</label><textarea class="comment-box" data-key="pt-wawelcome-client-1__clayton" placeholder="..."></textarea></div><div class="comment-field"><label>Comentário João</label><textarea class="comment-box" data-key="pt-wawelcome-client-1__joao" placeholder="..."></textarea></div></div>
+    </div></div></div><div class="audience-panel" data-audience-panel="worker"><div class="card-grid">
+    <div class="card recommended" id="pt-wawelcome-worker-0">
+      <div class="card-head">
+        <span class="card-tag">Recomendada</span>
+        <button class="copy-btn" data-copy-target="pt-wawelcome-worker-0-text">Copiar</button>
+      </div>
+      
+      <div class="card-body">Recebemos seu cadastro na nossa lista de espera, [Nome].<br><br>Você não devia precisar confiar às cegas na pessoa do outro lado. Na Tiee, o Client também é verificado de verdade, e o pagamento fica protegido até o fim do serviço.<br><br>Por ter se cadastrado com antecedência, você vai ser um dos primeiros a ter acesso assim que lançarmos.<br><br>Bem-vindo à comunidade Tiee.</div>
+      <textarea class="hidden-copy" id="pt-wawelcome-worker-0-text">Recebemos seu cadastro na nossa lista de espera, [Nome].
+
+Você não devia precisar confiar às cegas na pessoa do outro lado. Na Tiee, o Client também é verificado de verdade, e o pagamento fica protegido até o fim do serviço.
+
+Por ter se cadastrado com antecedência, você vai ser um dos primeiros a ter acesso assim que lançarmos.
+
+Bem-vindo à comunidade Tiee.</textarea>
+      <div class="comments-block"><div class="comment-field"><label>Comentário Carlos</label><textarea class="comment-box" data-key="pt-wawelcome-worker-0__carlos" placeholder="..."></textarea></div><div class="comment-field"><label>Comentário Clayton</label><textarea class="comment-box" data-key="pt-wawelcome-worker-0__clayton" placeholder="..."></textarea></div><div class="comment-field"><label>Comentário João</label><textarea class="comment-box" data-key="pt-wawelcome-worker-0__joao" placeholder="..."></textarea></div></div>
+    </div>
+    <div class="card" id="pt-wawelcome-worker-1">
+      <div class="card-head">
+        <span class="card-tag">Alternativa</span>
+        <button class="copy-btn" data-copy-target="pt-wawelcome-worker-1-text">Copiar</button>
+      </div>
+      
+      <div class="card-body">Recebemos seu cadastro na nossa lista de espera, [Nome].<br><br>Conseguir trabalho não devia significar pagar só pra aparecer numa lista, sem saber se o negócio vai fechar. Na Tiee, você não paga por isso, o Client também é verificado de verdade, e o pagamento fica protegido até o fim do serviço.<br><br>Por ter se cadastrado com antecedência, você vai ser um dos primeiros a ter acesso assim que lançarmos.<br><br>Bem-vindo à comunidade Tiee.</div>
+      <textarea class="hidden-copy" id="pt-wawelcome-worker-1-text">Recebemos seu cadastro na nossa lista de espera, [Nome].
+
+Conseguir trabalho não devia significar pagar só pra aparecer numa lista, sem saber se o negócio vai fechar. Na Tiee, você não paga por isso, o Client também é verificado de verdade, e o pagamento fica protegido até o fim do serviço.
+
+Por ter se cadastrado com antecedência, você vai ser um dos primeiros a ter acesso assim que lançarmos.
+
+Bem-vindo à comunidade Tiee.</textarea>
+      <div class="comments-block"><div class="comment-field"><label>Comentário Carlos</label><textarea class="comment-box" data-key="pt-wawelcome-worker-1__carlos" placeholder="..."></textarea></div><div class="comment-field"><label>Comentário Clayton</label><textarea class="comment-box" data-key="pt-wawelcome-worker-1__clayton" placeholder="..."></textarea></div><div class="comment-field"><label>Comentário João</label><textarea class="comment-box" data-key="pt-wawelcome-worker-1__joao" placeholder="..."></textarea></div></div>
+    </div></div></div><div class="audience-panel" data-audience-panel="both"><div class="card-grid">
+    <div class="card recommended" id="pt-wawelcome-both-0">
+      <div class="card-head">
+        <span class="card-tag">Recomendada</span>
+        <button class="copy-btn" data-copy-target="pt-wawelcome-both-0-text">Copiar</button>
+      </div>
+      
+      <div class="card-body">Recebemos seu cadastro na nossa lista de espera, [Nome].<br><br>Confiar em quem está do outro lado não deveria ser sorte, seja você contratando ou sendo contratado. Na Tiee, todo mundo é verificado de verdade, e o pagamento fica protegido até o fim do serviço.<br><br>Por ter se cadastrado com antecedência, você vai ser um dos primeiros a ter acesso assim que lançarmos.<br><br>Bem-vindo à comunidade Tiee.</div>
+      <textarea class="hidden-copy" id="pt-wawelcome-both-0-text">Recebemos seu cadastro na nossa lista de espera, [Nome].
+
+Confiar em quem está do outro lado não deveria ser sorte, seja você contratando ou sendo contratado. Na Tiee, todo mundo é verificado de verdade, e o pagamento fica protegido até o fim do serviço.
+
+Por ter se cadastrado com antecedência, você vai ser um dos primeiros a ter acesso assim que lançarmos.
+
+Bem-vindo à comunidade Tiee.</textarea>
+      <div class="comments-block"><div class="comment-field"><label>Comentário Carlos</label><textarea class="comment-box" data-key="pt-wawelcome-both-0__carlos" placeholder="..."></textarea></div><div class="comment-field"><label>Comentário Clayton</label><textarea class="comment-box" data-key="pt-wawelcome-both-0__clayton" placeholder="..."></textarea></div><div class="comment-field"><label>Comentário João</label><textarea class="comment-box" data-key="pt-wawelcome-both-0__joao" placeholder="..."></textarea></div></div>
+    </div>
+    <div class="card" id="pt-wawelcome-both-1">
+      <div class="card-head">
+        <span class="card-tag">Alternativa</span>
+        <button class="copy-btn" data-copy-target="pt-wawelcome-both-1-text">Copiar</button>
+      </div>
+      
+      <div class="card-body">Recebemos seu cadastro na nossa lista de espera, [Nome].<br><br>Seja contratando um serviço ou prestando um, confiar na pessoa do outro lado não deveria ser sorte. Na Tiee, Client e Worker passam pela mesma verificação de verdade, e o pagamento fica protegido até o fim do serviço.<br><br>Por ter se cadastrado com antecedência, você vai ser um dos primeiros a ter acesso assim que lançarmos.<br><br>Bem-vindo à comunidade Tiee.</div>
+      <textarea class="hidden-copy" id="pt-wawelcome-both-1-text">Recebemos seu cadastro na nossa lista de espera, [Nome].
+
+Seja contratando um serviço ou prestando um, confiar na pessoa do outro lado não deveria ser sorte. Na Tiee, Client e Worker passam pela mesma verificação de verdade, e o pagamento fica protegido até o fim do serviço.
+
+Por ter se cadastrado com antecedência, você vai ser um dos primeiros a ter acesso assim que lançarmos.
+
+Bem-vindo à comunidade Tiee.</textarea>
+      <div class="comments-block"><div class="comment-field"><label>Comentário Carlos</label><textarea class="comment-box" data-key="pt-wawelcome-both-1__carlos" placeholder="..."></textarea></div><div class="comment-field"><label>Comentário Clayton</label><textarea class="comment-box" data-key="pt-wawelcome-both-1__clayton" placeholder="..."></textarea></div><div class="comment-field"><label>Comentário João</label><textarea class="comment-box" data-key="pt-wawelcome-both-1__joao" placeholder="..."></textarea></div></div>
+    </div></div></div></div></div>
+      <div class="type-panel" data-type-panel="wacold">
+        <div class="card-grid card-grid-3">
+    <div class="card recommended" id="pt-cold-0">
+      <div class="card-head">
+        <span class="card-tag">Recomendada</span>
+        <button class="copy-btn" data-copy-target="pt-cold-0-text">Copiar</button>
+      </div>
+      
+      <div class="card-body">Oi, {{nome}}, tudo bem?<br><br>Aqui é a Tiee.<br><br>Já precisou contratar alguém e ficou com aquela insegurança de não saber se tinha escolhido bem? Ou já aceitou um trabalho e ficou em dúvida se o Client ia cumprir o combinado?<br><br>A Tiee foi criada pensando em como Client e Worker podem se conectar de forma mais segura.<br><br>Estamos chegando em Orlando para ajudar o Client a encontrar um Worker verificado e competente, e para que o Worker tenha segurança em aceitar um serviço, sem precisar pagar para ser visto.<br><br>O pagamento fica protegido e só é liberado quando o serviço é concluído.<br><br>Entre na lista de espera para baixar o app com antecedência e de forma gratuita:<br>[LINK]<br><br>Equipe Tiee</div>
+      <textarea class="hidden-copy" id="pt-cold-0-text">Oi, {{nome}}, tudo bem?
+
+Aqui é a Tiee.
+
+Já precisou contratar alguém e ficou com aquela insegurança de não saber se tinha escolhido bem? Ou já aceitou um trabalho e ficou em dúvida se o Client ia cumprir o combinado?
+
+A Tiee foi criada pensando em como Client e Worker podem se conectar de forma mais segura.
+
+Estamos chegando em Orlando para ajudar o Client a encontrar um Worker verificado e competente, e para que o Worker tenha segurança em aceitar um serviço, sem precisar pagar para ser visto.
+
+O pagamento fica protegido e só é liberado quando o serviço é concluído.
+
+Entre na lista de espera para baixar o app com antecedência e de forma gratuita:
+[LINK]
+
+Equipe Tiee</textarea>
+      <div class="comments-block"><div class="comment-field"><label>Comentário Carlos</label><textarea class="comment-box" data-key="pt-cold-0__carlos" placeholder="..."></textarea></div><div class="comment-field"><label>Comentário Clayton</label><textarea class="comment-box" data-key="pt-cold-0__clayton" placeholder="..."></textarea></div><div class="comment-field"><label>Comentário João</label><textarea class="comment-box" data-key="pt-cold-0__joao" placeholder="..."></textarea></div></div>
+    </div>
+    <div class="card" id="pt-cold-1">
+      <div class="card-head">
+        <span class="card-tag">Alternativa</span>
+        <button class="copy-btn" data-copy-target="pt-cold-1-text">Copiar</button>
+      </div>
+      
+      <div class="card-body">Oi, {{nome}}. Aqui é a Tiee, chegando em Orlando.<br><br>Já contratou alguém que sumiu no meio do serviço? Ou trabalhou e ficou esperando um pagamento que não vinha? Foi pensando nisso que criamos a Tiee.<br><br>Cada profissional passa por verificação real antes de entrar, e o pagamento fica protegido do início ao fim do serviço, para os dois lados.<br><br>A lista de espera é gratuita. Entre para baixar o app com antecedência:<br>[LINK]<br><br>Equipe Tiee</div>
+      <textarea class="hidden-copy" id="pt-cold-1-text">Oi, {{nome}}. Aqui é a Tiee, chegando em Orlando.
+
+Já contratou alguém que sumiu no meio do serviço? Ou trabalhou e ficou esperando um pagamento que não vinha? Foi pensando nisso que criamos a Tiee.
+
+Cada profissional passa por verificação real antes de entrar, e o pagamento fica protegido do início ao fim do serviço, para os dois lados.
+
+A lista de espera é gratuita. Entre para baixar o app com antecedência:
+[LINK]
+
+Equipe Tiee</textarea>
+      <div class="comments-block"><div class="comment-field"><label>Comentário Carlos</label><textarea class="comment-box" data-key="pt-cold-1__carlos" placeholder="..."></textarea></div><div class="comment-field"><label>Comentário Clayton</label><textarea class="comment-box" data-key="pt-cold-1__clayton" placeholder="..."></textarea></div><div class="comment-field"><label>Comentário João</label><textarea class="comment-box" data-key="pt-cold-1__joao" placeholder="..."></textarea></div></div>
+    </div></div>
+      </div>
+    </div>
+    <div class="lang-panel" id="panel-en">
+      <div class="type-tabs"><button class="type-tab active" data-type="email">Welcome email</button><button class="type-tab" data-type="wawelcome">WhatsApp welcome message</button><button class="type-tab" data-type="wacold">Cold WhatsApp outreach</button></div>
+      <div class="type-panel active" data-type-panel="email"><div class="audience-tabs"><button class="audience-tab active" data-audience="client">Client</button><button class="audience-tab" data-audience="worker">Worker</button><button class="audience-tab" data-audience="both">Worker + Client</button></div><div class="audience-panels"><div class="audience-panel active" data-audience-panel="client"><div class="card-grid">
+    <div class="card recommended" id="en-email-client-0">
+      <div class="card-head">
+        <span class="card-tag">Recommended</span>
+        <button class="copy-btn" data-copy-target="en-email-client-0-text">Copy</button>
+      </div>
+      <div class="card-subject"><strong>Subject:</strong> We received your registration, [Name].</div>
+      <div class="card-body">Hello, {{name}}.<br><br>We received your registration on our waitlist.<br><br>Hiring a service should not be a gamble. At Tiee, every Worker is genuinely verified, and payment stays protected until the job is completed.<br><br>Because you signed up early, you will be among the first to get access as soon as we launch.<br><br>Welcome to the Tiee community,<br>Team Tiee</div>
+      <textarea class="hidden-copy" id="en-email-client-0-text">We received your registration, [Name].
+
+Hello, {{name}}.
+
+We received your registration on our waitlist.
+
+Hiring a service should not be a gamble. At Tiee, every Worker is genuinely verified, and payment stays protected until the job is completed.
+
+Because you signed up early, you will be among the first to get access as soon as we launch.
+
+Welcome to the Tiee community,
+Team Tiee</textarea>
+      <div class="comments-block"><div class="comment-field"><label>Carlos comment</label><textarea class="comment-box" data-key="en-email-client-0__carlos" placeholder="..."></textarea></div><div class="comment-field"><label>Clayton comment</label><textarea class="comment-box" data-key="en-email-client-0__clayton" placeholder="..."></textarea></div><div class="comment-field"><label>João comment</label><textarea class="comment-box" data-key="en-email-client-0__joao" placeholder="..."></textarea></div></div>
+    </div>
+    <div class="card" id="en-email-client-1">
+      <div class="card-head">
+        <span class="card-tag">Alternative</span>
+        <button class="copy-btn" data-copy-target="en-email-client-1-text">Copy</button>
+      </div>
+      <div class="card-subject"><strong>Subject:</strong> We received your registration, [Name].</div>
+      <div class="card-body">Hello, {{name}}.<br><br>We received your registration on our waitlist.<br><br>Have you ever hired someone and then wondered if you made the right choice? At Tiee, every Worker goes through real verification, and payment is only released once the job is completed.<br><br>Because you signed up early, you will be among the first to get access as soon as we launch.<br><br>Welcome to the Tiee community,<br>Team Tiee</div>
+      <textarea class="hidden-copy" id="en-email-client-1-text">We received your registration, [Name].
+
+Hello, {{name}}.
+
+We received your registration on our waitlist.
+
+Have you ever hired someone and then wondered if you made the right choice? At Tiee, every Worker goes through real verification, and payment is only released once the job is completed.
+
+Because you signed up early, you will be among the first to get access as soon as we launch.
+
+Welcome to the Tiee community,
+Team Tiee</textarea>
+      <div class="comments-block"><div class="comment-field"><label>Carlos comment</label><textarea class="comment-box" data-key="en-email-client-1__carlos" placeholder="..."></textarea></div><div class="comment-field"><label>Clayton comment</label><textarea class="comment-box" data-key="en-email-client-1__clayton" placeholder="..."></textarea></div><div class="comment-field"><label>João comment</label><textarea class="comment-box" data-key="en-email-client-1__joao" placeholder="..."></textarea></div></div>
+    </div></div></div><div class="audience-panel" data-audience-panel="worker"><div class="card-grid">
+    <div class="card recommended" id="en-email-worker-0">
+      <div class="card-head">
+        <span class="card-tag">Recommended</span>
+        <button class="copy-btn" data-copy-target="en-email-worker-0-text">Copy</button>
+      </div>
+      <div class="card-subject"><strong>Subject:</strong> We received your registration, [Name].</div>
+      <div class="card-body">We received your registration on our waitlist, {{name}}.<br><br>We know trusting a new Client is not easy, especially when you are the one providing the service. That is why Tiee was created: so the Client on the other side is genuinely verified too, and payment stays protected until the job is done. Thinking about you, Worker, we understand security is essential.<br><br>Your spot on the list is already secured. Because you signed up early, you will be among the first to get access as soon as we launch.<br><br>If you know another Worker tired of working with no guarantee at all, this is their chance to change that too. Send them the list link.<br><br>As soon as we officially open, we will notify you by email and WhatsApp, before any public announcement.<br><br>Welcome to the Tiee community,<br>Team Tiee</div>
+      <textarea class="hidden-copy" id="en-email-worker-0-text">We received your registration, [Name].
+
+We received your registration on our waitlist, {{name}}.
+
+We know trusting a new Client is not easy, especially when you are the one providing the service. That is why Tiee was created: so the Client on the other side is genuinely verified too, and payment stays protected until the job is done. Thinking about you, Worker, we understand security is essential.
+
+Your spot on the list is already secured. Because you signed up early, you will be among the first to get access as soon as we launch.
+
+If you know another Worker tired of working with no guarantee at all, this is their chance to change that too. Send them the list link.
+
+As soon as we officially open, we will notify you by email and WhatsApp, before any public announcement.
+
+Welcome to the Tiee community,
+Team Tiee</textarea>
+      <div class="comments-block"><div class="comment-field"><label>Carlos comment</label><textarea class="comment-box" data-key="en-email-worker-0__carlos" placeholder="..."></textarea></div><div class="comment-field"><label>Clayton comment</label><textarea class="comment-box" data-key="en-email-worker-0__clayton" placeholder="..."></textarea></div><div class="comment-field"><label>João comment</label><textarea class="comment-box" data-key="en-email-worker-0__joao" placeholder="..."></textarea></div></div>
+    </div>
+    <div class="card" id="en-email-worker-1">
+      <div class="card-head">
+        <span class="card-tag">Alternative</span>
+        <button class="copy-btn" data-copy-target="en-email-worker-1-text">Copy</button>
+      </div>
+      <div class="card-subject"><strong>Subject:</strong> We received your registration, [Name].</div>
+      <div class="card-body">We received your registration on our waitlist, {{name}}.<br><br>Getting work should not mean paying just to appear on a list, with no idea if the deal will close. At Tiee, you do not pay for that, the Client is genuinely verified too, and payment stays protected until the job is done.<br><br>Your spot on the list is already secured. Because you signed up early, you will be among the first to get access as soon as we launch.<br><br>If you know another Worker tired of working with no guarantee at all, this is their chance to change that too. Send them the list link.<br><br>As soon as we officially open, we will notify you by email and WhatsApp, before any public announcement.<br><br>Welcome to the Tiee community,<br>Team Tiee</div>
+      <textarea class="hidden-copy" id="en-email-worker-1-text">We received your registration, [Name].
+
+We received your registration on our waitlist, {{name}}.
+
+Getting work should not mean paying just to appear on a list, with no idea if the deal will close. At Tiee, you do not pay for that, the Client is genuinely verified too, and payment stays protected until the job is done.
+
+Your spot on the list is already secured. Because you signed up early, you will be among the first to get access as soon as we launch.
+
+If you know another Worker tired of working with no guarantee at all, this is their chance to change that too. Send them the list link.
+
+As soon as we officially open, we will notify you by email and WhatsApp, before any public announcement.
+
+Welcome to the Tiee community,
+Team Tiee</textarea>
+      <div class="comments-block"><div class="comment-field"><label>Carlos comment</label><textarea class="comment-box" data-key="en-email-worker-1__carlos" placeholder="..."></textarea></div><div class="comment-field"><label>Clayton comment</label><textarea class="comment-box" data-key="en-email-worker-1__clayton" placeholder="..."></textarea></div><div class="comment-field"><label>João comment</label><textarea class="comment-box" data-key="en-email-worker-1__joao" placeholder="..."></textarea></div></div>
+    </div></div></div><div class="audience-panel" data-audience-panel="both"><div class="card-grid">
+    <div class="card recommended" id="en-email-both-0">
+      <div class="card-head">
+        <span class="card-tag">Recommended</span>
+        <button class="copy-btn" data-copy-target="en-email-both-0-text">Copy</button>
+      </div>
+      <div class="card-subject"><strong>Subject:</strong> We received your registration, [Name].</div>
+      <div class="card-body">We received your registration on our waitlist, {{name}}.<br><br>We know trusting someone new is not easy, whether you are hiring a service or providing one. That is why Tiee was created: so everyone, Client and Worker, is genuinely verified, and payment stays protected until the job is done.<br><br>Your spot on the list is already secured. Because you signed up early, you will be among the first to get access as soon as we launch.<br><br>If you know someone, a Client or a Worker, tired of hiring or working with no guarantee at all, this is their chance to change that too. Send them the list link.<br><br>As soon as we officially open, we will notify you by email and WhatsApp, before any public announcement.<br><br>Welcome to the Tiee community,<br>Team Tiee</div>
+      <textarea class="hidden-copy" id="en-email-both-0-text">We received your registration, [Name].
+
+We received your registration on our waitlist, {{name}}.
+
+We know trusting someone new is not easy, whether you are hiring a service or providing one. That is why Tiee was created: so everyone, Client and Worker, is genuinely verified, and payment stays protected until the job is done.
+
+Your spot on the list is already secured. Because you signed up early, you will be among the first to get access as soon as we launch.
+
+If you know someone, a Client or a Worker, tired of hiring or working with no guarantee at all, this is their chance to change that too. Send them the list link.
+
+As soon as we officially open, we will notify you by email and WhatsApp, before any public announcement.
+
+Welcome to the Tiee community,
+Team Tiee</textarea>
+      <div class="comments-block"><div class="comment-field"><label>Carlos comment</label><textarea class="comment-box" data-key="en-email-both-0__carlos" placeholder="..."></textarea></div><div class="comment-field"><label>Clayton comment</label><textarea class="comment-box" data-key="en-email-both-0__clayton" placeholder="..."></textarea></div><div class="comment-field"><label>João comment</label><textarea class="comment-box" data-key="en-email-both-0__joao" placeholder="..."></textarea></div></div>
+    </div>
+    <div class="card" id="en-email-both-1">
+      <div class="card-head">
+        <span class="card-tag">Alternative</span>
+        <button class="copy-btn" data-copy-target="en-email-both-1-text">Copy</button>
+      </div>
+      <div class="card-subject"><strong>Subject:</strong> We received your registration, [Name].</div>
+      <div class="card-body">We received your registration on our waitlist, {{name}}.<br><br>Whether you are hiring a service or providing one, trusting the person on the other side should not be luck. At Tiee, Client and Worker go through the same real verification, and payment stays protected until the job is done.<br><br>Your spot on the list is already secured. Because you signed up early, you will be among the first to get access as soon as we launch.<br><br>If you know someone, a Client or a Worker, tired of hiring or working with no guarantee at all, this is their chance to change that too. Send them the list link.<br><br>As soon as we officially open, we will notify you by email and WhatsApp, before any public announcement.<br><br>Welcome to the Tiee community,<br>Team Tiee</div>
+      <textarea class="hidden-copy" id="en-email-both-1-text">We received your registration, [Name].
+
+We received your registration on our waitlist, {{name}}.
+
+Whether you are hiring a service or providing one, trusting the person on the other side should not be luck. At Tiee, Client and Worker go through the same real verification, and payment stays protected until the job is done.
+
+Your spot on the list is already secured. Because you signed up early, you will be among the first to get access as soon as we launch.
+
+If you know someone, a Client or a Worker, tired of hiring or working with no guarantee at all, this is their chance to change that too. Send them the list link.
+
+As soon as we officially open, we will notify you by email and WhatsApp, before any public announcement.
+
+Welcome to the Tiee community,
+Team Tiee</textarea>
+      <div class="comments-block"><div class="comment-field"><label>Carlos comment</label><textarea class="comment-box" data-key="en-email-both-1__carlos" placeholder="..."></textarea></div><div class="comment-field"><label>Clayton comment</label><textarea class="comment-box" data-key="en-email-both-1__clayton" placeholder="..."></textarea></div><div class="comment-field"><label>João comment</label><textarea class="comment-box" data-key="en-email-both-1__joao" placeholder="..."></textarea></div></div>
+    </div></div></div></div></div>
+      <div class="type-panel" data-type-panel="wawelcome"><div class="audience-tabs"><button class="audience-tab active" data-audience="geral">General</button><button class="audience-tab" data-audience="client">Client</button><button class="audience-tab" data-audience="worker">Worker</button><button class="audience-tab" data-audience="both">Worker + Client</button></div><div class="audience-panels"><div class="audience-panel active" data-audience-panel="geral"><div class="card-grid">
+    <div class="card recommended" id="en-wawelcome-geral-0">
+      <div class="card-head">
+        <span class="card-tag">Recommended</span>
+        <button class="copy-btn" data-copy-target="en-wawelcome-geral-0-text">Copy</button>
+      </div>
+      
+      <div class="card-body">We received your registration on our waitlist, [Name].<br><br>We are coming to Orlando with a new way to connect people who need a service with people who know how to do it, with real verification, security, and protected payment on both sides.<br><br>Because you signed up early, you will be among the first to get access as soon as we launch.<br><br>Welcome to the Tiee community.</div>
+      <textarea class="hidden-copy" id="en-wawelcome-geral-0-text">We received your registration on our waitlist, [Name].
+
+We are coming to Orlando with a new way to connect people who need a service with people who know how to do it, with real verification, security, and protected payment on both sides.
+
+Because you signed up early, you will be among the first to get access as soon as we launch.
+
+Welcome to the Tiee community.</textarea>
+      <div class="comments-block"><div class="comment-field"><label>Carlos comment</label><textarea class="comment-box" data-key="en-wawelcome-geral-0__carlos" placeholder="..."></textarea></div><div class="comment-field"><label>Clayton comment</label><textarea class="comment-box" data-key="en-wawelcome-geral-0__clayton" placeholder="..."></textarea></div><div class="comment-field"><label>João comment</label><textarea class="comment-box" data-key="en-wawelcome-geral-0__joao" placeholder="..."></textarea></div></div>
+    </div>
+    <div class="card" id="en-wawelcome-geral-1">
+      <div class="card-head">
+        <span class="card-tag">Alternative</span>
+        <button class="copy-btn" data-copy-target="en-wawelcome-geral-1-text">Copy</button>
+      </div>
+      
+      <div class="card-body">We received your registration on our waitlist, [Name].<br><br>We know finding someone trustworthy for a service, or actually getting paid for a job, should not depend on luck. That is why Tiee was created: real verification and protected payment for both sides.<br><br>Because you signed up early, you will be among the first to get access as soon as we launch.<br><br>Welcome to the Tiee community.</div>
+      <textarea class="hidden-copy" id="en-wawelcome-geral-1-text">We received your registration on our waitlist, [Name].
+
+We know finding someone trustworthy for a service, or actually getting paid for a job, should not depend on luck. That is why Tiee was created: real verification and protected payment for both sides.
+
+Because you signed up early, you will be among the first to get access as soon as we launch.
+
+Welcome to the Tiee community.</textarea>
+      <div class="comments-block"><div class="comment-field"><label>Carlos comment</label><textarea class="comment-box" data-key="en-wawelcome-geral-1__carlos" placeholder="..."></textarea></div><div class="comment-field"><label>Clayton comment</label><textarea class="comment-box" data-key="en-wawelcome-geral-1__clayton" placeholder="..."></textarea></div><div class="comment-field"><label>João comment</label><textarea class="comment-box" data-key="en-wawelcome-geral-1__joao" placeholder="..."></textarea></div></div>
+    </div></div></div><div class="audience-panel" data-audience-panel="client"><div class="card-grid">
+    <div class="card recommended" id="en-wawelcome-client-0">
+      <div class="card-head">
+        <span class="card-tag">Recommended</span>
+        <button class="copy-btn" data-copy-target="en-wawelcome-client-0-text">Copy</button>
+      </div>
+      
+      <div class="card-body">We received your registration on our waitlist, [Name].<br><br>Hiring a service should not be a gamble. At Tiee, every Worker is genuinely verified, and payment stays protected until the job is completed.<br><br>Because you signed up early, you will be among the first to get access as soon as we launch.<br><br>Welcome to the Tiee community.</div>
+      <textarea class="hidden-copy" id="en-wawelcome-client-0-text">We received your registration on our waitlist, [Name].
+
+Hiring a service should not be a gamble. At Tiee, every Worker is genuinely verified, and payment stays protected until the job is completed.
+
+Because you signed up early, you will be among the first to get access as soon as we launch.
+
+Welcome to the Tiee community.</textarea>
+      <div class="comments-block"><div class="comment-field"><label>Carlos comment</label><textarea class="comment-box" data-key="en-wawelcome-client-0__carlos" placeholder="..."></textarea></div><div class="comment-field"><label>Clayton comment</label><textarea class="comment-box" data-key="en-wawelcome-client-0__clayton" placeholder="..."></textarea></div><div class="comment-field"><label>João comment</label><textarea class="comment-box" data-key="en-wawelcome-client-0__joao" placeholder="..."></textarea></div></div>
+    </div>
+    <div class="card" id="en-wawelcome-client-1">
+      <div class="card-head">
+        <span class="card-tag">Alternative</span>
+        <button class="copy-btn" data-copy-target="en-wawelcome-client-1-text">Copy</button>
+      </div>
+      
+      <div class="card-body">We received your registration on our waitlist, [Name].<br><br>Have you ever hired someone and then wondered if you made the right choice? At Tiee, every Worker goes through real verification, and payment is only released once the job is completed.<br><br>Because you signed up early, you will be among the first to get access as soon as we launch.<br><br>Welcome to the Tiee community.</div>
+      <textarea class="hidden-copy" id="en-wawelcome-client-1-text">We received your registration on our waitlist, [Name].
+
+Have you ever hired someone and then wondered if you made the right choice? At Tiee, every Worker goes through real verification, and payment is only released once the job is completed.
+
+Because you signed up early, you will be among the first to get access as soon as we launch.
+
+Welcome to the Tiee community.</textarea>
+      <div class="comments-block"><div class="comment-field"><label>Carlos comment</label><textarea class="comment-box" data-key="en-wawelcome-client-1__carlos" placeholder="..."></textarea></div><div class="comment-field"><label>Clayton comment</label><textarea class="comment-box" data-key="en-wawelcome-client-1__clayton" placeholder="..."></textarea></div><div class="comment-field"><label>João comment</label><textarea class="comment-box" data-key="en-wawelcome-client-1__joao" placeholder="..."></textarea></div></div>
+    </div></div></div><div class="audience-panel" data-audience-panel="worker"><div class="card-grid">
+    <div class="card recommended" id="en-wawelcome-worker-0">
+      <div class="card-head">
+        <span class="card-tag">Recommended</span>
+        <button class="copy-btn" data-copy-target="en-wawelcome-worker-0-text">Copy</button>
+      </div>
+      
+      <div class="card-body">We received your registration on our waitlist, [Name].<br><br>You should not have to blindly trust the person on the other side. At Tiee, the Client is genuinely verified too, and payment stays protected until the job is done.<br><br>Because you signed up early, you will be among the first to get access as soon as we launch.<br><br>Welcome to the Tiee community.</div>
+      <textarea class="hidden-copy" id="en-wawelcome-worker-0-text">We received your registration on our waitlist, [Name].
+
+You should not have to blindly trust the person on the other side. At Tiee, the Client is genuinely verified too, and payment stays protected until the job is done.
+
+Because you signed up early, you will be among the first to get access as soon as we launch.
+
+Welcome to the Tiee community.</textarea>
+      <div class="comments-block"><div class="comment-field"><label>Carlos comment</label><textarea class="comment-box" data-key="en-wawelcome-worker-0__carlos" placeholder="..."></textarea></div><div class="comment-field"><label>Clayton comment</label><textarea class="comment-box" data-key="en-wawelcome-worker-0__clayton" placeholder="..."></textarea></div><div class="comment-field"><label>João comment</label><textarea class="comment-box" data-key="en-wawelcome-worker-0__joao" placeholder="..."></textarea></div></div>
+    </div>
+    <div class="card" id="en-wawelcome-worker-1">
+      <div class="card-head">
+        <span class="card-tag">Alternative</span>
+        <button class="copy-btn" data-copy-target="en-wawelcome-worker-1-text">Copy</button>
+      </div>
+      
+      <div class="card-body">We received your registration on our waitlist, [Name].<br><br>Getting work should not mean paying just to appear on a list, with no idea if the deal will close. At Tiee, you do not pay for that, the Client is genuinely verified too, and payment stays protected until the job is done.<br><br>Because you signed up early, you will be among the first to get access as soon as we launch.<br><br>Welcome to the Tiee community.</div>
+      <textarea class="hidden-copy" id="en-wawelcome-worker-1-text">We received your registration on our waitlist, [Name].
+
+Getting work should not mean paying just to appear on a list, with no idea if the deal will close. At Tiee, you do not pay for that, the Client is genuinely verified too, and payment stays protected until the job is done.
+
+Because you signed up early, you will be among the first to get access as soon as we launch.
+
+Welcome to the Tiee community.</textarea>
+      <div class="comments-block"><div class="comment-field"><label>Carlos comment</label><textarea class="comment-box" data-key="en-wawelcome-worker-1__carlos" placeholder="..."></textarea></div><div class="comment-field"><label>Clayton comment</label><textarea class="comment-box" data-key="en-wawelcome-worker-1__clayton" placeholder="..."></textarea></div><div class="comment-field"><label>João comment</label><textarea class="comment-box" data-key="en-wawelcome-worker-1__joao" placeholder="..."></textarea></div></div>
+    </div></div></div><div class="audience-panel" data-audience-panel="both"><div class="card-grid">
+    <div class="card recommended" id="en-wawelcome-both-0">
+      <div class="card-head">
+        <span class="card-tag">Recommended</span>
+        <button class="copy-btn" data-copy-target="en-wawelcome-both-0-text">Copy</button>
+      </div>
+      
+      <div class="card-body">We received your registration on our waitlist, [Name].<br><br>Trusting the person on the other side should not be luck, whether you are hiring or being hired. At Tiee, everyone is genuinely verified, and payment stays protected until the job is done.<br><br>Because you signed up early, you will be among the first to get access as soon as we launch.<br><br>Welcome to the Tiee community.</div>
+      <textarea class="hidden-copy" id="en-wawelcome-both-0-text">We received your registration on our waitlist, [Name].
+
+Trusting the person on the other side should not be luck, whether you are hiring or being hired. At Tiee, everyone is genuinely verified, and payment stays protected until the job is done.
+
+Because you signed up early, you will be among the first to get access as soon as we launch.
+
+Welcome to the Tiee community.</textarea>
+      <div class="comments-block"><div class="comment-field"><label>Carlos comment</label><textarea class="comment-box" data-key="en-wawelcome-both-0__carlos" placeholder="..."></textarea></div><div class="comment-field"><label>Clayton comment</label><textarea class="comment-box" data-key="en-wawelcome-both-0__clayton" placeholder="..."></textarea></div><div class="comment-field"><label>João comment</label><textarea class="comment-box" data-key="en-wawelcome-both-0__joao" placeholder="..."></textarea></div></div>
+    </div>
+    <div class="card" id="en-wawelcome-both-1">
+      <div class="card-head">
+        <span class="card-tag">Alternative</span>
+        <button class="copy-btn" data-copy-target="en-wawelcome-both-1-text">Copy</button>
+      </div>
+      
+      <div class="card-body">We received your registration on our waitlist, [Name].<br><br>Whether you are hiring a service or providing one, trusting the person on the other side should not be luck. At Tiee, Client and Worker go through the same real verification, and payment stays protected until the job is done.<br><br>Because you signed up early, you will be among the first to get access as soon as we launch.<br><br>Welcome to the Tiee community.</div>
+      <textarea class="hidden-copy" id="en-wawelcome-both-1-text">We received your registration on our waitlist, [Name].
+
+Whether you are hiring a service or providing one, trusting the person on the other side should not be luck. At Tiee, Client and Worker go through the same real verification, and payment stays protected until the job is done.
+
+Because you signed up early, you will be among the first to get access as soon as we launch.
+
+Welcome to the Tiee community.</textarea>
+      <div class="comments-block"><div class="comment-field"><label>Carlos comment</label><textarea class="comment-box" data-key="en-wawelcome-both-1__carlos" placeholder="..."></textarea></div><div class="comment-field"><label>Clayton comment</label><textarea class="comment-box" data-key="en-wawelcome-both-1__clayton" placeholder="..."></textarea></div><div class="comment-field"><label>João comment</label><textarea class="comment-box" data-key="en-wawelcome-both-1__joao" placeholder="..."></textarea></div></div>
+    </div></div></div></div></div>
+      <div class="type-panel" data-type-panel="wacold">
+        <div class="card-grid card-grid-3">
+    <div class="card recommended" id="en-cold-0">
+      <div class="card-head">
+        <span class="card-tag">Recommended</span>
+        <button class="copy-btn" data-copy-target="en-cold-0-text">Copy</button>
+      </div>
+      
+      <div class="card-body">Hi, {{name}}, how are you?<br><br>This is Tiee.<br><br>Have you ever had to hire someone and felt that uncertainty of not knowing if you chose well? Or accepted a job and wondered if the Client would actually follow through?<br><br>Tiee was built around one idea: how Client and Worker can connect more safely.<br><br>We are coming to Orlando to help Clients find a genuinely verified, capable Worker, and to give Workers the confidence to accept a job without paying just to be seen.<br><br>Payment stays protected and is only released once the job is completed.<br><br>Join the waitlist to download the app early, for free:<br>[LINK]<br><br>Team Tiee</div>
+      <textarea class="hidden-copy" id="en-cold-0-text">Hi, {{name}}, how are you?
+
+This is Tiee.
+
+Have you ever had to hire someone and felt that uncertainty of not knowing if you chose well? Or accepted a job and wondered if the Client would actually follow through?
+
+Tiee was built around one idea: how Client and Worker can connect more safely.
+
+We are coming to Orlando to help Clients find a genuinely verified, capable Worker, and to give Workers the confidence to accept a job without paying just to be seen.
+
+Payment stays protected and is only released once the job is completed.
+
+Join the waitlist to download the app early, for free:
+[LINK]
+
+Team Tiee</textarea>
+      <div class="comments-block"><div class="comment-field"><label>Carlos comment</label><textarea class="comment-box" data-key="en-cold-0__carlos" placeholder="..."></textarea></div><div class="comment-field"><label>Clayton comment</label><textarea class="comment-box" data-key="en-cold-0__clayton" placeholder="..."></textarea></div><div class="comment-field"><label>João comment</label><textarea class="comment-box" data-key="en-cold-0__joao" placeholder="..."></textarea></div></div>
+    </div>
+    <div class="card" id="en-cold-1">
+      <div class="card-head">
+        <span class="card-tag">Alternative</span>
+        <button class="copy-btn" data-copy-target="en-cold-1-text">Copy</button>
+      </div>
+      
+      <div class="card-body">Hi, {{name}}. This is Tiee, coming to Orlando.<br><br>Have you ever hired someone who disappeared mid-job? Or worked and waited for a payment that never came? That is exactly why we created Tiee.<br><br>Every professional goes through real verification before joining, and payment stays protected from start to finish, for both sides.<br><br>The waitlist is free. Join to download the app early:<br>[LINK]<br><br>Team Tiee</div>
+      <textarea class="hidden-copy" id="en-cold-1-text">Hi, {{name}}. This is Tiee, coming to Orlando.
+
+Have you ever hired someone who disappeared mid-job? Or worked and waited for a payment that never came? That is exactly why we created Tiee.
+
+Every professional goes through real verification before joining, and payment stays protected from start to finish, for both sides.
+
+The waitlist is free. Join to download the app early:
+[LINK]
+
+Team Tiee</textarea>
+      <div class="comments-block"><div class="comment-field"><label>Carlos comment</label><textarea class="comment-box" data-key="en-cold-1__carlos" placeholder="..."></textarea></div><div class="comment-field"><label>Clayton comment</label><textarea class="comment-box" data-key="en-cold-1__clayton" placeholder="..."></textarea></div><div class="comment-field"><label>João comment</label><textarea class="comment-box" data-key="en-cold-1__joao" placeholder="..."></textarea></div></div>
+    </div></div>
+      </div>
+    </div>
+    <div class="lang-panel" id="panel-es">
+      <div class="type-tabs"><button class="type-tab active" data-type="email">Correo de bienvenida</button><button class="type-tab" data-type="wawelcome">WhatsApp de bienvenida</button><button class="type-tab" data-type="wacold">WhatsApp de captación</button></div>
+      <div class="type-panel active" data-type-panel="email"><div class="audience-tabs"><button class="audience-tab active" data-audience="client">Client</button><button class="audience-tab" data-audience="worker">Worker</button><button class="audience-tab" data-audience="both">Worker + Client</button></div><div class="audience-panels"><div class="audience-panel active" data-audience-panel="client"><div class="card-grid">
+    <div class="card recommended" id="es-email-client-0">
+      <div class="card-head">
+        <span class="card-tag">Recomendada</span>
+        <button class="copy-btn" data-copy-target="es-email-client-0-text">Copiar</button>
+      </div>
+      <div class="card-subject"><strong>Asunto:</strong> Recibimos tu registro, [Nombre].</div>
+      <div class="card-body">Hola, {{nombre}}.<br><br>Recibimos tu registro en nuestra lista de espera.<br><br>Contratar un servicio no debería ser cuestión de suerte. En Tiee, cada Worker está verificado de verdad, y el pago queda protegido hasta que el servicio se complete.<br><br>Por haberte registrado con anticipación, serás de los primeros en tener acceso apenas lancemos.<br><br>Bienvenido a la comunidad Tiee,<br>Equipo Tiee</div>
+      <textarea class="hidden-copy" id="es-email-client-0-text">Recibimos tu registro, [Nombre].
+
+Hola, {{nombre}}.
+
+Recibimos tu registro en nuestra lista de espera.
+
+Contratar un servicio no debería ser cuestión de suerte. En Tiee, cada Worker está verificado de verdad, y el pago queda protegido hasta que el servicio se complete.
+
+Por haberte registrado con anticipación, serás de los primeros en tener acceso apenas lancemos.
+
+Bienvenido a la comunidad Tiee,
+Equipo Tiee</textarea>
+      <div class="comments-block"><div class="comment-field"><label>Comentario Carlos</label><textarea class="comment-box" data-key="es-email-client-0__carlos" placeholder="..."></textarea></div><div class="comment-field"><label>Comentario Clayton</label><textarea class="comment-box" data-key="es-email-client-0__clayton" placeholder="..."></textarea></div><div class="comment-field"><label>Comentario João</label><textarea class="comment-box" data-key="es-email-client-0__joao" placeholder="..."></textarea></div></div>
+    </div>
+    <div class="card" id="es-email-client-1">
+      <div class="card-head">
+        <span class="card-tag">Alternativa</span>
+        <button class="copy-btn" data-copy-target="es-email-client-1-text">Copiar</button>
+      </div>
+      <div class="card-subject"><strong>Asunto:</strong> Recibimos tu registro, [Nombre].</div>
+      <div class="card-body">Hola, {{nombre}}.<br><br>Recibimos tu registro en nuestra lista de espera.<br><br>¿Alguna vez contrataste a alguien y te quedaste con la duda de si habías elegido bien? En Tiee, cada Worker pasa por una verificación real, y el pago solo se libera cuando el servicio se completa.<br><br>Por haberte registrado con anticipación, serás de los primeros en tener acceso apenas lancemos.<br><br>Bienvenido a la comunidad Tiee,<br>Equipo Tiee</div>
+      <textarea class="hidden-copy" id="es-email-client-1-text">Recibimos tu registro, [Nombre].
+
+Hola, {{nombre}}.
+
+Recibimos tu registro en nuestra lista de espera.
+
+¿Alguna vez contrataste a alguien y te quedaste con la duda de si habías elegido bien? En Tiee, cada Worker pasa por una verificación real, y el pago solo se libera cuando el servicio se completa.
+
+Por haberte registrado con anticipación, serás de los primeros en tener acceso apenas lancemos.
+
+Bienvenido a la comunidad Tiee,
+Equipo Tiee</textarea>
+      <div class="comments-block"><div class="comment-field"><label>Comentario Carlos</label><textarea class="comment-box" data-key="es-email-client-1__carlos" placeholder="..."></textarea></div><div class="comment-field"><label>Comentario Clayton</label><textarea class="comment-box" data-key="es-email-client-1__clayton" placeholder="..."></textarea></div><div class="comment-field"><label>Comentario João</label><textarea class="comment-box" data-key="es-email-client-1__joao" placeholder="..."></textarea></div></div>
+    </div></div></div><div class="audience-panel" data-audience-panel="worker"><div class="card-grid">
+    <div class="card recommended" id="es-email-worker-0">
+      <div class="card-head">
+        <span class="card-tag">Recomendada</span>
+        <button class="copy-btn" data-copy-target="es-email-worker-0-text">Copiar</button>
+      </div>
+      <div class="card-subject"><strong>Asunto:</strong> Recibimos tu registro, [Nombre].</div>
+      <div class="card-body">Recibimos tu registro en nuestra lista de espera, {{nombre}}.<br><br>Sabemos que confiar en un Client nuevo no es fácil, sobre todo cuando eres tú quien va a prestar el servicio. Por eso creamos Tiee: para que el Client del otro lado también esté verificado de verdad, y el pago quede protegido hasta el final del servicio. Pensando en ti, Worker, entendemos que la seguridad es esencial.<br><br>Tu lugar en la lista ya está asegurado. Por haberte registrado con anticipación, serás de los primeros en tener acceso apenas lancemos.<br><br>Si conoces a otro Worker cansado de trabajar sin ninguna garantía, esta es su oportunidad de cambiar eso también. Mándale el link de la lista.<br><br>Apenas abramos oficialmente, te avisaremos por correo y WhatsApp, antes de cualquier anuncio público.<br><br>Bienvenido a la comunidad Tiee,<br>Equipo Tiee</div>
+      <textarea class="hidden-copy" id="es-email-worker-0-text">Recibimos tu registro, [Nombre].
+
+Recibimos tu registro en nuestra lista de espera, {{nombre}}.
+
+Sabemos que confiar en un Client nuevo no es fácil, sobre todo cuando eres tú quien va a prestar el servicio. Por eso creamos Tiee: para que el Client del otro lado también esté verificado de verdad, y el pago quede protegido hasta el final del servicio. Pensando en ti, Worker, entendemos que la seguridad es esencial.
+
+Tu lugar en la lista ya está asegurado. Por haberte registrado con anticipación, serás de los primeros en tener acceso apenas lancemos.
+
+Si conoces a otro Worker cansado de trabajar sin ninguna garantía, esta es su oportunidad de cambiar eso también. Mándale el link de la lista.
+
+Apenas abramos oficialmente, te avisaremos por correo y WhatsApp, antes de cualquier anuncio público.
+
+Bienvenido a la comunidad Tiee,
+Equipo Tiee</textarea>
+      <div class="comments-block"><div class="comment-field"><label>Comentario Carlos</label><textarea class="comment-box" data-key="es-email-worker-0__carlos" placeholder="..."></textarea></div><div class="comment-field"><label>Comentario Clayton</label><textarea class="comment-box" data-key="es-email-worker-0__clayton" placeholder="..."></textarea></div><div class="comment-field"><label>Comentario João</label><textarea class="comment-box" data-key="es-email-worker-0__joao" placeholder="..."></textarea></div></div>
+    </div>
+    <div class="card" id="es-email-worker-1">
+      <div class="card-head">
+        <span class="card-tag">Alternativa</span>
+        <button class="copy-btn" data-copy-target="es-email-worker-1-text">Copiar</button>
+      </div>
+      <div class="card-subject"><strong>Asunto:</strong> Recibimos tu registro, [Nombre].</div>
+      <div class="card-body">Recibimos tu registro en nuestra lista de espera, {{nombre}}.<br><br>Conseguir trabajo no debería significar pagar solo para aparecer en una lista, sin saber si el negocio se va a cerrar. En Tiee no pagas por eso, el Client también está verificado de verdad, y el pago queda protegido hasta el final del servicio.<br><br>Tu lugar en la lista ya está asegurado. Por haberte registrado con anticipación, serás de los primeros en tener acceso apenas lancemos.<br><br>Si conoces a otro Worker cansado de trabajar sin ninguna garantía, esta es su oportunidad de cambiar eso también. Mándale el link de la lista.<br><br>Apenas abramos oficialmente, te avisaremos por correo y WhatsApp, antes de cualquier anuncio público.<br><br>Bienvenido a la comunidad Tiee,<br>Equipo Tiee</div>
+      <textarea class="hidden-copy" id="es-email-worker-1-text">Recibimos tu registro, [Nombre].
+
+Recibimos tu registro en nuestra lista de espera, {{nombre}}.
+
+Conseguir trabajo no debería significar pagar solo para aparecer en una lista, sin saber si el negocio se va a cerrar. En Tiee no pagas por eso, el Client también está verificado de verdad, y el pago queda protegido hasta el final del servicio.
+
+Tu lugar en la lista ya está asegurado. Por haberte registrado con anticipación, serás de los primeros en tener acceso apenas lancemos.
+
+Si conoces a otro Worker cansado de trabajar sin ninguna garantía, esta es su oportunidad de cambiar eso también. Mándale el link de la lista.
+
+Apenas abramos oficialmente, te avisaremos por correo y WhatsApp, antes de cualquier anuncio público.
+
+Bienvenido a la comunidad Tiee,
+Equipo Tiee</textarea>
+      <div class="comments-block"><div class="comment-field"><label>Comentario Carlos</label><textarea class="comment-box" data-key="es-email-worker-1__carlos" placeholder="..."></textarea></div><div class="comment-field"><label>Comentario Clayton</label><textarea class="comment-box" data-key="es-email-worker-1__clayton" placeholder="..."></textarea></div><div class="comment-field"><label>Comentario João</label><textarea class="comment-box" data-key="es-email-worker-1__joao" placeholder="..."></textarea></div></div>
+    </div></div></div><div class="audience-panel" data-audience-panel="both"><div class="card-grid">
+    <div class="card recommended" id="es-email-both-0">
+      <div class="card-head">
+        <span class="card-tag">Recomendada</span>
+        <button class="copy-btn" data-copy-target="es-email-both-0-text">Copiar</button>
+      </div>
+      <div class="card-subject"><strong>Asunto:</strong> Recibimos tu registro, [Nombre].</div>
+      <div class="card-body">Recibimos tu registro en nuestra lista de espera, {{nombre}}.<br><br>Sabemos que confiar en alguien nuevo no es fácil, ya sea que estés contratando un servicio o prestándolo. Por eso creamos Tiee: para que todos, Client y Worker, estén verificados de verdad, y el pago quede protegido hasta el final del servicio.<br><br>Tu lugar en la lista ya está asegurado. Por haberte registrado con anticipación, serás de los primeros en tener acceso apenas lancemos.<br><br>Si conoces a alguien, Client o Worker, cansado de contratar o trabajar sin ninguna garantía, esta es su oportunidad de cambiar eso también. Mándale el link de la lista.<br><br>Apenas abramos oficialmente, te avisaremos por correo y WhatsApp, antes de cualquier anuncio público.<br><br>Bienvenido a la comunidad Tiee,<br>Equipo Tiee</div>
+      <textarea class="hidden-copy" id="es-email-both-0-text">Recibimos tu registro, [Nombre].
+
+Recibimos tu registro en nuestra lista de espera, {{nombre}}.
+
+Sabemos que confiar en alguien nuevo no es fácil, ya sea que estés contratando un servicio o prestándolo. Por eso creamos Tiee: para que todos, Client y Worker, estén verificados de verdad, y el pago quede protegido hasta el final del servicio.
+
+Tu lugar en la lista ya está asegurado. Por haberte registrado con anticipación, serás de los primeros en tener acceso apenas lancemos.
+
+Si conoces a alguien, Client o Worker, cansado de contratar o trabajar sin ninguna garantía, esta es su oportunidad de cambiar eso también. Mándale el link de la lista.
+
+Apenas abramos oficialmente, te avisaremos por correo y WhatsApp, antes de cualquier anuncio público.
+
+Bienvenido a la comunidad Tiee,
+Equipo Tiee</textarea>
+      <div class="comments-block"><div class="comment-field"><label>Comentario Carlos</label><textarea class="comment-box" data-key="es-email-both-0__carlos" placeholder="..."></textarea></div><div class="comment-field"><label>Comentario Clayton</label><textarea class="comment-box" data-key="es-email-both-0__clayton" placeholder="..."></textarea></div><div class="comment-field"><label>Comentario João</label><textarea class="comment-box" data-key="es-email-both-0__joao" placeholder="..."></textarea></div></div>
+    </div>
+    <div class="card" id="es-email-both-1">
+      <div class="card-head">
+        <span class="card-tag">Alternativa</span>
+        <button class="copy-btn" data-copy-target="es-email-both-1-text">Copiar</button>
+      </div>
+      <div class="card-subject"><strong>Asunto:</strong> Recibimos tu registro, [Nombre].</div>
+      <div class="card-body">Recibimos tu registro en nuestra lista de espera, {{nombre}}.<br><br>Ya sea que estés contratando un servicio o prestándolo, confiar en la persona del otro lado no debería ser suerte. En Tiee, Client y Worker pasan por la misma verificación real, y el pago queda protegido hasta el final del servicio.<br><br>Tu lugar en la lista ya está asegurado. Por haberte registrado con anticipación, serás de los primeros en tener acceso apenas lancemos.<br><br>Si conoces a alguien, Client o Worker, cansado de contratar o trabajar sin ninguna garantía, esta es su oportunidad de cambiar eso también. Mándale el link de la lista.<br><br>Apenas abramos oficialmente, te avisaremos por correo y WhatsApp, antes de cualquier anuncio público.<br><br>Bienvenido a la comunidad Tiee,<br>Equipo Tiee</div>
+      <textarea class="hidden-copy" id="es-email-both-1-text">Recibimos tu registro, [Nombre].
+
+Recibimos tu registro en nuestra lista de espera, {{nombre}}.
+
+Ya sea que estés contratando un servicio o prestándolo, confiar en la persona del otro lado no debería ser suerte. En Tiee, Client y Worker pasan por la misma verificación real, y el pago queda protegido hasta el final del servicio.
+
+Tu lugar en la lista ya está asegurado. Por haberte registrado con anticipación, serás de los primeros en tener acceso apenas lancemos.
+
+Si conoces a alguien, Client o Worker, cansado de contratar o trabajar sin ninguna garantía, esta es su oportunidad de cambiar eso también. Mándale el link de la lista.
+
+Apenas abramos oficialmente, te avisaremos por correo y WhatsApp, antes de cualquier anuncio público.
+
+Bienvenido a la comunidad Tiee,
+Equipo Tiee</textarea>
+      <div class="comments-block"><div class="comment-field"><label>Comentario Carlos</label><textarea class="comment-box" data-key="es-email-both-1__carlos" placeholder="..."></textarea></div><div class="comment-field"><label>Comentario Clayton</label><textarea class="comment-box" data-key="es-email-both-1__clayton" placeholder="..."></textarea></div><div class="comment-field"><label>Comentario João</label><textarea class="comment-box" data-key="es-email-both-1__joao" placeholder="..."></textarea></div></div>
+    </div></div></div></div></div>
+      <div class="type-panel" data-type-panel="wawelcome"><div class="audience-tabs"><button class="audience-tab active" data-audience="geral">General</button><button class="audience-tab" data-audience="client">Client</button><button class="audience-tab" data-audience="worker">Worker</button><button class="audience-tab" data-audience="both">Worker + Client</button></div><div class="audience-panels"><div class="audience-panel active" data-audience-panel="geral"><div class="card-grid">
+    <div class="card recommended" id="es-wawelcome-geral-0">
+      <div class="card-head">
+        <span class="card-tag">Recomendada</span>
+        <button class="copy-btn" data-copy-target="es-wawelcome-geral-0-text">Copiar</button>
+      </div>
+      
+      <div class="card-body">Recibimos tu registro en nuestra lista de espera, [Nombre].<br><br>Estamos llegando a Orlando con una nueva forma de conectar a quien necesita un servicio con quien sabe hacerlo, con verificación real, seguridad y pago protegido para los dos lados.<br><br>Por haberte registrado con anticipación, serás de los primeros en tener acceso apenas lancemos.<br><br>Bienvenido a la comunidad Tiee.</div>
+      <textarea class="hidden-copy" id="es-wawelcome-geral-0-text">Recibimos tu registro en nuestra lista de espera, [Nombre].
+
+Estamos llegando a Orlando con una nueva forma de conectar a quien necesita un servicio con quien sabe hacerlo, con verificación real, seguridad y pago protegido para los dos lados.
+
+Por haberte registrado con anticipación, serás de los primeros en tener acceso apenas lancemos.
+
+Bienvenido a la comunidad Tiee.</textarea>
+      <div class="comments-block"><div class="comment-field"><label>Comentario Carlos</label><textarea class="comment-box" data-key="es-wawelcome-geral-0__carlos" placeholder="..."></textarea></div><div class="comment-field"><label>Comentario Clayton</label><textarea class="comment-box" data-key="es-wawelcome-geral-0__clayton" placeholder="..."></textarea></div><div class="comment-field"><label>Comentario João</label><textarea class="comment-box" data-key="es-wawelcome-geral-0__joao" placeholder="..."></textarea></div></div>
+    </div>
+    <div class="card" id="es-wawelcome-geral-1">
+      <div class="card-head">
+        <span class="card-tag">Alternativa</span>
+        <button class="copy-btn" data-copy-target="es-wawelcome-geral-1-text">Copiar</button>
+      </div>
+      
+      <div class="card-body">Recibimos tu registro en nuestra lista de espera, [Nombre].<br><br>Sabemos que encontrar a alguien de confianza para un servicio, o que te paguen de verdad por un trabajo, no debería depender de la suerte. Por eso creamos Tiee: verificación real y pago protegido para los dos lados.<br><br>Por haberte registrado con anticipación, serás de los primeros en tener acceso apenas lancemos.<br><br>Bienvenido a la comunidad Tiee.</div>
+      <textarea class="hidden-copy" id="es-wawelcome-geral-1-text">Recibimos tu registro en nuestra lista de espera, [Nombre].
+
+Sabemos que encontrar a alguien de confianza para un servicio, o que te paguen de verdad por un trabajo, no debería depender de la suerte. Por eso creamos Tiee: verificación real y pago protegido para los dos lados.
+
+Por haberte registrado con anticipación, serás de los primeros en tener acceso apenas lancemos.
+
+Bienvenido a la comunidad Tiee.</textarea>
+      <div class="comments-block"><div class="comment-field"><label>Comentario Carlos</label><textarea class="comment-box" data-key="es-wawelcome-geral-1__carlos" placeholder="..."></textarea></div><div class="comment-field"><label>Comentario Clayton</label><textarea class="comment-box" data-key="es-wawelcome-geral-1__clayton" placeholder="..."></textarea></div><div class="comment-field"><label>Comentario João</label><textarea class="comment-box" data-key="es-wawelcome-geral-1__joao" placeholder="..."></textarea></div></div>
+    </div></div></div><div class="audience-panel" data-audience-panel="client"><div class="card-grid">
+    <div class="card recommended" id="es-wawelcome-client-0">
+      <div class="card-head">
+        <span class="card-tag">Recomendada</span>
+        <button class="copy-btn" data-copy-target="es-wawelcome-client-0-text">Copiar</button>
+      </div>
+      
+      <div class="card-body">Recibimos tu registro en nuestra lista de espera, [Nombre].<br><br>Contratar un servicio no debería ser cuestión de suerte. En Tiee, cada Worker está verificado de verdad, y el pago queda protegido hasta que el servicio se complete.<br><br>Por haberte registrado con anticipación, serás de los primeros en tener acceso apenas lancemos.<br><br>Bienvenido a la comunidad Tiee.</div>
+      <textarea class="hidden-copy" id="es-wawelcome-client-0-text">Recibimos tu registro en nuestra lista de espera, [Nombre].
+
+Contratar un servicio no debería ser cuestión de suerte. En Tiee, cada Worker está verificado de verdad, y el pago queda protegido hasta que el servicio se complete.
+
+Por haberte registrado con anticipación, serás de los primeros en tener acceso apenas lancemos.
+
+Bienvenido a la comunidad Tiee.</textarea>
+      <div class="comments-block"><div class="comment-field"><label>Comentario Carlos</label><textarea class="comment-box" data-key="es-wawelcome-client-0__carlos" placeholder="..."></textarea></div><div class="comment-field"><label>Comentario Clayton</label><textarea class="comment-box" data-key="es-wawelcome-client-0__clayton" placeholder="..."></textarea></div><div class="comment-field"><label>Comentario João</label><textarea class="comment-box" data-key="es-wawelcome-client-0__joao" placeholder="..."></textarea></div></div>
+    </div>
+    <div class="card" id="es-wawelcome-client-1">
+      <div class="card-head">
+        <span class="card-tag">Alternativa</span>
+        <button class="copy-btn" data-copy-target="es-wawelcome-client-1-text">Copiar</button>
+      </div>
+      
+      <div class="card-body">Recibimos tu registro en nuestra lista de espera, [Nombre].<br><br>¿Alguna vez contrataste a alguien y te quedaste con la duda de si habías elegido bien? En Tiee, cada Worker pasa por una verificación real, y el pago solo se libera cuando el servicio se completa.<br><br>Por haberte registrado con anticipación, serás de los primeros en tener acceso apenas lancemos.<br><br>Bienvenido a la comunidad Tiee.</div>
+      <textarea class="hidden-copy" id="es-wawelcome-client-1-text">Recibimos tu registro en nuestra lista de espera, [Nombre].
+
+¿Alguna vez contrataste a alguien y te quedaste con la duda de si habías elegido bien? En Tiee, cada Worker pasa por una verificación real, y el pago solo se libera cuando el servicio se completa.
+
+Por haberte registrado con anticipación, serás de los primeros en tener acceso apenas lancemos.
+
+Bienvenido a la comunidad Tiee.</textarea>
+      <div class="comments-block"><div class="comment-field"><label>Comentario Carlos</label><textarea class="comment-box" data-key="es-wawelcome-client-1__carlos" placeholder="..."></textarea></div><div class="comment-field"><label>Comentario Clayton</label><textarea class="comment-box" data-key="es-wawelcome-client-1__clayton" placeholder="..."></textarea></div><div class="comment-field"><label>Comentario João</label><textarea class="comment-box" data-key="es-wawelcome-client-1__joao" placeholder="..."></textarea></div></div>
+    </div></div></div><div class="audience-panel" data-audience-panel="worker"><div class="card-grid">
+    <div class="card recommended" id="es-wawelcome-worker-0">
+      <div class="card-head">
+        <span class="card-tag">Recomendada</span>
+        <button class="copy-btn" data-copy-target="es-wawelcome-worker-0-text">Copiar</button>
+      </div>
+      
+      <div class="card-body">Recibimos tu registro en nuestra lista de espera, [Nombre].<br><br>No deberías tener que confiar a ciegas en la persona del otro lado. En Tiee, el Client también está verificado de verdad, y el pago queda protegido hasta el final del servicio.<br><br>Por haberte registrado con anticipación, serás de los primeros en tener acceso apenas lancemos.<br><br>Bienvenido a la comunidad Tiee.</div>
+      <textarea class="hidden-copy" id="es-wawelcome-worker-0-text">Recibimos tu registro en nuestra lista de espera, [Nombre].
+
+No deberías tener que confiar a ciegas en la persona del otro lado. En Tiee, el Client también está verificado de verdad, y el pago queda protegido hasta el final del servicio.
+
+Por haberte registrado con anticipación, serás de los primeros en tener acceso apenas lancemos.
+
+Bienvenido a la comunidad Tiee.</textarea>
+      <div class="comments-block"><div class="comment-field"><label>Comentario Carlos</label><textarea class="comment-box" data-key="es-wawelcome-worker-0__carlos" placeholder="..."></textarea></div><div class="comment-field"><label>Comentario Clayton</label><textarea class="comment-box" data-key="es-wawelcome-worker-0__clayton" placeholder="..."></textarea></div><div class="comment-field"><label>Comentario João</label><textarea class="comment-box" data-key="es-wawelcome-worker-0__joao" placeholder="..."></textarea></div></div>
+    </div>
+    <div class="card" id="es-wawelcome-worker-1">
+      <div class="card-head">
+        <span class="card-tag">Alternativa</span>
+        <button class="copy-btn" data-copy-target="es-wawelcome-worker-1-text">Copiar</button>
+      </div>
+      
+      <div class="card-body">Recibimos tu registro en nuestra lista de espera, [Nombre].<br><br>Conseguir trabajo no debería significar pagar solo para aparecer en una lista, sin saber si el negocio se va a cerrar. En Tiee no pagas por eso, el Client también está verificado de verdad, y el pago queda protegido hasta el final del servicio.<br><br>Por haberte registrado con anticipación, serás de los primeros en tener acceso apenas lancemos.<br><br>Bienvenido a la comunidad Tiee.</div>
+      <textarea class="hidden-copy" id="es-wawelcome-worker-1-text">Recibimos tu registro en nuestra lista de espera, [Nombre].
+
+Conseguir trabajo no debería significar pagar solo para aparecer en una lista, sin saber si el negocio se va a cerrar. En Tiee no pagas por eso, el Client también está verificado de verdad, y el pago queda protegido hasta el final del servicio.
+
+Por haberte registrado con anticipación, serás de los primeros en tener acceso apenas lancemos.
+
+Bienvenido a la comunidad Tiee.</textarea>
+      <div class="comments-block"><div class="comment-field"><label>Comentario Carlos</label><textarea class="comment-box" data-key="es-wawelcome-worker-1__carlos" placeholder="..."></textarea></div><div class="comment-field"><label>Comentario Clayton</label><textarea class="comment-box" data-key="es-wawelcome-worker-1__clayton" placeholder="..."></textarea></div><div class="comment-field"><label>Comentario João</label><textarea class="comment-box" data-key="es-wawelcome-worker-1__joao" placeholder="..."></textarea></div></div>
+    </div></div></div><div class="audience-panel" data-audience-panel="both"><div class="card-grid">
+    <div class="card recommended" id="es-wawelcome-both-0">
+      <div class="card-head">
+        <span class="card-tag">Recomendada</span>
+        <button class="copy-btn" data-copy-target="es-wawelcome-both-0-text">Copiar</button>
+      </div>
+      
+      <div class="card-body">Recibimos tu registro en nuestra lista de espera, [Nombre].<br><br>Confiar en la persona del otro lado no debería ser suerte, ya sea que estés contratando o siendo contratado. En Tiee, todos están verificados de verdad, y el pago queda protegido hasta el final del servicio.<br><br>Por haberte registrado con anticipación, serás de los primeros en tener acceso apenas lancemos.<br><br>Bienvenido a la comunidad Tiee.</div>
+      <textarea class="hidden-copy" id="es-wawelcome-both-0-text">Recibimos tu registro en nuestra lista de espera, [Nombre].
+
+Confiar en la persona del otro lado no debería ser suerte, ya sea que estés contratando o siendo contratado. En Tiee, todos están verificados de verdad, y el pago queda protegido hasta el final del servicio.
+
+Por haberte registrado con anticipación, serás de los primeros en tener acceso apenas lancemos.
+
+Bienvenido a la comunidad Tiee.</textarea>
+      <div class="comments-block"><div class="comment-field"><label>Comentario Carlos</label><textarea class="comment-box" data-key="es-wawelcome-both-0__carlos" placeholder="..."></textarea></div><div class="comment-field"><label>Comentario Clayton</label><textarea class="comment-box" data-key="es-wawelcome-both-0__clayton" placeholder="..."></textarea></div><div class="comment-field"><label>Comentario João</label><textarea class="comment-box" data-key="es-wawelcome-both-0__joao" placeholder="..."></textarea></div></div>
+    </div>
+    <div class="card" id="es-wawelcome-both-1">
+      <div class="card-head">
+        <span class="card-tag">Alternativa</span>
+        <button class="copy-btn" data-copy-target="es-wawelcome-both-1-text">Copiar</button>
+      </div>
+      
+      <div class="card-body">Recibimos tu registro en nuestra lista de espera, [Nombre].<br><br>Ya sea que estés contratando un servicio o prestándolo, confiar en la persona del otro lado no debería ser suerte. En Tiee, Client y Worker pasan por la misma verificación real, y el pago queda protegido hasta el final del servicio.<br><br>Por haberte registrado con anticipación, serás de los primeros en tener acceso apenas lancemos.<br><br>Bienvenido a la comunidad Tiee.</div>
+      <textarea class="hidden-copy" id="es-wawelcome-both-1-text">Recibimos tu registro en nuestra lista de espera, [Nombre].
+
+Ya sea que estés contratando un servicio o prestándolo, confiar en la persona del otro lado no debería ser suerte. En Tiee, Client y Worker pasan por la misma verificación real, y el pago queda protegido hasta el final del servicio.
+
+Por haberte registrado con anticipación, serás de los primeros en tener acceso apenas lancemos.
+
+Bienvenido a la comunidad Tiee.</textarea>
+      <div class="comments-block"><div class="comment-field"><label>Comentario Carlos</label><textarea class="comment-box" data-key="es-wawelcome-both-1__carlos" placeholder="..."></textarea></div><div class="comment-field"><label>Comentario Clayton</label><textarea class="comment-box" data-key="es-wawelcome-both-1__clayton" placeholder="..."></textarea></div><div class="comment-field"><label>Comentario João</label><textarea class="comment-box" data-key="es-wawelcome-both-1__joao" placeholder="..."></textarea></div></div>
+    </div></div></div></div></div>
+      <div class="type-panel" data-type-panel="wacold">
+        <div class="card-grid card-grid-3">
+    <div class="card recommended" id="es-cold-0">
+      <div class="card-head">
+        <span class="card-tag">Recomendada</span>
+        <button class="copy-btn" data-copy-target="es-cold-0-text">Copiar</button>
+      </div>
+      
+      <div class="card-body">Hola, {{nombre}}, ¿cómo estás?<br><br>Aquí es Tiee.<br><br>¿Alguna vez tuviste que contratar a alguien y te quedaste con esa inseguridad de no saber si habías elegido bien? ¿O aceptaste un trabajo y te quedó la duda de si el Client iba a cumplir lo acordado?<br><br>Tiee fue creada pensando en cómo Client y Worker pueden conectarse de forma más segura.<br><br>Estamos llegando a Orlando para ayudar al Client a encontrar un Worker verificado y competente, y para que el Worker tenga la seguridad de aceptar un servicio, sin tener que pagar para ser visto.<br><br>El pago queda protegido y solo se libera cuando el servicio se completa.<br><br>Únete a la lista de espera para descargar la app con anticipación y de forma gratuita:<br>[LINK]<br><br>Equipo Tiee</div>
+      <textarea class="hidden-copy" id="es-cold-0-text">Hola, {{nombre}}, ¿cómo estás?
+
+Aquí es Tiee.
+
+¿Alguna vez tuviste que contratar a alguien y te quedaste con esa inseguridad de no saber si habías elegido bien? ¿O aceptaste un trabajo y te quedó la duda de si el Client iba a cumplir lo acordado?
+
+Tiee fue creada pensando en cómo Client y Worker pueden conectarse de forma más segura.
+
+Estamos llegando a Orlando para ayudar al Client a encontrar un Worker verificado y competente, y para que el Worker tenga la seguridad de aceptar un servicio, sin tener que pagar para ser visto.
+
+El pago queda protegido y solo se libera cuando el servicio se completa.
+
+Únete a la lista de espera para descargar la app con anticipación y de forma gratuita:
+[LINK]
+
+Equipo Tiee</textarea>
+      <div class="comments-block"><div class="comment-field"><label>Comentario Carlos</label><textarea class="comment-box" data-key="es-cold-0__carlos" placeholder="..."></textarea></div><div class="comment-field"><label>Comentario Clayton</label><textarea class="comment-box" data-key="es-cold-0__clayton" placeholder="..."></textarea></div><div class="comment-field"><label>Comentario João</label><textarea class="comment-box" data-key="es-cold-0__joao" placeholder="..."></textarea></div></div>
+    </div>
+    <div class="card" id="es-cold-1">
+      <div class="card-head">
+        <span class="card-tag">Alternativa</span>
+        <button class="copy-btn" data-copy-target="es-cold-1-text">Copiar</button>
+      </div>
+      
+      <div class="card-body">Hola, {{nombre}}. Aquí es Tiee, llegando a Orlando.<br><br>¿Alguna vez contrataste a alguien que desapareció a mitad del servicio? ¿O trabajaste y te quedaste esperando un pago que nunca llegaba? Por eso creamos Tiee.<br><br>Cada profesional pasa por una verificación real antes de entrar, y el pago queda protegido de principio a fin, para los dos lados.<br><br>La lista de espera es gratuita. Únete para descargar la app con anticipación:<br>[LINK]<br><br>Equipo Tiee</div>
+      <textarea class="hidden-copy" id="es-cold-1-text">Hola, {{nombre}}. Aquí es Tiee, llegando a Orlando.
+
+¿Alguna vez contrataste a alguien que desapareció a mitad del servicio? ¿O trabajaste y te quedaste esperando un pago que nunca llegaba? Por eso creamos Tiee.
+
+Cada profesional pasa por una verificación real antes de entrar, y el pago queda protegido de principio a fin, para los dos lados.
+
+La lista de espera es gratuita. Únete para descargar la app con anticipación:
+[LINK]
+
+Equipo Tiee</textarea>
+      <div class="comments-block"><div class="comment-field"><label>Comentario Carlos</label><textarea class="comment-box" data-key="es-cold-1__carlos" placeholder="..."></textarea></div><div class="comment-field"><label>Comentario Clayton</label><textarea class="comment-box" data-key="es-cold-1__clayton" placeholder="..."></textarea></div><div class="comment-field"><label>Comentario João</label><textarea class="comment-box" data-key="es-cold-1__joao" placeholder="..."></textarea></div></div>
+    </div></div>
+      </div>
+    </div>
+</main>
+<footer class="bottom">
+  Material construído a partir do manual de marca e do guia de tom de voz da Tiee. Links entre colchetes precisam ser substituídos pelos links reais antes do envio. Comentários não são salvos automaticamente.
+</footer>
+<script>
+document.querySelectorAll('.lang-tab').forEach(function(btn) {
+  btn.addEventListener('click', function() {
+    var lang = btn.getAttribute('data-lang');
+    document.querySelectorAll('.lang-tab').forEach(function(b) { b.classList.remove('active'); });
+    document.querySelectorAll('.lang-panel').forEach(function(p) { p.classList.remove('active'); });
+    btn.classList.add('active');
+    document.getElementById('panel-' + lang).classList.add('active');
+  });
+});
+document.querySelectorAll('.type-tab').forEach(function(btn) {
+  btn.addEventListener('click', function() {
+    var langPanel = btn.closest('.lang-panel');
+    var type = btn.getAttribute('data-type');
+    langPanel.querySelectorAll('.type-tab').forEach(function(b) { b.classList.remove('active'); });
+    langPanel.querySelectorAll('.type-panel').forEach(function(p) { p.classList.remove('active'); });
+    btn.classList.add('active');
+    langPanel.querySelector('[data-type-panel="' + type + '"]').classList.add('active');
+  });
+});
+document.querySelectorAll('.audience-tab').forEach(function(btn) {
+  btn.addEventListener('click', function() {
+    var typePanel = btn.closest('.type-panel');
+    var audience = btn.getAttribute('data-audience');
+    typePanel.querySelectorAll('.audience-tab').forEach(function(b) { b.classList.remove('active'); });
+    typePanel.querySelectorAll('.audience-panel').forEach(function(p) { p.classList.remove('active'); });
+    btn.classList.add('active');
+    typePanel.querySelector('[data-audience-panel="' + audience + '"]').classList.add('active');
+  });
+});
+document.querySelectorAll('.copy-btn').forEach(function(btn) {
+  btn.setAttribute('data-original-label', btn.textContent);
+  btn.addEventListener('click', function() {
+    var targetId = btn.getAttribute('data-copy-target');
+    var ta = document.getElementById(targetId);
+    var text = ta.value;
+    navigator.clipboard.writeText(text).then(function() {
+      var original = btn.getAttribute('data-original-label');
+      btn.textContent = 'OK';
+      btn.classList.add('copied');
+      setTimeout(function() {
+        btn.classList.remove('copied');
+        btn.textContent = original;
+      }, 1500);
+    });
+  });
+});
+</script>
+
+<script type="module">
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+import { getFirestore, doc, setDoc, onSnapshot } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+import { getAuth, signInAnonymously } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
+
+const firebaseConfig = {
+  apiKey: "AIzaSyAqkSFuUwdjcE7_EVK2MwbTEe8T_vEaK-w",
+  authDomain: "tiee-9e3a8.firebaseapp.com",
+  projectId: "tiee-9e3a8",
+  storageBucket: "tiee-9e3a8.firebasestorage.app",
+  messagingSenderId: "747103013072",
+  appId: "1:747103013072:web:8470695e20baaf803fb6d5",
+  measurementId: "G-NPF340VRTL"
+};
+
+// comentarios ao vivo: cada campo de comentario salva num documento unico do
+// Firestore (colecao "comentarios_copies") e todo mundo que tiver a pagina
+// aberta recebe a atualizacao na hora, via onSnapshot, sem precisar recarregar.
+let db = null;
+const saveTimers = {};
+
+function commentBoxes(){
+  return document.querySelectorAll(".comment-box[data-key]");
+}
+
+function applyRemoteValue(box, value){
+  // nao sobrescreve o que a pessoa esta digitando agora nesse campo
+  if(document.activeElement === box) return;
+  if(box.value !== value) box.value = value;
+}
+
+function setSyncState(state){
+  const dot = document.getElementById("sync-dot");
+  const label = document.getElementById("sync-label");
+  if(!dot || !label) return;
+  if(state === "ok"){ dot.className = "sync-dot ok"; label.textContent = "comentários ao vivo"; }
+  else if(state === "saving"){ dot.className = "sync-dot"; label.textContent = "salvando..."; }
+  else if(state === "off"){ dot.className = "sync-dot off"; label.textContent = "erro de conexão"; }
+  else { dot.className = "sync-dot"; label.textContent = "conectando..."; }
+}
+
+async function saveNow(box){
+  if(!db) return;
+  const key = box.dataset.key;
+  clearTimeout(saveTimers[key]);
+  setSyncState("saving");
+  try {
+    await setDoc(doc(db, "comentarios_copies", "principal"), { [key]: box.value }, { merge: true });
+    setSyncState("ok");
+  } catch(e){
+    console.error("[Tiee] falha ao salvar comentário:", e);
+    setSyncState("off");
+  }
+}
+function scheduleSave(box){
+  const key = box.dataset.key;
+  clearTimeout(saveTimers[key]);
+  saveTimers[key] = setTimeout(() => saveNow(box), 600);
+}
+
+commentBoxes().forEach(box => {
+  box.addEventListener("input", () => scheduleSave(box));
+  // ao sair do campo, salva na hora (nao espera o debounce), pra nao perder
+  // nada se a pessoa fechar a aba logo em seguida
+  box.addEventListener("blur", () => saveNow(box));
+});
+
+async function initFirebase(){
+  setSyncState("connecting");
+  const app = initializeApp(firebaseConfig);
+  db = getFirestore(app);
+  const auth = getAuth(app);
+  try {
+    await signInAnonymously(auth);
+  } catch(e){
+    console.error("[Tiee] falha na autenticação:", e);
+    setSyncState("off");
+    return;
+  }
+  onSnapshot(doc(db, "comentarios_copies", "principal"), (snap) => {
+    const data = snap.exists() ? snap.data() : {};
+    commentBoxes().forEach(box => {
+      const key = box.dataset.key;
+      if(data[key] !== undefined) applyRemoteValue(box, data[key]);
+    });
+    setSyncState("ok");
+  }, (err) => {
+    console.error("[Tiee] onSnapshot falhou:", err);
+    setSyncState("off");
+  });
+}
+initFirebase();
+</script>
+
+</body>
+</html>
