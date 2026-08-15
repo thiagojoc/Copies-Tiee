@@ -277,7 +277,6 @@ main {
   font-size: 11.5px;
   font-weight: 700;
   color: var(--tiee-blue-main);
-  margin-left: auto;
 }
 .sync-dot {
   width: 7px;
@@ -287,6 +286,86 @@ main {
 }
 .sync-dot.ok { background: #2fae66; box-shadow: 0 0 0 3px rgba(47,174,102,.18); }
 .sync-dot.off { background: var(--tiee-red-main); }
+.notif-bell {
+  position: relative;
+  margin-left: auto;
+  background: none;
+  border: none;
+  font-size: 20px;
+  line-height: 1;
+  cursor: pointer;
+  padding: 4px 6px;
+}
+.notif-badge {
+  position: absolute;
+  top: -3px;
+  right: -1px;
+  background: var(--tiee-red-main);
+  color: #fff;
+  font-size: 10px;
+  font-weight: 800;
+  border-radius: 999px;
+  min-width: 16px;
+  height: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 3px;
+}
+.notif-panel {
+  position: fixed;
+  top: 62px;
+  right: 20px;
+  width: 320px;
+  max-width: calc(100vw - 40px);
+  max-height: 70vh;
+  overflow-y: auto;
+  background: var(--tiee-neutral-white);
+  border: 1px solid var(--tiee-gray-light);
+  border-radius: 12px;
+  box-shadow: 0 16px 40px rgba(11,20,45,.22);
+  z-index: 200;
+}
+.notif-panel-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  padding: 10px 14px;
+  border-bottom: 1px solid var(--tiee-gray-light);
+  font-size: 13.5px;
+  font-weight: 800;
+  color: var(--tiee-blue-main);
+  position: sticky;
+  top: 0;
+  background: var(--tiee-neutral-white);
+}
+.notif-item {
+  display: block;
+  width: 100%;
+  text-align: left;
+  border: none;
+  border-bottom: 1px solid #eef0f6;
+  background: none;
+  padding: 10px 14px;
+  cursor: pointer;
+  font-family: 'Manrope', sans-serif;
+}
+.notif-item:hover { background: var(--tiee-blue-light); }
+.notif-item.unread { background: #fff9e6; }
+.notif-item .who { font-size: 12.5px; font-weight: 800; color: var(--tiee-blue-main); }
+.notif-item .where { font-size: 11px; color: var(--tiee-gray-main); margin: 2px 0 4px; }
+.notif-item .snippet {
+  font-size: 12px;
+  color: var(--tiee-neutral-black);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+.notif-empty { padding: 24px 14px; text-align: center; color: var(--tiee-gray-main); font-size: 12.5px; }
+.notif-highlight { outline: 3px solid var(--tiee-yellow-dark); outline-offset: 3px; border-radius: 12px; }
 
 .card-head { gap: 8px; }
 .card-head button[data-copy-target] { margin-left: auto; }
@@ -399,8 +478,13 @@ footer.bottom {
     <h1>Mensagens para Lista de Espera</h1>
     <p>E-mail e WhatsApp, segmentados por público e idioma</p>
   </div>
+  <button type="button" id="notif-bell" class="notif-bell" title="Comentários recentes">🔔<span id="notif-badge" class="notif-badge" style="display:none;">0</span></button>
   <div class="sync-pill"><span class="sync-dot" id="sync-dot"></span><span id="sync-label">conectando...</span></div>
 </header>
+<div id="notif-panel" class="notif-panel" style="display:none;">
+  <div class="notif-panel-head"><span>Comentários recentes</span></div>
+  <div id="notif-list"></div>
+</div>
 <main>
   <div class="rationale">
     
@@ -1483,6 +1567,8 @@ const editingComments = new Set();
 const editingCards = new Set();
 const commentCache = {};
 const msgCache = {};
+const COMMENTER_LABEL = { carlos: "Carlos", clayton: "Clayton", joao: "João" };
+let notifLastSeen = localStorage.getItem("tiee_notif_last_seen") || "";
 
 function setSyncState(state){
   const dot = document.getElementById("sync-dot");
@@ -1508,12 +1594,18 @@ function plainToHtml(text){
 function cardIdOf(key){ return key.replace(/__(body|subject)$/, ""); }
 
 // ---- comentarios ----
+// cada comentario guarda {text, updatedAt}; dados antigos (salvos como texto puro,
+// de antes do sininho existir) continuam funcionando, so sem data/hora.
+function normalizeComment(raw){
+  if(raw && typeof raw === "object") return { text: raw.text || "", updatedAt: raw.updatedAt || null };
+  return { text: raw || "", updatedAt: null };
+}
 function renderComment(key){
   if(editingComments.has(key)) return;
   const field = document.querySelector('.comment-field[data-key="' + key + '"]');
   if(!field) return;
   const view = field.querySelector(".comment-view");
-  const val = commentCache[key] || "";
+  const val = (commentCache[key] && commentCache[key].text) || "";
   if(val){ view.textContent = val; view.classList.remove("empty"); }
   else { view.textContent = "Sem comentário ainda."; view.classList.add("empty"); }
 }
@@ -1521,7 +1613,8 @@ async function saveComment(key, value){
   if(!db) return;
   setSyncState("saving");
   try {
-    await setDoc(doc(db, "comentarios_copies", "principal"), { [key]: value }, { merge: true });
+    const entry = { text: value, updatedAt: new Date().toISOString() };
+    await setDoc(doc(db, "comentarios_copies", "principal"), { [key]: entry }, { merge: true });
     setSyncState("ok");
   } catch(e){
     console.error("[Tiee] falha ao publicar comentário:", e);
@@ -1530,7 +1623,7 @@ async function saveComment(key, value){
 }
 document.querySelectorAll(".comment-field[data-key]").forEach(function(field){
   const key = field.dataset.key;
-  commentCache[key] = "";
+  commentCache[key] = { text: "", updatedAt: null };
   renderComment(key);
   field.querySelector('[data-action="editar"]').addEventListener("click", function(){
     if(editingComments.has(key)) return;
@@ -1542,7 +1635,7 @@ document.querySelectorAll(".comment-field[data-key]").forEach(function(field){
     const ta = document.createElement("textarea");
     ta.className = "comment-box-edit";
     ta.placeholder = "...";
-    ta.value = commentCache[key] || "";
+    ta.value = (commentCache[key] && commentCache[key].text) || "";
     view.appendChild(ta);
     const actions = document.createElement("div");
     actions.className = "row-actions";
@@ -1558,11 +1651,132 @@ document.querySelectorAll(".comment-field[data-key]").forEach(function(field){
     actions.querySelector('[data-action="cancelar"]').addEventListener("click", exitEdit);
     actions.querySelector('[data-action="publicar"]').addEventListener("click", async function(){
       const value = ta.value;
-      commentCache[key] = value;
+      commentCache[key] = { text: value, updatedAt: new Date().toISOString() };
       exitEdit();
+      updateNotifBadge();
       await saveComment(key, value);
     });
   });
+});
+
+// ---- sininho de notificação (quem comentou, onde, com atalho pra ir la) ----
+function escapeText(s){
+  const d = document.createElement("div");
+  d.textContent = s || "";
+  return d.innerHTML;
+}
+function relTime(iso){
+  if(!iso) return "";
+  const diffMin = Math.floor((Date.now() - new Date(iso).getTime()) / 60000);
+  if(diffMin < 1) return "agora mesmo";
+  if(diffMin < 60) return "há " + diffMin + " min";
+  const h = Math.floor(diffMin / 60);
+  if(h < 24) return "há " + h + "h";
+  return "há " + Math.floor(h / 24) + "d";
+}
+// descobre idioma/tipo/publico/variacao de um card olhando os ancestrais dele
+// no DOM (em vez de tentar interpretar o id), assim continua certo mesmo se
+// as abas forem reordenadas ou renomeadas depois.
+function describeCard(cardId){
+  const cardEl = document.getElementById(cardId);
+  if(!cardEl) return { label: "", tag: "" };
+  const langPanel = cardEl.closest(".lang-panel");
+  const typePanel = cardEl.closest(".type-panel");
+  const audiencePanel = cardEl.closest(".audience-panel");
+  const langBtn = langPanel ? document.querySelector('.lang-tab[data-lang="' + langPanel.id.replace("panel-", "") + '"]') : null;
+  const typeBtn = (typePanel && langPanel) ? langPanel.querySelector('.type-tab[data-type="' + typePanel.dataset.typePanel + '"]') : null;
+  const audienceBtn = (audiencePanel && typePanel) ? typePanel.querySelector('.audience-tab[data-audience="' + audiencePanel.dataset.audiencePanel + '"]') : null;
+  const tagEl = cardEl.querySelector(".card-tag");
+  const parts = [langBtn, typeBtn, audienceBtn].filter(Boolean).map(function(b){ return b.textContent; });
+  return { label: parts.join(" · "), tag: tagEl ? tagEl.textContent : "" };
+}
+// leva o usuario direto pro card: clica nas mesmas abas que ele clicaria na
+// mao (reaproveita os listeners que ja existem), depois rola ate o card e
+// da um destaque rapido nele.
+function goToCard(cardId){
+  const cardEl = document.getElementById(cardId);
+  if(!cardEl) return;
+  const langPanel = cardEl.closest(".lang-panel");
+  const typePanel = cardEl.closest(".type-panel");
+  const audiencePanel = cardEl.closest(".audience-panel");
+  if(langPanel){
+    const langBtn = document.querySelector('.lang-tab[data-lang="' + langPanel.id.replace("panel-", "") + '"]');
+    if(langBtn) langBtn.click();
+  }
+  if(typePanel && langPanel){
+    const typeBtn = langPanel.querySelector('.type-tab[data-type="' + typePanel.dataset.typePanel + '"]');
+    if(typeBtn) typeBtn.click();
+  }
+  if(audiencePanel && typePanel){
+    const audienceBtn = typePanel.querySelector('.audience-tab[data-audience="' + audiencePanel.dataset.audiencePanel + '"]');
+    if(audienceBtn) audienceBtn.click();
+  }
+  setTimeout(function(){
+    cardEl.scrollIntoView({ behavior: "smooth", block: "center" });
+    cardEl.classList.add("notif-highlight");
+    setTimeout(function(){ cardEl.classList.remove("notif-highlight"); }, 2200);
+  }, 60);
+}
+function unreadCommentCount(){
+  return Object.keys(commentCache).filter(function(key){
+    const e = commentCache[key];
+    return e && e.text && e.updatedAt && e.updatedAt > notifLastSeen;
+  }).length;
+}
+function updateNotifBadge(){
+  const badge = document.getElementById("notif-badge");
+  const count = unreadCommentCount();
+  if(count > 0){ badge.style.display = "flex"; badge.textContent = count > 9 ? "9+" : String(count); }
+  else { badge.style.display = "none"; }
+}
+function renderNotifList(){
+  const list = document.getElementById("notif-list");
+  const entries = Object.keys(commentCache)
+    .map(function(key){ return Object.assign({ key: key }, commentCache[key]); })
+    .filter(function(e){ return e.text; })
+    .sort(function(a, b){ return (b.updatedAt || "").localeCompare(a.updatedAt || ""); })
+    .slice(0, 30);
+  if(!entries.length){
+    list.innerHTML = '<div class="notif-empty">Nenhum comentário ainda.</div>';
+    return;
+  }
+  list.innerHTML = entries.map(function(e){
+    const m = e.key.match(/^(.+)__(carlos|clayton|joao)$/);
+    const cardId = m ? m[1] : e.key;
+    const person = m ? m[2] : "";
+    const info = describeCard(cardId);
+    const unread = e.updatedAt && e.updatedAt > notifLastSeen;
+    return '<button type="button" class="notif-item' + (unread ? " unread" : "") + '" data-card="' + cardId + '">' +
+      '<div class="who">' + escapeText((COMMENTER_LABEL[person] || person) + (info.tag ? " · " + info.tag : "")) + '</div>' +
+      '<div class="where">' + escapeText(info.label) + (e.updatedAt ? " · " + relTime(e.updatedAt) : "") + '</div>' +
+      '<div class="snippet">' + escapeText(e.text) + '</div>' +
+    '</button>';
+  }).join("");
+  list.querySelectorAll(".notif-item").forEach(function(btn){
+    btn.addEventListener("click", function(){
+      closeNotifPanel();
+      goToCard(btn.dataset.card);
+    });
+  });
+}
+function openNotifPanel(){
+  renderNotifList();
+  document.getElementById("notif-panel").style.display = "block";
+  notifLastSeen = new Date().toISOString();
+  localStorage.setItem("tiee_notif_last_seen", notifLastSeen);
+  updateNotifBadge();
+}
+function closeNotifPanel(){
+  document.getElementById("notif-panel").style.display = "none";
+}
+document.getElementById("notif-bell").addEventListener("click", function(e){
+  e.stopPropagation();
+  const panel = document.getElementById("notif-panel");
+  if(panel.style.display === "block") closeNotifPanel(); else openNotifPanel();
+});
+document.addEventListener("click", function(e){
+  const panel = document.getElementById("notif-panel");
+  if(panel.style.display === "block" && !e.target.closest("#notif-panel") && !e.target.closest("#notif-bell")) closeNotifPanel();
 });
 
 // ---- mensagens (assunto + corpo) ----
@@ -1671,7 +1885,9 @@ async function initFirebase(){
   }
   onSnapshot(doc(db, "comentarios_copies", "principal"), function(snap){
     const data = snap.exists() ? snap.data() : {};
-    Object.keys(data).forEach(function(key){ commentCache[key] = data[key]; renderComment(key); });
+    Object.keys(data).forEach(function(key){ commentCache[key] = normalizeComment(data[key]); renderComment(key); });
+    updateNotifBadge();
+    if(document.getElementById("notif-panel").style.display === "block") renderNotifList();
     setSyncState("ok");
   }, function(err){
     console.error("[Tiee] onSnapshot (comentários) falhou:", err);
